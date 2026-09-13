@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <g stroke="#E32636" stroke-width="0.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Radial Web Strands -->
+    <line x1="100" y1="0" x2="100" y2="200" opacity="0.65" />
+    <line x1="0" y1="100" x2="200" y2="100" opacity="0.65" />
+    <line x1="29.29" y1="29.29" x2="170.71" y2="170.71" opacity="0.65" />
+    <line x1="170.71" y1="29.29" x2="29.29" y2="170.71" opacity="0.65" />
+    <!-- Concentric Web Rings -->
+    <polygon points="100,75 117.68,82.32 125,100 117.68,117.68 100,125 82.32,117.68 75,100 82.32,82.32" opacity="0.5" />
+    <polygon points="100,55 131.82,68.18 145,100 131.82,131.82 100,145 68.18,131.82 55,100 68.18,68.18" opacity="0.6" />
+    <polygon points="100,35 145.96,54.04 165,100 145.96,145.96 100,165 54.04,145.96 35,100 54.04,54.04" opacity="0.7" />
+    <polygon points="100,15 160.10,39.90 185,100 160.10,160.10 100,185 39.90,160.10 15,100 39.90,39.90" opacity="0.8" />
+  </g>
+</svg>
