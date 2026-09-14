@@ -56,13 +56,14 @@ export default function Footer() {
               {SITE_TAGLINE}
             </p>
             <p className="mt-2 text-xs sm:text-body-sm text-web-gray leading-relaxed max-w-sm mx-auto lg:mx-0 font-body font-normal">
-              Fostering ground-level innovation, empowering visionary problem-solvers, and building breakthrough technological prototypes.
+              Pick a problem statement, form your team, and build for 24 hours straight.
+Srijan Setu is a national hackathon for developers and designers who&apos;d rather ship something real than sit through another workshop.
             </p>
 
             {/* Peak-End Rule: Final Small CTA Repeat (Outlined style to preserve Von Restorff primary uniqueness) */}
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
               <Button href="#home" variant="outline" className="text-xs py-2 px-5">
-                Registrations open 10th Oct
+                Registrations open 18 Sep
               </Button>
             </div>
           </div>

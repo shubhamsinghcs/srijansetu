@@ -130,8 +130,7 @@ export default function About() {
             ref={introRef}
             className="max-w-[600px] mb-8 text-white/80 font-body text-body-base sm:text-body-lg leading-relaxed font-normal"
           >
-            A national nexus engineered to catalyze ground-level problem discovery and breakthrough
-            prototype deployment.
+            A 24-hour hackathon where real problems meet the people who can actually solve them.
           </p>
 
           {/* Content Cards */}
@@ -139,23 +138,20 @@ export default function About() {
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-red/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-red to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
               <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
-                Bridging The Chasm Between Challenge &amp; Solution
+                What Srijan Setu Is
               </h3>
               <p className="m-0 card-desc">
-                Srijan Setu is a national innovation conclave engineered to eliminate the disconnect
-                between ground-level community challenges and scalable technical solutions.
+                Srijan Setu connects real challenges&mdash;from local communities, businesses, and industry partners &mdash; with developers who want to build something that actually works, not just pitch an idea. If you&apos;ve ever finished a hackathon with a deck instead of a demo, this one&apos;s different.
               </p>
             </article>
 
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-blue/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-blue to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
               <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
-                Ecosystem of Collaborative Prototyping
+                How It Works
               </h3>
               <p className="m-0 card-desc">
-                Bringing together developers, product designers, and researchers, the initiative
-                establishes an intensive 24-hour sandbox for rapid prototype fabrication, peer review,
-                and deployment.
+                Bring your team, pick a problem statement, and get 24 hours to design, build, and ship a working prototype. Mentors are around throughout to help when you&apos;re stuck; not just for a photo-op at the start.
               </p>
             </article>
           </div>
