@@ -119,7 +119,7 @@ export default function Footer() {
             &copy; 2026 {SITE_NAME.toUpperCase()}. ALL RIGHTS RESERVED.
           </p>
           <p className="tracking-wide text-web-gray/80">
-            Forged with pride by the Srijan Setu Tech Team.
+            Indo Global College of Engineering
           </p>
         </div>
       </div>
