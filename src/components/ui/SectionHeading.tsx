@@ -21,13 +21,13 @@ export default function SectionHeading({
       {/* Optional Tactical Tag */}
       {tag && (
         <div className="relative z-10 mb-2">
-          <span className="font-body text-label font-bold uppercase tracking-[0.22em] text-spidey-red bg-spidey-red/10 border border-spidey-red/30 px-3 py-1 rounded-full">
+          <span className="pill-badge pill-badge-red">
             {tag}
           </span>
         </div>
       )}
 
-      {/* Main Heading with Hollow Red Text-Stroke & Wide Letter-Spacing */}
+      {/* Main Heading with Hollow Red Text-Stroke & Unified Spacing */}
       <h2
         className={`relative z-10 text-display-lg leading-tight ${
           hollow ? "hollow-heading-red" : "section-heading"
@@ -45,7 +45,7 @@ export default function SectionHeading({
 
       {/* Subtitle with High-Contrast Readability Constraint */}
       {subtitle && (
-        <p className="relative z-10 text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto px-4 leading-relaxed">
+        <p className="relative z-10 font-body font-normal text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto px-4 leading-relaxed">
           {subtitle}
         </p>
       )}

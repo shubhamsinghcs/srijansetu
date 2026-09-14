@@ -1,3 +1,4 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,6 +15,8 @@
 :root {
   --background: #0A0A0F;
   --foreground: #F5F5F5;
+  --font-ironman: var(--font-bangers);
+  --font-satoshi: 'Satoshi', sans-serif;
 }
 
 html {
@@ -53,11 +56,11 @@ body::before {
 }
 
 @layer components {
-  /* Section Heading with Unified Red Text-Stroke Outline Treatment */
+  /* Section Heading with Unified Red Text-Stroke Outline Treatment (H2 Display Role) */
   .section-heading,
   .heading-outline,
   .hollow-heading-red {
-    @apply font-display uppercase tracking-[0.14em];
+    @apply font-display uppercase tracking-[0.06em];
     -webkit-text-stroke: 1.6px #E62429;
     color: transparent;
     text-shadow: 0 0 35px rgba(230, 36, 41, 0.45);
@@ -69,6 +72,28 @@ body::before {
   .hollow-heading-red:hover {
     -webkit-text-stroke: 1.6px #FFFFFF;
     text-shadow: 0 0 45px rgba(230, 36, 41, 0.7);
+  }
+
+  /* Standardized UI Accent Pill Badges & Tags (Satoshi) */
+  .pill-badge {
+    @apply font-accent text-label font-bold uppercase tracking-[0.18em] px-3 py-1 rounded-full inline-flex items-center justify-center transition-all;
+  }
+
+  .pill-badge-red {
+    @apply bg-spidey-red/15 text-spidey-red border border-spidey-red/40 shadow-[0_0_10px_rgba(230,36,41,0.2)];
+  }
+
+  .pill-badge-blue {
+    @apply bg-spidey-blue/20 text-blue-300 border border-spidey-blue/40 shadow-[0_0_10px_rgba(29,78,216,0.2)];
+  }
+
+  .pill-badge-neutral {
+    @apply bg-white/5 text-web-gray border border-white/10;
+  }
+
+  /* Standardized Card Description Body Copy (Poppins) */
+  .card-desc {
+    @apply font-body text-body-sm sm:text-body-base text-white/70 leading-relaxed font-normal tracking-normal;
   }
 
   /* Samarkan Brand Title Treatment */

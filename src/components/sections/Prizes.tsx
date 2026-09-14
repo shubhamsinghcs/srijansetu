@@ -42,23 +42,23 @@ export default function Prizes() {
 
           {/* Place Tag */}
           <span
-            className={`text-xs sm:text-sm font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 ${
+            className={`mb-3 ${
               isWinner
-                ? "bg-spidey-red text-web-white"
-                : "bg-white/10 text-web-gray border border-white/15"
+                ? "pill-badge pill-badge-red"
+                : "pill-badge pill-badge-neutral"
             }`}
           >
             {prize.place}
           </span>
 
           {/* Label */}
-          <h3 className="text-base sm:text-lg font-semibold text-web-white">
+          <h3 className="font-body text-base sm:text-lg font-bold text-web-white">
             {prize.label}
           </h3>
 
           {/* Amount */}
           <div
-            className={`font-display tracking-wider my-3 sm:my-4 ${
+            className={`font-accent font-black tracking-wider my-3 sm:my-4 ${
               isWinner
                 ? "text-4xl sm:text-5xl md:text-6xl text-spidey-red drop-shadow-[0_2px_15px_rgba(227,38,54,0.5)]"
                 : "text-3xl sm:text-4xl md:text-5xl text-web-white"
@@ -68,7 +68,7 @@ export default function Prizes() {
           </div>
 
           {/* Subtle note */}
-          <p className="text-xs text-web-gray mt-1 sm:mt-2 uppercase tracking-wider">
+          <p className="font-body text-xs text-web-gray mt-1 sm:mt-2 uppercase tracking-wider font-normal">
             Cash Prize + Goodies & Perks
           </p>
         </div>
@@ -83,21 +83,21 @@ export default function Prizes() {
     >
       {/* Section Header */}
       <div className="text-center mb-12 sm:mb-16">
-        <h2 className="section-heading text-display-lg tracking-wider">
+        <h2 className="section-heading text-display-lg leading-tight">
           PRIZES
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           Reap the rewards of innovation with substantial cash bounties, trophies, and partner perks.
         </p>
       </div>
 
       {/* Large Headline Number: Total Prize Pool */}
       <div className="text-center mb-12 sm:mb-16">
-        <span className="text-label font-bold uppercase tracking-[0.22em] text-white/70">
+        <span className="font-accent text-label font-bold uppercase tracking-[0.22em] text-white/70">
           TOTAL PRIZE POOL
         </span>
-        <div className="font-display text-display-xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
+        <div className="font-accent font-black text-display-xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
           {totalPrizePool}
         </div>
       </div>

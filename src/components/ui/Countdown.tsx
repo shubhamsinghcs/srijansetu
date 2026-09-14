@@ -121,10 +121,10 @@ export default function Countdown({ targetDate, className = "" }: CountdownProps
             ref={item.ref}
             className="flex flex-col items-center justify-center w-14 h-16 xs:w-16 xs:h-18 sm:w-20 sm:h-22 md:w-24 md:h-26 rounded-xl bg-white/5 backdrop-blur-md border border-spidey-red/40 shadow-[inset_0_0_14px_rgba(230,36,41,0.25)] transition-colors duration-200 group"
           >
-            <span className="font-body text-2xl xs:text-3xl sm:text-3xl md:text-4xl font-black text-web-white tracking-tight group-hover:text-spidey-red transition-colors">
+            <span className="font-accent text-2xl xs:text-3xl sm:text-3xl md:text-4xl font-black text-web-white tracking-tight group-hover:text-spidey-red transition-colors">
               {item.value}
             </span>
-            <span className="text-[9px] xs:text-[10px] sm:text-xs font-body font-bold uppercase tracking-widest text-white/70 group-hover:text-web-white transition-colors mt-0.5">
+            <span className="text-[9px] xs:text-[10px] sm:text-xs font-accent font-bold uppercase tracking-widest text-white/70 group-hover:text-web-white transition-colors mt-0.5">
               {item.label}
             </span>
           </div>
@@ -132,7 +132,7 @@ export default function Countdown({ targetDate, className = "" }: CountdownProps
           {/* Colon divider between digital modules */}
           {idx < counterItems.length - 1 && (
             <span
-              className="font-body text-spidey-red/60 font-black text-base sm:text-xl md:text-2xl mx-1 sm:mx-1.5 animate-pulse select-none"
+              className="font-accent text-spidey-red/60 font-black text-base sm:text-xl md:text-2xl mx-1 sm:mx-1.5 animate-pulse select-none"
               aria-hidden="true"
             >
               :

@@ -15,8 +15,11 @@ module.exports = {
         "web-gray": "#A1A1AA",
       },
       fontFamily: {
-        display: ["var(--font-bangers)", "cursive"],
-        body: ["var(--font-inter)", "sans-serif"],
+        brand: ["var(--font-samarkan)", "Samarkan", "cursive"],
+        display: ["var(--font-ironman)", "var(--font-bangers)", "cursive"],
+        accent: ["var(--font-satoshi)", "sans-serif"],
+        body: ["var(--font-poppins)", "sans-serif"],
+        // Backwards compatibility alias
         samarkan: ["var(--font-samarkan)", "Samarkan", "cursive"],
       },
       // Consistent 8px spacing scale across the entire system

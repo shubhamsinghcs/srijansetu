@@ -48,14 +48,14 @@ export default function Footer() {
           {/* Left (5 cols): Large Wordmark + Tagline + Final CTA Repeat */}
           <div className="lg:col-span-5 text-center lg:text-left">
             <Link href="#home" className="inline-block group">
-              <span className="font-samarkan text-4xl sm:text-5xl text-spidey-red tracking-normal group-hover:text-white transition-colors">
+              <span className="font-brand text-4xl sm:text-5xl text-spidey-red tracking-normal group-hover:text-white transition-colors">
                 {SITE_NAME.toUpperCase()}
               </span>
             </Link>
             <p className="mt-2 text-sm sm:text-base font-semibold uppercase tracking-wider text-web-white/95 font-body">
               {SITE_TAGLINE}
             </p>
-            <p className="mt-2 text-xs sm:text-body-sm text-web-gray leading-relaxed max-w-sm mx-auto lg:mx-0">
+            <p className="mt-2 text-xs sm:text-body-sm text-web-gray leading-relaxed max-w-sm mx-auto lg:mx-0 font-body font-normal">
               Fostering ground-level innovation, empowering visionary problem-solvers, and building breakthrough technological prototypes.
             </p>
 
@@ -69,7 +69,7 @@ export default function Footer() {
 
           {/* Center (4 cols): Quick Navigation (reused from nav.ts) */}
           <div className="lg:col-span-4 text-center">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
+            <h4 className="font-accent text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
               QUICK NAVIGATION
             </h4>
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2.5 max-w-xs mx-auto">
@@ -77,7 +77,7 @@ export default function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-xs sm:text-sm text-web-gray hover:text-spidey-red transition-colors font-medium uppercase tracking-wider"
+                    className="font-accent text-xs sm:text-sm text-web-gray hover:text-spidey-red transition-colors font-medium uppercase tracking-wider"
                   >
                     {item.label}
                   </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
 
           {/* Right (3 cols): Real Brand Social Icons (LinkedIn, Instagram, X) */}
           <div className="lg:col-span-3 text-center lg:text-right">
-            <h4 className="text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
+            <h4 className="font-accent text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
               CONNECT WITH US
             </h4>
             <div className="flex items-center justify-center lg:justify-end gap-3.5">
@@ -105,7 +105,7 @@ export default function Footer() {
                 </Link>
               ))}
             </div>
-            <p className="mt-3 text-xs text-web-gray">
+            <p className="mt-3 text-xs text-web-gray font-body font-normal">
               Official channels for live Conclave updates & cohorts.
             </p>
           </div>
@@ -115,10 +115,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-black/30 backdrop-blur-sm py-6 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-xs text-web-gray">
-          <p className="tracking-wider">
+          <p className="font-accent tracking-wider">
             &copy; 2026 {SITE_NAME.toUpperCase()}. ALL RIGHTS RESERVED.
           </p>
-          <p className="tracking-wide text-web-gray/80">
+          <p className="font-body tracking-wide text-web-gray/80 font-normal">
             Indo Global College of Engineering
           </p>
         </div>

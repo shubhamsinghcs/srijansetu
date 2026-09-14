@@ -70,7 +70,7 @@ export default function Navbar() {
                 className="w-full h-full object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
               />
             </div>
-            <span className="font-samarkan text-xl sm:text-2xl tracking-normal text-web-white group-hover:text-spidey-red transition-colors">
+            <span className="font-brand text-xl sm:text-2xl tracking-normal text-web-white group-hover:text-spidey-red transition-colors">
               SRIJAN <span className="text-spidey-red">SETU</span>
             </span>
           </Link>
@@ -83,7 +83,7 @@ export default function Navbar() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative text-body-sm lg:text-body-base font-medium px-2.5 py-1.5 transition-colors duration-200 ${
+                  className={`relative font-accent text-body-sm lg:text-body-base font-medium px-2.5 py-1.5 transition-colors duration-200 ${
                     isActive ? "text-web-white font-semibold" : "text-web-gray hover:text-web-white"
                   }`}
                 >

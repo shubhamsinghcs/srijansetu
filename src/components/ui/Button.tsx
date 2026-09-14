@@ -69,7 +69,7 @@ export default function Button({
   }, [variant]);
 
   const baseStyles =
-    "relative inline-flex items-center justify-center font-bold uppercase tracking-wider text-xs sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-md transition-colors duration-200 focus:outline-none select-none";
+    "relative inline-flex items-center justify-center font-accent font-bold uppercase tracking-wider text-xs sm:text-base px-6 sm:px-8 py-3 sm:py-3.5 rounded-md transition-colors duration-200 focus:outline-none select-none";
 
   // Von Restorff rule: "primary" is the ONLY solid filled button on the entire page.
   // Every other button is outlined / ghost style.

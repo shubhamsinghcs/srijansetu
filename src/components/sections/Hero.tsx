@@ -223,7 +223,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.08 }}
           className="mb-2 sm:mb-3"
         >
-          <span className="font-body text-label font-extrabold uppercase tracking-[0.22em] text-spidey-red bg-spidey-red/10 border border-spidey-red/40 px-3.5 py-1 rounded-full shadow-[0_0_12px_rgba(230,36,41,0.2)]">
+          <span className="pill-badge pill-badge-red">
             24-HOUR NATIONAL HACKATHON
           </span>
         </motion.div>
@@ -270,7 +270,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           <DevfolioButton />
 
           {/* Scarcity / Urgency Microcopy */}
-          <span className="mt-6 font-body text-caption-xs font-semibold uppercase tracking-widest text-white/60 select-none">
+          <span className="mt-6 font-accent text-caption-xs font-bold uppercase tracking-widest text-white/60 select-none">
             Limited team slots &bull; Early access cohort closing soon
           </span>
         </div>

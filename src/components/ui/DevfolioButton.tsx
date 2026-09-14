@@ -74,7 +74,7 @@ export default function DevfolioButton({
           />
         </svg>
 
-        <span className="font-sans font-semibold text-[#111118]">
+        <span className="font-accent font-bold text-[#111118]">
           Apply with Devfolio
         </span>
       </motion.a>

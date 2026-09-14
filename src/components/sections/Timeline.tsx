@@ -8,11 +8,11 @@ export default function Timeline() {
     >
       {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg tracking-wider">
+        <h2 className="section-heading text-display-lg leading-tight">
           TIMELINE
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           Navigate through every phase of Srijan Setu from kickoff to the final awards presentation.
         </p>
       </div>
@@ -72,21 +72,21 @@ export default function Timeline() {
                         isEven ? "md:justify-end" : "md:justify-start"
                       }`}
                     >
-                      <span className="text-label font-bold uppercase tracking-[0.16em] px-3 py-0.5 rounded-full bg-spidey-red/20 text-spidey-red border border-spidey-red/40">
+                      <span className="pill-badge pill-badge-red py-0.5">
                         {item.day}
                       </span>
-                      <span className="text-label font-semibold tracking-wider text-white/70 bg-white/5 px-3 py-0.5 rounded-full border border-white/10">
+                      <span className="pill-badge pill-badge-neutral py-0.5">
                         {item.time}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-display-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
+                    <h3 className="font-body text-display-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-2 text-body-sm text-white/75 leading-relaxed max-w-prose">
+                    <p className="mt-2 card-desc max-w-prose">
                       {item.description}
                     </p>
                   </div>

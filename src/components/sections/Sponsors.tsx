@@ -38,11 +38,11 @@ export default function Sponsors() {
     >
       {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg tracking-wider">
+        <h2 className="section-heading text-display-lg leading-tight">
           SPONSORS & PARTNERS
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           Backed by forward-thinking organizations, industry leaders, and vibrant developer communities.
         </p>
       </div>
@@ -57,10 +57,10 @@ export default function Sponsors() {
             <div key={tier} className="text-center">
               {/* Tier Subheading */}
               <div className="mb-6 sm:mb-8">
-                <h3 className="text-display-md font-bold uppercase tracking-[0.14em] text-web-white">
+                <h3 className="font-accent text-display-md font-bold uppercase tracking-[0.14em] text-web-white">
                   {title}
                 </h3>
-                <p className="text-body-sm text-white/70 mt-1 max-w-lg mx-auto">
+                <p className="font-body text-body-sm text-white/70 mt-1 max-w-lg mx-auto leading-relaxed font-normal">
                   {subtitle}
                 </p>
               </div>

@@ -21,11 +21,11 @@ export default function Mentors() {
     >
       {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg tracking-wider">
+        <h2 className="section-heading text-display-lg leading-tight">
           MENTORS & JUDGES
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           Learn from and be evaluated by seasoned engineering leaders, tech founders, and domain specialists.
         </p>
       </div>
@@ -53,7 +53,7 @@ export default function Mentors() {
                     onError={() => handleImageError(mentor.name)}
                   />
                 ) : (
-                  <span className="font-display text-2xl sm:text-3xl text-spidey-red">
+                  <span className="font-accent text-2xl sm:text-3xl font-bold text-spidey-red">
                     {mentor.name
                       .split(" ")
                       .map((n) => n[0])
@@ -63,17 +63,17 @@ export default function Mentors() {
               </div>
 
               {/* Name */}
-              <h3 className="text-display-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
+              <h3 className="font-body text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
                 {mentor.name}
               </h3>
 
               {/* Role */}
-              <p className="text-sm font-semibold text-spidey-red mt-1">
+              <p className="font-accent text-sm font-semibold text-spidey-red mt-1">
                 {mentor.role}
               </p>
 
               {/* Company */}
-              <p className="text-xs uppercase tracking-widest text-web-gray mt-1">
+              <p className="font-accent text-xs uppercase tracking-widest text-web-gray mt-1">
                 {mentor.company}
               </p>
 
@@ -83,7 +83,7 @@ export default function Mentors() {
                   href={mentor.linkedinUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-web-gray group-hover:text-web-white hover:!text-spidey-red transition-colors"
+                  className="font-accent inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-web-gray hover:text-spidey-red transition-colors group/link"
                 >
                   <span>Know More</span>
                   <svg

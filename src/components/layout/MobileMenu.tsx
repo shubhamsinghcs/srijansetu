@@ -80,7 +80,7 @@ export default function MobileMenu({
               key={item.href}
               href={item.href}
               onClick={onClose}
-              className={`text-2xl font-bold uppercase tracking-wider transition-all duration-200 pb-1 ${
+              className={`font-accent text-2xl font-bold uppercase tracking-wider transition-all duration-200 pb-1 ${
                 isActive
                   ? "text-web-white border-b-2 border-spidey-red"
                   : "text-web-gray hover:text-web-white"

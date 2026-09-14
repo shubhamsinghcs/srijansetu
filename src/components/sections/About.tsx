@@ -106,29 +106,29 @@ export default function About() {
         {/* LEFT: ABOUT CONTENT (text stays on the left, unchanged) */}
         <div className="relative z-30 max-w-[650px] py-6 sm:py-10 order-1 lg:order-1">
           {/* Label */}
-          <div className="inline-flex items-center gap-2.5 mb-4 text-[#E62429] font-body text-[11px] font-extrabold tracking-[0.22em] uppercase">
-            <span className="w-8 h-[1px] bg-[#E62429]" />
+          <div className="inline-flex items-center gap-2.5 mb-4 text-spidey-red font-accent text-label font-bold tracking-[0.22em] uppercase">
+            <span className="w-8 h-[1px] bg-spidey-red" />
             INTEL / DOSSIER
           </div>
 
           {/* Section Title */}
           <h2
             ref={titleRef}
-            className="m-0 font-display text-[clamp(44px,5.5vw,76px)] leading-[0.95] font-extrabold uppercase tracking-tight text-white drop-shadow-[0_0_25px_rgba(230,36,41,0.25)]"
+            className="section-heading text-display-lg leading-tight m-0"
           >
-            ABOUT <span className="text-[#E62429] [-webkit-text-stroke:1px_rgba(230,36,41,0.35)]">US</span>
+            ABOUT US
           </h2>
 
           {/* Divider */}
           <div
             ref={dividerRef}
-            className="h-[2px] my-5 bg-gradient-to-r from-[#E62429] to-transparent rounded-full"
+            className="h-[2px] my-5 bg-gradient-to-r from-spidey-red to-transparent rounded-full"
           />
 
           {/* Intro Paragraph */}
           <p
             ref={introRef}
-            className="max-w-[600px] mb-8 text-white/80 font-body text-[clamp(15px,1.2vw,17px)] leading-relaxed"
+            className="max-w-[600px] mb-8 text-white/80 font-body text-body-base sm:text-body-lg leading-relaxed font-normal"
           >
             A national nexus engineered to catalyze ground-level problem discovery and breakthrough
             prototype deployment.
@@ -136,23 +136,23 @@ export default function About() {
 
           {/* Content Cards */}
           <div ref={cardsRef} className="grid gap-4">
-            <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-[#E62429]/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
-              <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-[#E62429] to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-2 text-white font-body text-[clamp(17px,1.35vw,21px)] font-bold tracking-tight">
+            <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-red/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
+              <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-red to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
+              <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
                 Bridging The Chasm Between Challenge &amp; Solution
               </h3>
-              <p className="m-0 text-white/70 font-body text-sm sm:text-base leading-relaxed">
+              <p className="m-0 card-desc">
                 Srijan Setu is a national innovation conclave engineered to eliminate the disconnect
                 between ground-level community challenges and scalable technical solutions.
               </p>
             </article>
 
-            <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-[#1D4ED8]/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
-              <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-[#1D4ED8] to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-2 text-white font-body text-[clamp(17px,1.35vw,21px)] font-bold tracking-tight">
+            <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-blue/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
+              <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-blue to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
+              <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
                 Ecosystem of Collaborative Prototyping
               </h3>
-              <p className="m-0 text-white/70 font-body text-sm sm:text-base leading-relaxed">
+              <p className="m-0 card-desc">
                 Bringing together developers, product designers, and researchers, the initiative
                 establishes an intensive 24-hour sandbox for rapid prototype fabrication, peer review,
                 and deployment.

@@ -19,11 +19,11 @@ export default function TechTeam() {
     >
       {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg tracking-wider">
+        <h2 className="section-heading text-display-lg leading-tight">
           TECH TEAM
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           The operatives engineering the platform, orchestrating infrastructure, and powering the Srijan Setu experience.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function TechTeam() {
                       onError={() => handleImageError(member.id)}
                     />
                   ) : (
-                    <span className="font-body font-bold text-xs sm:text-sm text-spidey-red">
+                    <span className="font-accent font-bold text-xs sm:text-sm text-spidey-red">
                       {member.id}
                     </span>
                   )}
@@ -61,16 +61,16 @@ export default function TechTeam() {
                 {/* Member Info & Quote */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2 mb-1">
-                    <span className="font-body text-label font-extrabold uppercase tracking-[0.16em] px-2 py-0.5 rounded bg-spidey-red/15 text-spidey-red border border-spidey-red/30">
+                    <span className="font-accent text-label font-bold uppercase tracking-[0.16em] px-2 py-0.5 rounded bg-spidey-red/15 text-spidey-red border border-spidey-red/30">
                       {member.id}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-body-base text-web-white truncate group-hover:text-spidey-red transition-colors">
+                  <h3 className="font-body font-bold text-body-base text-web-white truncate group-hover:text-spidey-red transition-colors">
                     {member.name}
                   </h3>
 
-                  <p className="mt-1 text-xs text-web-gray italic leading-relaxed line-clamp-2">
+                  <p className="mt-1 font-body text-xs text-web-gray leading-relaxed line-clamp-2 font-normal">
                     &ldquo;{member.quote}&rdquo;
                   </p>
                 </div>
