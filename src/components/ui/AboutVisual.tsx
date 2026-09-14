@@ -89,10 +89,10 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
         },
         onComplete: () => {
           // 3. IDLE MICRO-MOTION (Ken Burns-style effect after entrance)
-          // Scale drift: 1.0 -> 1.04 over 18s looping with sine.inOut
+          // Scale drift: 1.0 -> 1.08 over 22s looping with sine.inOut
           gsap.to(kenBurnsEl, {
-            scale: 1.04,
-            duration: 18,
+            scale: 1.08,
+            duration: 22,
             ease: "sine.inOut",
             yoyo: true,
             repeat: -1,
