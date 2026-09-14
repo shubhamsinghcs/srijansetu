@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { navItems, NavItem } from "@/data/nav";
 import MobileMenu from "./MobileMenu";
@@ -58,8 +59,16 @@ export default function Navbar() {
             className="flex items-center gap-2.5 group transition-transform duration-200 hover:scale-105 select-none"
             aria-label="Srijan Setu Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-spidey-red/15 border border-spidey-red/50 flex items-center justify-center shadow-[0_0_12px_rgba(230,36,41,0.35)] group-hover:border-spidey-red transition-colors">
-              <span className="font-samarkan text-xl text-spidey-red tracking-normal">S</span>
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-spidey-red/15 border border-spidey-red/50 flex items-center justify-center p-1 shadow-[0_0_12px_rgba(230,36,41,0.35)] group-hover:border-spidey-red transition-colors overflow-hidden">
+              <Image
+                src="/images/partners/Tom-HollandSrijan-Setu.png"
+                alt="Srijan Setu Logo"
+                width={40}
+                height={40}
+                unoptimized
+                priority
+                className="w-full h-full object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+              />
             </div>
             <span className="font-samarkan text-xl sm:text-2xl tracking-normal text-web-white group-hover:text-spidey-red transition-colors">
               SRIJAN <span className="text-spidey-red">SETU</span>
