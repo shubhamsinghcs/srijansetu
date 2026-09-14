@@ -163,7 +163,7 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
       {/* Layer 1: GSAP Entrance Wrapper */}
       <div
         ref={entranceRef}
-        className="relative w-full max-w-[340px] xs:max-w-[390px] sm:max-w-[460px] md:max-w-[500px] lg:max-w-[520px] xl:max-w-[560px]"
+        className="relative w-full max-w-[360px] xs:max-w-[420px] sm:max-w-[480px] md:max-w-[500px] lg:max-w-[520px] xl:max-w-[540px]"
         style={{
           perspective: "1200px",
         }}
@@ -180,22 +180,22 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
             rotateY: shouldReduceMotion ? 0 : springRotateY,
             transformStyle: "preserve-3d",
           }}
-          className="relative w-full aspect-[1234/1354] rounded-2xl border bg-[#0A0A0F]/80 backdrop-blur-md overflow-hidden cursor-pointer"
+          className="relative w-full aspect-square rounded-2xl border bg-[#0A0A0F]/90 backdrop-blur-md overflow-hidden cursor-pointer"
         >
           {/* Layer 3: Ken Burns Idle Motion Container (scale drift + vertical drift) */}
           <div
             ref={kenBurnsRef}
             className="relative w-full h-full will-change-transform"
-            style={{ transformOrigin: "center center" }}
+            style={{ transformOrigin: "center 35%" }}
           >
             <Image
               src="/images/spiderman-about.png"
-              alt="Spider-Man Portrait - Srijan Setu"
-              width={1234}
-              height={1354}
+              alt="Superior Spider-Man Portrait - Srijan Setu"
+              width={1342}
+              height={2048}
               priority
-              className="w-full h-full object-cover object-center"
-              sizes="(max-width: 640px) 340px, (max-width: 1024px) 500px, 560px"
+              className="w-full h-full object-cover object-top"
+              sizes="(max-width: 640px) 360px, (max-width: 1024px) 500px, 540px"
             />
           </div>
 
@@ -204,7 +204,7 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
             className="absolute inset-0 pointer-events-none rounded-2xl"
             style={{
               background:
-                "radial-gradient(circle at center, transparent 35%, rgba(10, 10, 15, 0.45) 70%, rgba(10, 10, 15, 0.95) 100%)",
+                "radial-gradient(circle at 50% 45%, transparent 35%, rgba(10, 10, 15, 0.35) 70%, rgba(10, 10, 15, 0.9) 100%)",
             }}
             aria-hidden="true"
           />
@@ -212,15 +212,15 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
           {/* 1. IMAGE TREATMENT B: Subtle Duotone / Color-Grade Overlay (mix-blend-color with spidey red/blue) */}
           <motion.div
             variants={duotoneVariants}
-            className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-t from-spidey-red/25 via-transparent to-spidey-blue/15 mix-blend-color"
+            className="absolute inset-0 pointer-events-none rounded-2xl bg-gradient-to-t from-spidey-red/20 via-transparent to-spidey-blue/10 mix-blend-color"
             aria-hidden="true"
           />
 
           {/* Corner Tech Web Accent Lines (Site Hero Language) */}
-          <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-spidey-red/60 pointer-events-none" />
-          <div className="absolute top-2 right-2 w-3 h-3 border-t border-r border-spidey-red/60 pointer-events-none" />
-          <div className="absolute bottom-2 left-2 w-3 h-3 border-b border-l border-spidey-red/60 pointer-events-none" />
-          <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-spidey-red/60 pointer-events-none" />
+          <div className="absolute top-2.5 left-2.5 w-3.5 h-3.5 border-t border-l border-spidey-red/70 pointer-events-none" />
+          <div className="absolute top-2.5 right-2.5 w-3.5 h-3.5 border-t border-r border-spidey-red/70 pointer-events-none" />
+          <div className="absolute bottom-2.5 left-2.5 w-3.5 h-3.5 border-b border-l border-spidey-red/70 pointer-events-none" />
+          <div className="absolute bottom-2.5 right-2.5 w-3.5 h-3.5 border-b border-r border-spidey-red/70 pointer-events-none" />
         </motion.div>
       </div>
     </div>
