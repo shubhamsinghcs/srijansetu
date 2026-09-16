@@ -6,24 +6,19 @@ import Button from "@/components/ui/Button";
 
 const TIER_CONFIG: { tier: SponsorTier; title: string; subtitle: string }[] = [
   {
-    tier: "Corporate",
-    title: "CORPORATE PARTNERS",
-    subtitle: "Companies supporting the next generation of builders through technology, resources, mentorship, and opportunities.",
-  },
-  {
-    tier: "Innovation",
-    title: "INNOVATION PARTNERS",
-    subtitle: "Supporting bold ideas, creative thinking, and the builders turning real problems into practical solutions.",
-  },
-  {
     tier: "Community",
     title: "COMMUNITY PARTNERS",
     subtitle: "Communities coming together to spread the word, connect builders, and grow the Srijan Setu ecosystem.",
   },
   {
     tier: "Media/Platform",
-    title: "MEDIA/PLATFORM PARTNERS",
-    subtitle: "Supported by trusted platforms and media partners that help us bring Srijan Setu to builders everywhere.  ",
+    title: "MEDIA / PLATFORM PARTNERS",
+    subtitle: "The platforms and media partners helping us connect with builders and bring Srijan Setu to a wider community.",
+  },
+  {
+    tier: "Innovation",
+    title: "INNOVATION PARTNERS",
+    subtitle: "Supporting bold ideas, creative thinking, and the builders turning real problems into practical solutions.",
   },
 ];
 
@@ -32,8 +27,8 @@ export default function Sponsors() {
     return sponsors.filter(
       (s) =>
         s.tier === tier ||
-        (tier === "Media/Platform" && s.tier === "Media") ||
-        (tier === "Media" && s.tier === "Media/Platform")
+        (tier === "Media/Platform" && (s.tier === "Media" || s.tier === "Media/Platform")) ||
+        (tier === "Media" && (s.tier === "Media" || s.tier === "Media/Platform"))
     );
   };
 
@@ -63,10 +58,10 @@ export default function Sponsors() {
             <div key={tier} className="text-center">
               {/* Tier Subheading */}
               <div className="mb-6 sm:mb-8">
-                <h3 className="font-accent text-display-md font-bold uppercase tracking-[0.14em] text-web-white">
+                <h3 className="section-heading text-display-lg leading-tight">
                   {title}
                 </h3>
-                <p className="font-body text-body-sm text-white/70 mt-1 max-w-lg mx-auto leading-relaxed font-normal">
+                <p className="text-blue-400 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal mt-3">
                   {subtitle}
                 </p>
               </div>
