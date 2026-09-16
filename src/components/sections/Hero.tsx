@@ -45,6 +45,11 @@ const sponsorLogos = [
     src: "/images/partners/aicte.png",
     heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
   },
+  {
+    name: "Institution's Innovation Council",
+    src: "/images/partners/institution-innovation-council.png",
+    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
+  },
 ];
 
 export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
@@ -194,7 +199,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-2 sm:mb-4 w-full max-w-4xl lg:max-w-5xl px-4 flex items-center justify-center gap-4 xs:gap-6 sm:gap-10 md:gap-14 lg:gap-16"
+          className="mb-2 sm:mb-4 w-full max-w-4xl lg:max-w-5xl px-4 flex items-center justify-center gap-3 xs:gap-5 sm:gap-7 md:gap-10 lg:gap-12 flex-wrap sm:flex-nowrap"
         >
           {sponsorLogos.map((sponsor) => (
             <motion.div
