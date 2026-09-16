@@ -40,14 +40,14 @@ const sponsorLogos = [
     src: "/images/partners/campus-body.png",
     heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
   },
-  {
-    name: "AICTE",
-    src: "/images/partners/aicte.png",
+   {
+    name: "Institution's Innovation Council",
+    src: "/images/partners/institution-innovation-council.png",
     heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
   },
   {
-    name: "Institution's Innovation Council",
-    src: "/images/partners/institution-innovation-council.png",
+    name: "AICTE",
+    src: "/images/partners/aicte.png",
     heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
   },
 ];
