@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { sponsors, SponsorTier, Sponsor } from "@/data/sponsors";
 import Button from "@/components/ui/Button";
 
@@ -81,18 +82,33 @@ export default function Sponsors() {
                 {tierSponsors.map((sponsor) => (
                   <div
                     key={sponsor.name}
-                    className="relative flex items-center justify-center p-4 sm:p-8 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32"
+                    className="relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32"
                   >
                     {/* Grayscale by default, full color on hover */}
-                    <div className="flex items-center justify-center gap-3 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300">
-                      {/* Logo Icon Mark */}
-                      <div className="w-8 h-8 rounded-lg bg-spidey-red/20 border border-spidey-red/40 flex items-center justify-center text-spidey-red font-bold text-sm flex-shrink-0">
-                        {sponsor.name.charAt(0)}
-                      </div>
-                      {/* Sponsor Name Text / Logo */}
-                      <span className="font-bold text-sm sm:text-base md:text-lg text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
-                        {sponsor.name}
-                      </span>
+                    <div className="flex items-center justify-center gap-3 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300 w-full h-full px-2">
+                      {sponsor.logoUrl && !sponsor.logoUrl.endsWith(".svg") ? (
+                        <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
+                          <Image
+                            src={sponsor.logoUrl}
+                            alt={sponsor.name}
+                            width={220}
+                            height={60}
+                            unoptimized
+                            className="max-h-10 sm:max-h-12 w-auto object-contain drop-shadow-md"
+                          />
+                        </div>
+                      ) : (
+                        <>
+                          {/* Logo Icon Mark */}
+                          <div className="w-8 h-8 rounded-lg bg-spidey-red/20 border border-spidey-red/40 flex items-center justify-center text-spidey-red font-bold text-sm flex-shrink-0">
+                            {sponsor.name.charAt(0)}
+                          </div>
+                          {/* Sponsor Name Text / Logo */}
+                          <span className="font-bold text-sm sm:text-base md:text-lg text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
+                            {sponsor.name}
+                          </span>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))}

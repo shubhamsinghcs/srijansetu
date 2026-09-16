@@ -62,17 +62,23 @@ export const sponsors: Sponsor[] = [
     websiteUrl: "#",
   },
 
-  // Media Tier
+  // Media/Platform Tier
+  {
+    name: "Devfolio",
+    logoUrl: "/images/partners/devfolio-white.png",
+    tier: "Media/Platform",
+    websiteUrl: "https://devfolio.co",
+  },
   {
     name: "TechChronicle Daily",
     logoUrl: "/images/sponsors/techchronicle.svg",
-    tier: "Media",
+    tier: "Media/Platform",
     websiteUrl: "#",
   },
   {
     name: "StartupWire Pulse",
     logoUrl: "/images/sponsors/startupwire.svg",
-    tier: "Media",
+    tier: "Media/Platform",
     websiteUrl: "#",
   },
 ];
