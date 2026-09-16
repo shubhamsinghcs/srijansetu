@@ -1,4 +1,4 @@
-export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media";
+export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media" | "Media/Platform";
 
 export interface Sponsor {
   name: string;

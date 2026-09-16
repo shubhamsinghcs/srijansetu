@@ -28,7 +28,12 @@ const TIER_CONFIG: { tier: SponsorTier; title: string; subtitle: string }[] = [
 
 export default function Sponsors() {
   const getSponsorsByTier = (tier: SponsorTier): Sponsor[] => {
-    return sponsors.filter((s) => s.tier === tier);
+    return sponsors.filter(
+      (s) =>
+        s.tier === tier ||
+        (tier === "Media/Platform" && s.tier === "Media") ||
+        (tier === "Media" && s.tier === "Media/Platform")
+    );
   };
 
   return (
