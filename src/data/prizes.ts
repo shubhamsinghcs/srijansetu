@@ -4,22 +4,22 @@ export interface PrizeItem {
   label: string;
 }
 
-export const totalPrizePool = "₹5,00,000";
+export const totalPrizePool = "TO BE ANNOUNCED SOON";
 
 export const prizes: PrizeItem[] = [
   {
     place: "Winner",
-    amount: "₹2,50,000",
+    amount: "To Be Announced Soon",
     label: "Grand Prize Champion",
   },
   {
     place: "1st Runner Up",
-    amount: "₹1,50,000",
+    amount: "To Be Announced Soon",
     label: "Second Place",
   },
   {
     place: "2nd Runner Up",
-    amount: "₹1,00,000",
+    amount: "To Be Announced Soon",
     label: "Third Place",
   },
 ];

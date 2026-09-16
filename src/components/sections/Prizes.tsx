@@ -60,8 +60,8 @@ export default function Prizes() {
           <div
             className={`font-accent font-black tracking-wider my-3 sm:my-4 ${
               isWinner
-                ? "text-4xl sm:text-5xl md:text-6xl text-spidey-red drop-shadow-[0_2px_15px_rgba(227,38,54,0.5)]"
-                : "text-3xl sm:text-4xl md:text-5xl text-web-white"
+                ? "text-2xl sm:text-3xl md:text-4xl text-spidey-red drop-shadow-[0_2px_15px_rgba(227,38,54,0.5)]"
+                : "text-xl sm:text-2xl md:text-3xl text-web-white"
             }`}
           >
             {prize.amount}
@@ -97,7 +97,7 @@ export default function Prizes() {
         <span className="font-accent text-label font-bold uppercase tracking-[0.22em] text-white/70">
           TOTAL PRIZE POOL
         </span>
-        <div className="font-accent font-black text-display-xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
+        <div className="font-accent font-black text-3xl sm:text-5xl md:text-6xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
           {totalPrizePool}
         </div>
       </div>
