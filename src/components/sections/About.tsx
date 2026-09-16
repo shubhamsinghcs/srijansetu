@@ -105,12 +105,6 @@ export default function About() {
       <div className="relative z-10 w-[min(1380px,92vw)] min-h-[100svh] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 sm:gap-12 lg:gap-16 py-12 sm:py-16">
         {/* LEFT: ABOUT CONTENT (text stays on the left, unchanged) */}
         <div className="relative z-30 max-w-[650px] py-6 sm:py-10 order-1 lg:order-1">
-          {/* Label */}
-          <div className="inline-flex items-center gap-2.5 mb-4 text-spidey-red font-accent text-label font-bold tracking-[0.22em] uppercase">
-            <span className="w-8 h-[1px] bg-spidey-red" />
-            INTEL / DOSSIER
-          </div>
-
           {/* Section Title */}
           <h2
             ref={titleRef}
