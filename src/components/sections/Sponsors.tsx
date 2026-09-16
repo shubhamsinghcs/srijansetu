@@ -7,22 +7,22 @@ const TIER_CONFIG: { tier: SponsorTier; title: string; subtitle: string }[] = [
   {
     tier: "Corporate",
     title: "CORPORATE PARTNERS",
-    subtitle: "Anchor organizations spearheading technology and industrial innovation.",
+    subtitle: "Companies supporting the next generation of builders through technology, resources, mentorship, and opportunities.",
   },
   {
     tier: "Innovation",
     title: "INNOVATION PARTNERS",
-    subtitle: "Trailblazing ventures driving breakthroughs in AI, cloud, and cybersecurity.",
+    subtitle: "Supporting bold ideas, creative thinking, and the builders turning real problems into practical solutions.",
   },
   {
     tier: "Community",
     title: "COMMUNITY PARTNERS",
-    subtitle: "Developer ecosystems and grassroots coding collectives fueling collaboration.",
+    subtitle: "Communities coming together to spread the word, connect builders, and grow the Srijan Setu ecosystem.",
   },
   {
-    tier: "Media",
-    title: "MEDIA PARTNERS",
-    subtitle: "Outlets amplifying developer impact and broadcast outreach.",
+    tier: "Media/Platform",
+    title: "MEDIA/PLATFORM PARTNERS",
+    subtitle: "Supported by trusted platforms and media partners that help us bring Srijan Setu to builders everywhere.  ",
   },
 ];
 
