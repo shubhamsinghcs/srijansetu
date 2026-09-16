@@ -75,15 +75,15 @@ export default function Navbar() {
             </span>
           </Link>
 
-          {/* Right (Desktop): Navigation links (Hick's Law: 6 explicit destinations) */}
-          <nav className="hidden md:flex items-center space-x-2 lg:space-x-5">
+          {/* Right (Desktop): Navigation links */}
+          <nav className="hidden md:flex items-center space-x-1 lg:space-x-3 xl:space-x-5">
             {navItems.map((item: NavItem) => {
               const isActive = activeSection === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative font-accent text-body-sm lg:text-body-base font-medium px-2.5 py-1.5 transition-colors duration-200 ${
+                  className={`relative font-accent text-xs lg:text-body-sm xl:text-body-base font-medium px-2 lg:px-2.5 py-1.5 transition-colors duration-200 ${
                     isActive ? "text-web-white font-semibold" : "text-web-gray hover:text-web-white"
                   }`}
                 >

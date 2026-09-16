@@ -14,9 +14,10 @@ export default function TechTeam() {
 
   return (
     <section
-      id="tech-team"
+      id="team"
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
+      <span id="tech-team" className="absolute -top-20 pointer-events-none" aria-hidden="true" />
       {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
         <h2 className="section-heading text-display-lg leading-tight">
