@@ -1,0 +1,29 @@
+[
+  {
+    "id": "media-001",
+    "name": "Devfolio",
+    "logo": "/images/partners/devfolio-white.png",
+    "website": "https://devfolio.co",
+    "description": "The official hackathon platform powering builder registration, tracks, and submissions.",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "media-002",
+    "name": "TechChronicle Daily",
+    "logo": "/images/sponsors/techchronicle.svg",
+    "website": "https://example.com",
+    "description": "Publishing in-depth developer dispatches, builder highlights, and tech news.",
+    "featured": false,
+    "order": 2
+  },
+  {
+    "id": "media-003",
+    "name": "StartupWire Pulse",
+    "logo": "/images/sponsors/startupwire.svg",
+    "website": "https://example.com",
+    "description": "Amplify early-stage venture stories and hackathon champion projects.",
+    "featured": false,
+    "order": 3
+  }
+]

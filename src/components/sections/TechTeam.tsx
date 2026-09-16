@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { techTeam, TechTeamMember } from "@/data/techTeam";
+import { team } from "@/data";
+import type { TeamMember } from "@/types/event";
 import Card from "@/components/ui/Card";
 
 export default function TechTeam() {
@@ -31,8 +32,9 @@ export default function TechTeam() {
 
       {/* Compact Operative Card Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-        {techTeam.map((member: TechTeamMember) => {
+        {team.map((member: TeamMember) => {
           const hasImageError = imageErrors[member.id];
+          const photo = member.image || "";
 
           return (
             <Card
@@ -43,9 +45,9 @@ export default function TechTeam() {
               <div className="flex items-center gap-3.5 sm:gap-4">
                 {/* Operative Avatar / Fallback Placeholder */}
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#1A1A24] border border-white/10 overflow-hidden flex-shrink-0 flex items-center justify-center relative">
-                  {!hasImageError ? (
+                  {photo && !hasImageError ? (
                     <Image
-                      src={member.photoUrl}
+                      src={photo}
                       alt={member.name}
                       fill
                       sizes="64px"
@@ -59,7 +61,7 @@ export default function TechTeam() {
                   )}
                 </div>
 
-                {/* Member Info & Quote */}
+                {/* Member Info & Quote/Bio */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <span className="font-accent text-label font-bold uppercase tracking-[0.16em] px-2 py-0.5 rounded bg-spidey-red/15 text-spidey-red border border-spidey-red/30">
@@ -71,9 +73,11 @@ export default function TechTeam() {
                     {member.name}
                   </h3>
 
-                  <p className="mt-1 font-body text-xs text-web-gray leading-relaxed line-clamp-2 font-normal">
-                    &ldquo;{member.quote}&rdquo;
-                  </p>
+                  {member.bio && (
+                    <p className="mt-1 font-body text-xs text-web-gray leading-relaxed line-clamp-2 font-normal">
+                      &ldquo;{member.bio}&rdquo;
+                    </p>
+                  )}
                 </div>
               </div>
             </Card>

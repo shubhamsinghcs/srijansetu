@@ -1,0 +1,47 @@
+[
+  {
+    "id": "community-001",
+    "name": "Google Developer Groups On Campus Indo Global College",
+    "logo": "/images/partners/gdg.png",
+    "website": "https://gdg.community.dev",
+    "description": "Developer community fostering peer-to-peer technical growth and hands-on workshops.",
+    "featured": true,
+    "order": 1
+  },
+  {
+    "id": "community-002",
+    "name": "Campus Body Indo Global Colleges",
+    "logo": "/images/partners/campus-body.png",
+    "website": "https://iglobal.org",
+    "description": "Student collective driving campus hack culture, mentorship, and tech initiatives.",
+    "featured": true,
+    "order": 2
+  },
+  {
+    "id": "community-003",
+    "name": "DevGuild Community",
+    "logo": "/images/sponsors/devguild.svg",
+    "website": "https://example.com",
+    "description": "Open developer guild focused on building high-impact open-source tools.",
+    "featured": false,
+    "order": 3
+  },
+  {
+    "id": "community-004",
+    "name": "OpenSource Collective",
+    "logo": "/images/sponsors/opensource.svg",
+    "website": "https://example.com",
+    "description": "Collaborative grassroots initiative sustaining critical digital infrastructure.",
+    "featured": false,
+    "order": 4
+  },
+  {
+    "id": "community-005",
+    "name": "NextGen Innovators Hub",
+    "logo": "/images/sponsors/nextgen-hub.svg",
+    "website": "https://example.com",
+    "description": "Student network connecting emerging tech builders across academic institutions.",
+    "featured": false,
+    "order": 5
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "team-001",
+    "name": "Arjun Mehta",
+    "role": "Systems Lead",
+    "image": "",
+    "bio": "Building resilient systems that turn chaotic data into clear solutions.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 1
+  },
+  {
+    "id": "team-002",
+    "name": "Neha Kapoor",
+    "role": "UI/UX Lead",
+    "image": "",
+    "bio": "Designing intuitive interfaces where complexity feels effortlessly simple.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 2
+  },
+  {
+    "id": "team-003",
+    "name": "Siddharth Rao",
+    "role": "Backend Architect",
+    "image": "",
+    "bio": "Low latency, zero downtime, and scalable distributed backends.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 3
+  },
+  {
+    "id": "team-004",
+    "name": "Tanvi Deshmukh",
+    "role": "Security Operative",
+    "image": "",
+    "bio": "Securing every endpoint, encrypting every payload, leaving no traces.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 4
+  },
+  {
+    "id": "team-005",
+    "name": "Kabir Joshi",
+    "role": "DevOps Lead",
+    "image": "",
+    "bio": "Automating pipelines and deploying infrastructure as pure code.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 5
+  },
+  {
+    "id": "team-006",
+    "name": "Meera Chawla",
+    "role": "AI Research Operative",
+    "image": "",
+    "bio": "Training models to uncover patterns hidden beneath the surface.",
+    "socials": {
+      "linkedin": "https://linkedin.com",
+      "github": "https://github.com"
+    },
+    "order": 6
+  }
+]

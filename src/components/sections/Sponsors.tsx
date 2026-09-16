@@ -1,36 +1,45 @@
 "use client";
 
 import Image from "next/image";
-import { sponsors, SponsorTier, Sponsor } from "@/data/sponsors";
+import {
+  communityPartners,
+  mediaPlatformPartners,
+  innovationPartners,
+} from "@/data";
+import type { Partner } from "@/types/event";
 import Button from "@/components/ui/Button";
 
-const TIER_CONFIG: { tier: SponsorTier; title: string; subtitle: string }[] = [
-  {
-    tier: "Community",
-    title: "COMMUNITY PARTNERS",
-    subtitle: "Communities coming together to spread the word, connect builders, and grow the Srijan Setu ecosystem.",
-  },
-  {
-    tier: "Media/Platform",
-    title: "MEDIA / PLATFORM PARTNERS",
-    subtitle: "The platforms and media partners helping us connect with builders and bring Srijan Setu to a wider community.",
-  },
-  {
-    tier: "Innovation",
-    title: "INNOVATION PARTNERS",
-    subtitle: "Supporting bold ideas, creative thinking, and the builders turning real problems into practical solutions.",
-  },
-];
+interface PartnerTierSection {
+  id: string;
+  title: string;
+  subtitle: string;
+  partners: Partner[];
+}
 
 export default function Sponsors() {
-  const getSponsorsByTier = (tier: SponsorTier): Sponsor[] => {
-    return sponsors.filter(
-      (s) =>
-        s.tier === tier ||
-        (tier === "Media/Platform" && (s.tier === "Media" || s.tier === "Media/Platform")) ||
-        (tier === "Media" && (s.tier === "Media" || s.tier === "Media/Platform"))
-    );
-  };
+  const tierSections: PartnerTierSection[] = [
+    {
+      id: "community",
+      title: "COMMUNITY PARTNERS",
+      subtitle:
+        "Communities coming together to spread the word, connect builders, and grow the Srijan Setu ecosystem.",
+      partners: communityPartners,
+    },
+    {
+      id: "silver-sponsors",
+      title: "SILVER SPONSERS",
+      subtitle:
+        "Backed by forward-thinking organizations, industry leaders, and vibrant developer communities.",
+      partners: mediaPlatformPartners,
+    },
+    {
+      id: "innovation",
+      title: "INNOVATION PARTNERS",
+      subtitle:
+        "Supporting bold ideas, creative thinking, and the builders turning real problems into practical solutions.",
+      partners: innovationPartners,
+    },
+  ];
 
   return (
     <section
@@ -38,7 +47,7 @@ export default function Sponsors() {
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
       {/* Section Header */}
-      <div className="text-center mb-16 sm:mb-20">
+      {/* <div className="text-center mb-16 sm:mb-20">
         <h2 className="section-heading text-display-lg leading-tight">
           SPONSORS & PARTNERS
         </h2>
@@ -46,16 +55,15 @@ export default function Sponsors() {
         <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
           Backed by forward-thinking organizations, industry leaders, and vibrant developer communities.
         </p>
-      </div>
+      </div> */}
 
       {/* Tiers Container */}
       <div className="space-y-16 sm:space-y-20">
-        {TIER_CONFIG.map(({ tier, title, subtitle }) => {
-          const tierSponsors = getSponsorsByTier(tier);
-          if (tierSponsors.length === 0) return null;
+        {tierSections.map(({ id, title, subtitle, partners }) => {
+          if (!partners || partners.length === 0) return null;
 
           return (
-            <div key={tier} className="text-center">
+            <div key={id} className="text-center">
               {/* Tier Subheading */}
               <div className="mb-6 sm:mb-8">
                 <h3 className="section-heading text-display-lg leading-tight">
@@ -67,25 +75,19 @@ export default function Sponsors() {
               </div>
 
               {/* Responsive Grid of Logos */}
-              <div
-                className={`grid gap-4 sm:gap-6 mx-auto ${
-                  tier === "Corporate"
-                    ? "grid-cols-1 sm:grid-cols-2 max-w-3xl"
-                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl"
-                }`}
-              >
-                {tierSponsors.map((sponsor) => (
+              <div className="grid gap-4 sm:gap-6 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+                {partners.map((partner) => (
                   <div
-                    key={sponsor.name}
+                    key={partner.id || partner.name}
                     className="relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32"
                   >
                     {/* Grayscale by default, full color on hover */}
                     <div className="flex items-center justify-center gap-3 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300 w-full h-full px-2">
-                      {sponsor.logoUrl && !sponsor.logoUrl.endsWith(".svg") ? (
+                      {partner.logo && !partner.logo.endsWith(".svg") ? (
                         <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
                           <Image
-                            src={sponsor.logoUrl}
-                            alt={sponsor.name}
+                            src={partner.logo}
+                            alt={partner.name}
                             width={220}
                             height={60}
                             unoptimized
@@ -96,11 +98,11 @@ export default function Sponsors() {
                         <>
                           {/* Logo Icon Mark */}
                           <div className="w-8 h-8 rounded-lg bg-spidey-red/20 border border-spidey-red/40 flex items-center justify-center text-spidey-red font-bold text-sm flex-shrink-0">
-                            {sponsor.name.charAt(0)}
+                            {partner.name.charAt(0)}
                           </div>
-                          {/* Sponsor Name Text / Logo */}
+                          {/* Partner Name Text / Logo */}
                           <span className="font-bold text-sm sm:text-base md:text-lg text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
-                            {sponsor.name}
+                            {partner.name}
                           </span>
                         </>
                       )}

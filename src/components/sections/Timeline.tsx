@@ -1,4 +1,5 @@
-import { timelineData } from "@/data/timeline";
+import { timeline } from "@/data";
+import type { TimelineEvent } from "@/types/event";
 
 export default function Timeline() {
   return (
@@ -33,12 +34,12 @@ export default function Timeline() {
 
         {/* Timeline Items */}
         <div className="space-y-8 sm:space-y-10 md:space-y-16">
-          {timelineData.map((item, index) => {
+          {timeline.map((item: TimelineEvent, index) => {
             const isEven = index % 2 === 0;
 
             return (
               <div
-                key={`${item.day}-${item.time}-${index}`}
+                key={item.id || `${item.day || item.date}-${item.time}-${index}`}
                 className="relative flex items-start md:items-center"
               >
                 {/* Node / Marker on Desktop */}
