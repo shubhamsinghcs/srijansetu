@@ -65,7 +65,7 @@ export const sponsors: Sponsor[] = [
   // Media/Platform Tier
   {
     name: "Devfolio",
-    logoUrl: "/images/partners/devfolio-white.png",
+    logoUrl: "/images/sponsors/devfolio.svg",
     tier: "Media/Platform",
     websiteUrl: "https://devfolio.co",
   },

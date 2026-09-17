@@ -93,7 +93,7 @@ export default function Sponsors() {
                       {isDevfolio ? (
                         <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
                           <Image
-                            src={partner.logo || "/images/partners/devfolio-white.png"}
+                            src={partner.logo || "/images/sponsors/devfolio.svg"}
                             alt="Devfolio"
                             width={220}
                             height={60}
