@@ -110,6 +110,20 @@ export default function Sponsors() {
                   </div>
                 ))}
               </div>
+
+              {/* Community Partner CTA Button */}
+              {id === "community" && (
+                <div className="mt-8 sm:mt-10 flex justify-center">
+                  <a
+                    href="https://forms.gle/umNabkHSnmyipmYEA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center font-accent font-bold uppercase tracking-wider text-xs sm:text-sm px-5 py-2.5 rounded-md bg-transparent text-web-white border border-spidey-red/60 hover:bg-spidey-red/15 hover:border-spidey-red hover:shadow-[0_0_20px_rgba(230,36,41,0.35)] transition-all duration-200 focus:outline-none select-none"
+                  >
+                    Become a Community Partner
+                  </a>
+                </div>
+              )}
             </div>
           );
         })}
