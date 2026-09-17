@@ -27,7 +27,7 @@ export default function Sponsors() {
     },
     {
       id: "silver-sponsors",
-      title: "SILVER SPONSERS",
+      title: "SILVER SPONSORS",
       subtitle:
         "Backed by forward-thinking organizations, industry leaders, and vibrant developer communities.",
       partners: mediaPlatformPartners,
@@ -76,14 +76,33 @@ export default function Sponsors() {
 
               {/* Responsive Grid of Logos */}
               <div className="grid gap-4 sm:gap-6 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
-                {partners.map((partner) => (
-                  <div
-                    key={partner.id || partner.name}
-                    className="relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32"
-                  >
-                    {/* Grayscale by default, full color on hover */}
-                    <div className="flex items-center justify-center gap-3 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100 transition-all duration-300 w-full h-full px-2">
-                      {partner.logo && !partner.logo.endsWith(".svg") ? (
+                {partners.map((partner) => {
+                  const isDevfolio = partner.name.toLowerCase() === "devfolio";
+                  const href = isDevfolio
+                    ? partner.website || "https://devfolio.co"
+                    : partner.website;
+
+                  const cardContent = (
+                    <div
+                      className={`flex items-center justify-center gap-3 transition-all duration-300 w-full h-full px-2 ${
+                        isDevfolio
+                          ? "opacity-100 filter-none"
+                          : "filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
+                      }`}
+                    >
+                      {isDevfolio ? (
+                        <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
+                          <Image
+                            src={partner.logo || "/images/partners/devfolio-white.png"}
+                            alt="Devfolio"
+                            width={220}
+                            height={60}
+                            unoptimized
+                            priority
+                            className="max-h-10 sm:max-h-12 w-auto object-contain drop-shadow-md"
+                          />
+                        </div>
+                      ) : partner.logo && !partner.logo.endsWith(".svg") ? (
                         <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
                           <Image
                             src={partner.logo}
@@ -107,8 +126,35 @@ export default function Sponsors() {
                         </>
                       )}
                     </div>
-                  </div>
-                ))}
+                  );
+
+                  const cardClasses =
+                    "relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32";
+
+                  if (href) {
+                    return (
+                      <a
+                        key={partner.id || partner.name}
+                        href={href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={partner.name}
+                        className={cardClasses}
+                      >
+                        {cardContent}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div
+                      key={partner.id || partner.name}
+                      className={cardClasses}
+                    >
+                      {cardContent}
+                    </div>
+                  );
+                })}
               </div>
 
               {/* Community Partner CTA Button */}
