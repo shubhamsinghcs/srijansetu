@@ -3,105 +3,86 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { mentors } from "@/data";
-import type { Mentor } from "@/types/event";
+import { judges } from "@/data";
+import type { Judge } from "@/types/event";
 import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
 
-export default function Mentors() {
+export default function Judges() {
   const [imageErrors, setImageErrors] = useState<Record<string, boolean>>({});
 
-  const handleImageError = (id: string) => {
-    setImageErrors((prev) => ({ ...prev, [id]: true }));
-  };
-
-  if (mentors.length === 0) {
+  if (judges.length === 0) {
     return (
       <section
-        id="mentors"
+        id="judges"
         className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
       >
         <div className="text-center mb-16 sm:mb-20">
-          <h2 className="section-heading text-display-lg leading-tight">MENTORS</h2>
+          <h2 className="section-heading text-display-lg leading-tight">JUDGES</h2>
           <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
         </div>
-        <p className="text-center text-web-gray font-body">Mentor details coming soon.</p>
+        <p className="text-center text-web-gray font-body">Judge details coming soon.</p>
       </section>
     );
   }
 
   return (
     <section
-      id="mentors"
+      id="judges"
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* Section Header */}
       <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg leading-tight">
-          MENTORS
-        </h2>
+        <h2 className="section-heading text-display-lg leading-tight">JUDGES</h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
         <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
-          Learn from seasoned engineering leaders, tech founders, and domain specialists.
+          Meet the experts evaluating originality, execution, scalability, and real-world impact.
         </p>
       </div>
 
-      {/* Responsive Mentor Cards Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-        {mentors.map((mentor: Mentor) => {
-          const hasImageError = imageErrors[mentor.id || mentor.name];
-          const photo = mentor.image || "";
-          const socialLinks = Object.entries(mentor.socials || {}).filter(
+        {judges.map((judge: Judge) => {
+          const imageKey = judge.id || judge.name;
+          const socialLinks = Object.entries(judge.socials || {}).filter(
             ([, url]) => Boolean(url)
           ) as [string, string][];
 
           return (
             <Card
-              key={mentor.id || mentor.name}
+              key={imageKey}
               variant="default"
               className="text-center items-center p-5 sm:p-8 hover:border-spidey-red/70 transition-all duration-300 group shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.25)]"
             >
-              {/* Photo / Avatar with fallback */}
               <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-5 overflow-hidden border-2 border-spidey-red/60 group-hover:border-spidey-red shadow-[0_0_15px_rgba(227,38,54,0.3)] transition-colors bg-[#171822] flex items-center justify-center">
-                {photo && !hasImageError ? (
+                {judge.image && !imageErrors[imageKey] ? (
                   <Image
-                    src={photo}
-                    alt={mentor.name}
+                    src={judge.image}
+                    alt={judge.name}
                     fill
                     sizes="(max-width: 768px) 96px, 112px"
                     className="object-cover"
-                    onError={() => handleImageError(mentor.id || mentor.name)}
+                    onError={() =>
+                      setImageErrors((previous) => ({ ...previous, [imageKey]: true }))
+                    }
                   />
                 ) : (
                   <span className="font-accent text-2xl sm:text-3xl font-bold text-spidey-red">
-                    {mentor.name
+                    {judge.name
                       .split(" ")
-                      .map((n) => n[0])
+                      .map((name) => name[0])
                       .join("")}
                   </span>
                 )}
               </div>
 
-              {/* Name */}
               <h3 className="font-body text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
-                {mentor.name}
+                {judge.name}
               </h3>
+              <p className="font-accent text-sm font-semibold text-spidey-red mt-1">
+                {judge.designation}
+              </p>
+              <p className="font-accent text-xs uppercase tracking-widest text-web-gray mt-1">
+                {judge.company}
+              </p>
 
-              {/* Role / Designation */}
-              {mentor.designation && (
-                <p className="font-accent text-sm font-semibold text-spidey-red mt-1">
-                  {mentor.designation}
-                </p>
-              )}
-
-              {/* Company */}
-              {mentor.company && (
-                <p className="font-accent text-xs uppercase tracking-widest text-web-gray mt-1">
-                  {mentor.company}
-                </p>
-              )}
-
-              {/* Render every social link supplied by the mentor data. */}
               {socialLinks.length > 0 && (
                 <div className="mt-6 pt-4 border-t border-white/10 w-full flex justify-center">
                   <div className="flex flex-wrap justify-center gap-3">
@@ -122,16 +103,6 @@ export default function Mentors() {
             </Card>
           );
         })}
-      </div>
-
-      {/* Become a Mentor CTA */}
-      <div className="mt-16 sm:mt-24 text-center">
-        <p className="text-sm sm:text-base text-web-gray mb-4">
-          Want to guide ambitious innovators and help teams turn ideas into working solutions?
-        </p>
-        <Button href="#become-a-mentor" variant="primary">
-          Become a Mentor
-        </Button>
       </div>
     </section>
   );

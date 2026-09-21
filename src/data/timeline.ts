@@ -1,81 +1,116 @@
-export interface TimelineItem {
-  day: string;
-  time: string;
-  title: string;
-  description: string;
-}
+import type { TimelineEvent } from "@/types/event";
 
-export const timelineData: TimelineItem[] = [
+export const timeline: TimelineEvent[] = [
   {
+    id: "timeline-001",
     day: "Day 1",
+    date: "10 October 2026",
     time: "08:00 AM",
     title: "Registration Starts",
-    description:
-      "Check-in, badge collection, team verification, and workstation setup at the venue.",
+    description: "Check-in, badge collection, team verification, and workstation setup at the venue.",
+    location: "Indo Global College",
+    status: "upcoming",
+    order: 1,
   },
   {
+    id: "timeline-002",
     day: "Day 1",
+    date: "10 October 2026",
     time: "09:20 AM",
     title: "Opening Ceremony",
-    description:
-      "Official welcome, keynote addresses, track introductions, and rules briefing.",
+    description: "Official welcome, keynote addresses, track introductions, and rules briefing.",
+    location: "Main Auditorium",
+    status: "upcoming",
+    order: 2,
   },
   {
+    id: "timeline-003",
     day: "Day 1",
+    date: "10 October 2026",
     time: "10:20 AM",
     title: "The Hackathon Begins",
-    description:
-      "The 24-hour sprint officially kicks off. Teams begin architecting, designing, and coding prototypes.",
+    description: "The 24-hour sprint officially kicks off. Teams begin architecting, designing, and coding prototypes.",
+    location: "Hacking Arena",
+    status: "upcoming",
+    order: 3,
   },
   {
+    id: "timeline-004",
     day: "Day 1",
+    date: "10 October 2026",
     time: "01:00 PM",
     title: "Lunch Break",
-    description:
-      "Refuel, recharge, and connect with fellow developers and organizers.",
+    description: "Refuel, recharge, and connect with fellow developers and organizers.",
+    location: "Dining Hall",
+    status: "upcoming",
+    order: 4,
   },
   {
+    id: "timeline-005",
     day: "Day 1",
+    date: "10 October 2026",
     time: "03:30 PM",
     title: "Feedback Session",
-    description:
-      "Mentors visit team tables to evaluate progress, unblock technical issues, and provide strategic direction.",
+    description: "Mentors visit team tables to evaluate progress, unblock technical issues, and provide strategic direction.",
+    location: "Hacking Arena",
+    status: "upcoming",
+    order: 5,
   },
   {
+    id: "timeline-006",
     day: "Day 1",
+    date: "10 October 2026",
     time: "06:00 PM",
     title: "Progress Report",
-    description:
-      "Milestone evaluation checking core feature implementation and technical milestones.",
+    description: "Milestone evaluation checking core feature implementation and technical milestones.",
+    location: "Hacking Arena",
+    status: "upcoming",
+    order: 6,
   },
   {
+    id: "timeline-007",
     day: "Day 1",
+    date: "10 October 2026",
     time: "09:00 PM - 10:00 PM",
     title: "Dinner",
-    description:
-      "Dinner break to recharge before heading into the intensive overnight sprint.",
+    description: "Dinner break to recharge before heading into the intensive overnight sprint.",
+    location: "Dining Hall",
+    status: "upcoming",
+    order: 7,
   },
   {
+    id: "timeline-008",
     day: "Day 1",
+    date: "10 October 2026",
     time: "10:30 PM",
     title: "Fun Activity",
-    description:
-      "Engaging games, team trivia, and energizing activities to keep spirits and momentum high.",
+    description: "Engaging games, team trivia, and energizing activities to keep spirits and momentum high.",
+    location: "Recreation Area",
+    status: "upcoming",
+    order: 8,
   },
   {
+    id: "timeline-009",
     day: "Day 2",
+    date: "11 October 2026",
     time: "04:30 AM",
     title: "Mentor Evaluation",
-    description:
-      "Early morning technical checkpoint and code review to prep teams for final pitch polish.",
+    description: "Early morning technical checkpoint and code review to prep teams for final pitch polish.",
+    location: "Hacking Arena",
+    status: "upcoming",
+    order: 9,
   },
   {
+    id: "timeline-010",
     day: "Day 2",
+    date: "11 October 2026",
     time: "08:00 AM",
     title: "Top Announcements, Pitching, Prize Distribution & Closing Ceremony",
-    description:
-      "Announcement of top finalist teams, live stage demonstrations, jury deliberations, prize distributions, and concluding celebrations.",
+    description: "Announcement of top finalist teams, live stage demonstrations, jury deliberations, prize distributions, and concluding celebrations.",
+    location: "Main Auditorium",
+    status: "upcoming",
+    order: 10,
   },
 ];
 
-export default timelineData;
+export default timeline;

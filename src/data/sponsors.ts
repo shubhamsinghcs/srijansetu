@@ -1,85 +1,31 @@
+import type { Sponsor } from "@/types/event";
+
 export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media" | "Media/Platform";
 
-export interface Sponsor {
-  name: string;
-  logoUrl: string;
-  tier: SponsorTier;
-  websiteUrl?: string;
-}
-
 export const sponsors: Sponsor[] = [
-  // Corporate Tier
   {
+    id: "corporate-001",
     name: "Apex Global Systems",
-    logoUrl: "/images/sponsors/apex-global.svg",
+    logo: "/images/logos/sponsors/apex-global.svg",
     tier: "Corporate",
-    websiteUrl: "#",
+    website: "#",
+    order: 1,
   },
   {
+    id: "corporate-002",
     name: "Nexus Cloud Ventures",
-    logoUrl: "/images/sponsors/nexus-ventures.svg",
+    logo: "/images/logos/sponsors/nexus-ventures.svg",
     tier: "Corporate",
-    websiteUrl: "#",
+    website: "#",
+    order: 2,
   },
-
-  // Innovation Tier
   {
+    id: "innovation-001",
     name: "Quantum Logic Labs",
-    logoUrl: "/images/sponsors/quantum-logic.svg",
+    logo: "/images/logos/sponsors/quantum-logic.svg",
     tier: "Innovation",
-    websiteUrl: "#",
-  },
-  {
-    name: "CyberSphere Security",
-    logoUrl: "/images/sponsors/cybersphere.svg",
-    tier: "Innovation",
-    websiteUrl: "#",
-  },
-  {
-    name: "HyperScale AI Networks",
-    logoUrl: "/images/sponsors/hyperscale.svg",
-    tier: "Innovation",
-    websiteUrl: "#",
-  },
-
-  // Community Tier
-  {
-    name: "DevGuild Community",
-    logoUrl: "/images/sponsors/devguild.svg",
-    tier: "Community",
-    websiteUrl: "#",
-  },
-  {
-    name: "OpenSource Collective",
-    logoUrl: "/images/sponsors/opensource.svg",
-    tier: "Community",
-    websiteUrl: "#",
-  },
-  {
-    name: "NextGen Innovators Hub",
-    logoUrl: "/images/sponsors/nextgen-hub.svg",
-    tier: "Community",
-    websiteUrl: "#",
-  },
-
-  // Media/Platform Tier
-  {
-    name: "Devfolio",
-    logoUrl: "/images/sponsors/devfolio.svg",
-    tier: "Media/Platform",
-    websiteUrl: "https://devfolio.co",
-  },
-  {
-    name: "TechChronicle Daily",
-    logoUrl: "/images/sponsors/techchronicle.svg",
-    tier: "Media/Platform",
-    websiteUrl: "#",
-  },
-  {
-    name: "StartupWire Pulse",
-    logoUrl: "/images/sponsors/startupwire.svg",
-    tier: "Media/Platform",
-    websiteUrl: "#",
+    website: "#",
+    order: 3,
   },
 ];
 

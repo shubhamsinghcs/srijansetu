@@ -24,7 +24,7 @@ export default function CollegeBackdrop() {
       {/* 1. College Building Image Layer with Grayscale & Calibrated Opacity */}
       <div className="absolute inset-0 w-full h-full opacity-[0.13] filter grayscale contrast-125">
         <Image
-          src="/images/college-bg.jpg"
+          src="/images/backgrounds/college.jpg"
           alt=""
           fill
           priority={false}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { navItems, NavItem } from "@/data/nav";
 import MobileMenu from "./MobileMenu";
@@ -11,6 +12,8 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+  const pathname = usePathname();
+  const homeHref = pathname === "/" ? "#home" : "/#home";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,13 +58,13 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Left: Text-based wordmark logo (spider-hero aesthetic) */}
           <Link
-            href="#home"
+            href={homeHref}
             className="flex items-center gap-2.5 group transition-transform duration-200 hover:scale-105 select-none"
             aria-label="Srijan Setu Home"
           >
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-spidey-red/15 border border-spidey-red/50 flex items-center justify-center p-1 shadow-[0_0_12px_rgba(230,36,41,0.35)] group-hover:border-spidey-red transition-colors overflow-hidden">
               <Image
-                src="/images/partners/Tom-HollandSrijan-Setu.png"
+                src="/images/branding/tom-holland-srijan-setu.png"
                 alt="Srijan Setu Logo"
                 width={40}
                 height={40}
@@ -82,7 +85,13 @@ export default function Navbar() {
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={
+                    pathname === "/"
+                      ? item.href
+                      : item.href.startsWith("#")
+                        ? `/${item.href}`
+                        : item.href
+                  }
                   className={`relative font-accent text-xs lg:text-body-sm xl:text-body-base font-medium px-2 lg:px-2.5 py-1.5 transition-colors duration-200 ${
                     isActive ? "text-web-white font-semibold" : "text-web-gray hover:text-web-white"
                   }`}

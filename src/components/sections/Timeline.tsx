@@ -1,7 +1,14 @@
 import { timeline } from "@/data";
 import type { TimelineEvent } from "@/types/event";
+import Button from "@/components/ui/Button";
 
-export default function Timeline() {
+interface TimelineProps {
+  preview?: boolean;
+}
+
+export default function Timeline({ preview = false }: TimelineProps) {
+  const visibleEvents = preview ? timeline.slice(0, 3) : timeline;
+
   return (
     <section
       id="timeline"
@@ -34,7 +41,7 @@ export default function Timeline() {
 
         {/* Timeline Items */}
         <div className="space-y-8 sm:space-y-10 md:space-y-16">
-          {timeline.map((item: TimelineEvent, index) => {
+          {visibleEvents.map((item: TimelineEvent, index) => {
             const isEven = index % 2 === 0;
 
             return (
@@ -97,6 +104,14 @@ export default function Timeline() {
           })}
         </div>
       </div>
+
+      {preview && (
+        <div className="mt-10 flex justify-center">
+          <Button href="/timeline" variant="outline">
+            View Full Timeline
+          </Button>
+        </div>
+      )}
     </section>
   );
 }

@@ -189,7 +189,7 @@ export default function AboutVisual({ aboutSectionRef, className = "" }: AboutVi
             style={{ transformOrigin: "center 35%" }}
           >
             <Image
-              src="/images/spiderman-about.png"
+              src="/images/illustrations/spiderman-about.png"
               alt="Superior Spider-Man Portrait - Srijan Setu"
               width={1342}
               height={2048}

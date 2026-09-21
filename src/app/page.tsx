@@ -6,7 +6,8 @@ import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
 import Sponsors from "@/components/sections/Sponsors";
 import Mentors from "@/components/sections/Mentors";
-import TechTeam from "@/components/sections/TechTeam";
+import Judges from "@/components/sections/Judges";
+import TechTeam from "@/components/sections/Team";
 
 export default function Home() {
   return (
@@ -15,9 +16,10 @@ export default function Home() {
       <Hero />
       <About />
       <ProblemStatements />
-      <Timeline />
+      <Timeline preview />
       <Prizes />
       <Sponsors />
+      <Judges />
       <Mentors />
       <TechTeam />
     </main>

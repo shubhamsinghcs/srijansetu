@@ -5,8 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SITE_TAGLINE, EVENT_TYPE, REGISTRATION_START } from "@/lib/constants";
-import Button from "@/components/ui/Button";
+import { SITE_TAGLINE, REGISTRATION_START } from "@/lib/constants";
+import { heroPartnerLogos } from "@/data";
 import DevfolioButton from "@/components/ui/DevfolioButton";
 import Countdown from "@/components/ui/Countdown";
 import WebDivider from "@/components/ui/WebDivider";
@@ -18,39 +18,6 @@ if (typeof window !== "undefined") {
 interface HeroProps {
   eventDate?: string;
 }
-
-const sponsorLogos = [
-  {
-    name: "I.K. Gujral Punjab Technical University Kapurthala",
-    src: "/images/partners/ikgptu.png",
-    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
-  },
-  {
-    name: "Google Developer Groups On Campus Indo Global College",
-    src: "/images/partners/gdg.png",
-    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
-  },
-  {
-    name: "IGC",
-    src: "/images/partners/igc.png",
-    heightClass: "h-11 xs:h-13 sm:h-15 md:h-18 lg:h-20",
-  },
-  {
-    name: "Campus Body Indo Global Colleges",
-    src: "/images/partners/campus-body.png",
-    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
-  },
-   {
-    name: "Institution's Innovation Council",
-    src: "/images/partners/institution-innovation-council.png",
-    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
-  },
-  {
-    name: "AICTE",
-    src: "/images/partners/aicte.png",
-    heightClass: "h-9 xs:h-11 sm:h-13 md:h-15 lg:h-16",
-  },
-];
 
 export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -134,7 +101,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
       <div
         className="absolute inset-0 pointer-events-none opacity-15 scale-105"
         style={{
-          backgroundImage: "url('/images/web-pattern.svg')",
+          backgroundImage: "url('/images/backgrounds/web-pattern.svg')",
           backgroundRepeat: "repeat",
           transform: `translate(${mousePos.x}px, ${mousePos.y}px)`,
           transition: "transform 0.25s cubic-bezier(0.15, 0.85, 0.35, 1)",
@@ -201,7 +168,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           transition={{ duration: 0.5 }}
           className="mb-2 sm:mb-4 w-full max-w-4xl lg:max-w-5xl px-4 flex items-center justify-center gap-3 xs:gap-5 sm:gap-7 md:gap-10 lg:gap-12 flex-wrap sm:flex-nowrap"
         >
-          {sponsorLogos.map((sponsor) => (
+          {heroPartnerLogos.map((sponsor) => (
             <motion.div
               key={sponsor.name}
               whileHover={{ scale: 1.08 }}
@@ -255,7 +222,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-2 sm:mt-3 text-display-md font-bold uppercase tracking-[0.14em] text-web-white font-body px-2"
+          className="mt-2 sm:mt-3 text-display-md font-semibold uppercase tracking-[0.14em] text-web-white font-body px-2"
         >
           {SITE_TAGLINE}
         </motion.h2>
@@ -276,7 +243,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
 
           {/* Scarcity / Urgency Microcopy */}
           <span className="mt-6 font-accent text-caption-xs font-bold uppercase tracking-widest text-white/60 select-none">
-            Limited team slots &bull; Early access cohort closing soon
+            Limited team slots
           </span>
         </div>
       </div>

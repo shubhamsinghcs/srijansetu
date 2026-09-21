@@ -62,9 +62,11 @@ Srijan Setu is a national hackathon for developers and designers who&apos;d rath
 
             {/* Peak-End Rule: Final Small CTA Repeat (Outlined style to preserve Von Restorff primary uniqueness) */}
             <div className="mt-6 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3">
-              <Button href="#home" variant="outline" className="text-xs py-2 px-5">
-                Registrations open 18 Sep
-              </Button>
+              <a href="https://srijan-setu.devfolio.co/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="text-xs py-2 px-5">
+                  Register Now
+                </Button>
+              </a>
             </div>
           </div>
 

@@ -32,11 +32,13 @@ export interface TeamMember {
   id: string;
   name: string;
   role: string;
+  tier: TeamTier;
   image?: string;
-  bio?: string;
   socials?: SocialLinks;
-  order: number;
+  order?: number;
 }
+
+export type TeamTier = "organizers" | "core-team" | "volunteers";
 
 export interface Mentor {
   id: string;
