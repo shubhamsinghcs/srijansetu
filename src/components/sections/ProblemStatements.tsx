@@ -147,12 +147,12 @@ export default function ProblemStatements() {
         </div>
 
         {/* Responsive Grid of Domain Cards with Framer Motion hover & GSAP Stagger */}
-        <div ref={domainGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+        <div ref={domainGridRef} className="flex flex-wrap justify-center gap-4 sm:gap-6">
           {domainProblems.map((domain) => (
             <motion.div
               key={domain.id}
               whileHover={{ y: -3, transition: { duration: 0.2 } }}
-              className="h-full"
+              className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-[400px] flex flex-col"
             >
               <Card variant="domain" className="h-full justify-between">
                 <div>

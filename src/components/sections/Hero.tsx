@@ -222,7 +222,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-2 sm:mt-3 text-display-md font-semibold uppercase tracking-[0.14em] text-web-white font-body px-2"
+          className="mt-2 sm:mt-3 text-display-md font-semibold uppercase tracking-[0.14em] text-web-white px-2"
         >
           {SITE_TAGLINE}
         </motion.h2>

@@ -52,7 +52,7 @@ export default function Prizes() {
           </span>
 
           {/* Label */}
-          <h3 className="font-body text-base sm:text-lg font-bold text-web-white">
+          <h3 className="text-base sm:text-lg font-bold text-web-white">
             {prize.label}
           </h3>
 

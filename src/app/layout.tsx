@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bangers, Poppins } from "next/font/google";
+import { Bangers, Inter } from "next/font/google";
 import localFont from "next/font/local";
 import { SITE_NAME, SITE_TAGLINE } from "@/lib/constants";
 import Footer from "@/components/layout/Footer";
@@ -14,10 +14,9 @@ const bangers = Bangers({
   display: "swap",
 });
 
-const poppins = Poppins({
-  weight: ["400", "500", "600", "700"],
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-poppins",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -41,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${bangers.variable} ${poppins.variable} ${samarkan.variable}`}>
+    <html lang="en" className={`${bangers.variable} ${inter.variable} ${samarkan.variable}`}>
       <body className="font-body antialiased min-h-screen flex flex-col bg-web-black text-web-white relative">
         <CollegeBackdrop />
         <WebNetBackground />

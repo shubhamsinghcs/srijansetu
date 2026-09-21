@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
-import { heroPartnerLogos, team } from "@/data";
+import { faculty, heroPartnerLogos, team } from "@/data";
 import type { TeamTier } from "@/types/event";
 import TeamMemberGrid from "@/components/ui/TeamMemberGrid";
 
@@ -68,6 +68,22 @@ export default function TeamPage() {
         </div>
 
         <div className="space-y-16 sm:space-y-20">
+          <section aria-labelledby="faculty-heading">
+            <div className="text-center mb-8">
+              <h2 id="faculty-heading" className="section-heading text-display-md leading-tight">
+                WITH GRATITUDE TO OUR FACULTY AND ADMINISTRATION
+              </h2>
+              <p className="text-white/70 font-body max-w-2xl mx-auto mt-3">
+                Thank you to the faculty members whose guidance and encouragement make Srijan Setu possible.
+              </p>
+            </div>
+            {faculty.length > 0 ? (
+              <TeamMemberGrid members={faculty} />
+            ) : (
+              <p className="text-center text-web-gray font-body">Faculty details coming soon.</p>
+            )}
+          </section>
+
           {tiers.map((tier) => {
             const members = team.filter((member) => member.tier === tier.id);
             return (

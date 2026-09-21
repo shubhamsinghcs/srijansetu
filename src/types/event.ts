@@ -38,7 +38,7 @@ export interface TeamMember {
   order?: number;
 }
 
-export type TeamTier = "organizers" | "core-team" | "volunteers";
+export type TeamTier = "faculty" | "organizers" | "core-team" | "volunteers";
 
 export interface Mentor {
   id: string;

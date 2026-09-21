@@ -19,6 +19,24 @@ export const communityPartners: Partner[] = [
     featured: true,
     order: 2,
   },
+  {
+    id: "community-partner-002",
+    name: "Campus Body Indo Global Colleges",
+    logo: "/images/logos/partners/campus-body.png",
+    website: "https://iglobal.org",
+    description: "Student collective driving campus hack culture, mentorship, and tech initiatives.",
+    featured: true,
+    order: 2,
+  },
+  {
+    id: "community-partner-002",
+    name: "Campus Body Indo Global Colleges",
+    logo: "/images/logos/partners/campus-body.png",
+    website: "https://iglobal.org",
+    description: "Student collective driving campus hack culture, mentorship, and tech initiatives.",
+    featured: true,
+    order: 2,
+  },
 ];
 
 export default communityPartners;

@@ -89,7 +89,7 @@ export default function Timeline({ preview = false }: TimelineProps) {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-body text-display-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
+                    <h3 className="text-display-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
                       {item.title}
                     </h3>
 

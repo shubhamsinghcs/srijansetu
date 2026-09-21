@@ -1,4 +1,3 @@
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,8 +14,6 @@
 :root {
   --background: #0A0A0F;
   --foreground: #F5F5F5;
-  --font-ironman: var(--font-bangers);
-  --font-satoshi: 'Satoshi', sans-serif;
 }
 
 html {

@@ -47,7 +47,7 @@ export default function Mentors() {
       </div>
 
       {/* Responsive Mentor Cards Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
         {mentors.map((mentor: Mentor) => {
           const hasImageError = imageErrors[mentor.id || mentor.name];
           const photo = mentor.image || "";
@@ -56,70 +56,74 @@ export default function Mentors() {
           ) as [string, string][];
 
           return (
-            <Card
+            <div
               key={mentor.id || mentor.name}
-              variant="default"
-              className="text-center items-center p-5 sm:p-8 hover:border-spidey-red/70 transition-all duration-300 group shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.25)]"
+              className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] max-w-[400px] flex"
             >
-              {/* Photo / Avatar with fallback */}
-              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-5 overflow-hidden border-2 border-spidey-red/60 group-hover:border-spidey-red shadow-[0_0_15px_rgba(227,38,54,0.3)] transition-colors bg-[#171822] flex items-center justify-center">
-                {photo && !hasImageError ? (
-                  <Image
-                    src={photo}
-                    alt={mentor.name}
-                    fill
-                    sizes="(max-width: 768px) 96px, 112px"
-                    className="object-cover"
-                    onError={() => handleImageError(mentor.id || mentor.name)}
-                  />
-                ) : (
-                  <span className="font-accent text-2xl sm:text-3xl font-bold text-spidey-red">
-                    {mentor.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </span>
-                )}
-              </div>
-
-              {/* Name */}
-              <h3 className="font-body text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
-                {mentor.name}
-              </h3>
-
-              {/* Role / Designation */}
-              {mentor.designation && (
-                <p className="font-accent text-sm font-semibold text-spidey-red mt-1">
-                  {mentor.designation}
-                </p>
-              )}
-
-              {/* Company */}
-              {mentor.company && (
-                <p className="font-accent text-xs uppercase tracking-widest text-web-gray mt-1">
-                  {mentor.company}
-                </p>
-              )}
-
-              {/* Render every social link supplied by the mentor data. */}
-              {socialLinks.length > 0 && (
-                <div className="mt-6 pt-4 border-t border-white/10 w-full flex justify-center">
-                  <div className="flex flex-wrap justify-center gap-3">
-                    {socialLinks.map(([platform, url]) => (
-                      <Link
-                        key={platform}
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-accent text-xs font-bold uppercase tracking-wider text-web-gray hover:text-spidey-red transition-colors"
-                      >
-                        {platform}
-                      </Link>
-                    ))}
-                  </div>
+              <Card
+                variant="default"
+                className="w-full text-center items-center p-5 sm:p-8 hover:border-spidey-red/70 transition-all duration-300 group shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.25)]"
+              >
+                {/* Photo / Avatar with fallback */}
+                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-5 overflow-hidden border-2 border-spidey-red/60 group-hover:border-spidey-red shadow-[0_0_15px_rgba(227,38,54,0.3)] transition-colors bg-[#171822] flex items-center justify-center">
+                  {photo && !hasImageError ? (
+                    <Image
+                      src={photo}
+                      alt={mentor.name}
+                      fill
+                      sizes="(max-width: 768px) 96px, 112px"
+                      className="object-cover"
+                      onError={() => handleImageError(mentor.id || mentor.name)}
+                    />
+                  ) : (
+                    <span className="font-accent text-2xl sm:text-3xl font-bold text-spidey-red">
+                      {mentor.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </span>
+                  )}
                 </div>
-              )}
-            </Card>
+
+                {/* Name */}
+                <h3 className="text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
+                  {mentor.name}
+                </h3>
+
+                {/* Role / Designation */}
+                {mentor.designation && (
+                  <p className="font-accent text-sm font-semibold text-spidey-red mt-1">
+                    {mentor.designation}
+                  </p>
+                )}
+
+                {/* Company */}
+                {mentor.company && (
+                  <p className="font-accent text-xs uppercase tracking-widest text-web-gray mt-1">
+                    {mentor.company}
+                  </p>
+                )}
+
+                {/* Render every social link supplied by the mentor data. */}
+                {socialLinks.length > 0 && (
+                  <div className="mt-6 pt-4 border-t border-white/10 w-full flex justify-center">
+                    <div className="flex flex-wrap justify-center gap-3">
+                      {socialLinks.map(([platform, url]) => (
+                        <Link
+                          key={platform}
+                          href={url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-accent text-xs font-bold uppercase tracking-wider text-web-gray hover:text-spidey-red transition-colors"
+                        >
+                          {platform}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </Card>
+            </div>
           );
         })}
       </div>

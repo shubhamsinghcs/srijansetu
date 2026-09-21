@@ -45,7 +45,7 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
         )}
       </div>
 
-      <h3 className="font-body text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
+      <h3 className="text-heading-sm sm:text-heading-md font-bold text-web-white group-hover:text-spidey-red transition-colors">
         {member.name}
       </h3>
       <p

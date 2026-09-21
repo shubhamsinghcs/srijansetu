@@ -16,9 +16,9 @@ module.exports = {
       },
       fontFamily: {
         brand: ["var(--font-samarkan)", "Samarkan", "cursive"],
-        display: ["var(--font-ironman)", "var(--font-bangers)", "cursive"],
-        accent: ["var(--font-satoshi)", "sans-serif"],
-        body: ["var(--font-poppins)", "sans-serif"],
+        display: ["var(--font-bangers)", "Bangers", "cursive"],
+        accent: ["var(--font-inter)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
         // Backwards compatibility alias
         samarkan: ["var(--font-samarkan)", "Samarkan", "cursive"],
       },

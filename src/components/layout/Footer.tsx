@@ -72,7 +72,7 @@ Srijan Setu is a national hackathon for developers and designers who&apos;d rath
 
           {/* Center (4 cols): Quick Navigation (reused from nav.ts) */}
           <div className="lg:col-span-4 text-center">
-            <h4 className="font-accent text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
               QUICK NAVIGATION
             </h4>
             <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2.5 max-w-xs mx-auto">
@@ -91,7 +91,7 @@ Srijan Setu is a national hackathon for developers and designers who&apos;d rath
 
           {/* Right (3 cols): Real Brand Social Icons (LinkedIn, Instagram, X) */}
           <div className="lg:col-span-3 text-center lg:text-right">
-            <h4 className="font-accent text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-widest text-spidey-red mb-4">
               CONNECT WITH US
             </h4>
             <div className="flex items-center justify-center lg:justify-end gap-3.5">

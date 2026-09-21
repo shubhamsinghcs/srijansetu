@@ -55,7 +55,7 @@ export default function Sponsors() {
               </div>
 
               {/* Responsive Grid of Logos */}
-              <div className="grid gap-4 sm:gap-6 mx-auto grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 max-w-5xl">
+              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto max-w-5xl">
                 {partners.map((partner) => {
                   const cardContent = (
                     <div
@@ -88,29 +88,35 @@ export default function Sponsors() {
                   );
 
                   const cardClasses =
-                    "relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32";
+                    "relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32 w-full";
 
                   if (partner.website) {
                     return (
-                      <a
+                      <div
                         key={partner.id}
-                        href={partner.website}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={partner.name}
-                        className={cardClasses}
+                        className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-[320px] flex"
                       >
-                        {cardContent}
-                      </a>
+                        <a
+                          href={partner.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={partner.name}
+                          className={cardClasses}
+                        >
+                          {cardContent}
+                        </a>
+                      </div>
                     );
                   }
 
                   return (
                     <div
                       key={partner.id || partner.name}
-                      className={cardClasses}
+                      className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-[320px] flex"
                     >
-                      {cardContent}
+                      <div className={cardClasses}>
+                        {cardContent}
+                      </div>
                     </div>
                   );
                 })}

@@ -131,7 +131,7 @@ export default function About() {
           <div ref={cardsRef} className="grid gap-4">
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-red/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-red to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
+              <h3 className="m-0 mb-2 text-white text-heading-sm sm:text-heading-md font-bold tracking-tight">
                 What Srijan Setu Is
               </h3>
               <p className="m-0 card-desc">
@@ -141,7 +141,7 @@ export default function About() {
 
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-blue/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-blue to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-2 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
+              <h3 className="m-0 mb-2 text-white text-heading-sm sm:text-heading-md font-bold tracking-tight">
                 How It Works
               </h3>
               <p className="m-0 card-desc">

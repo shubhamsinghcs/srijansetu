@@ -1,5 +1,56 @@
 import type { TeamMember } from "@/types/event";
 
+export const faculty: TeamMember[] = [
+  {
+    id: "faculty-001",
+    name: "Manav Singahla",
+    role: "Chairman",
+    tier: "faculty",
+    // image: "/images/people/team/shubham.jpg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-002",
+    name: "Dr. Promila Kaushal",
+    role: "Principal IGCE",
+    tier: "faculty",
+    // image: "/images/people/team/shubham.jpg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-003",
+    name: "Dr. Harmeet",
+    role: "Principal IGMT",
+    tier: "faculty",
+    // image: "/images/people/team/shubham.jpg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-004",
+    name: "Er. Shaweta ",
+    role: "HoD CSE",
+    tier: "faculty",
+    // image: "/images/people/team/shubham.jpg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+];
+
 export const team: TeamMember[] = [
   {
     id: "team-001",

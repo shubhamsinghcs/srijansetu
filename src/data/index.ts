@@ -1,5 +1,5 @@
 import { sponsors as sponsorsData } from "./sponsors";
-import { team as teamData } from "./team";
+import { faculty as facultyData, team as teamData } from "./team";
 import { mentors as mentorsData } from "./mentors";
 import { judges as judgesData } from "./judges";
 import { timeline as timelineData } from "./timeline";
@@ -24,6 +24,7 @@ export const sortByOrder = <T extends { order: number }>(items: T[]): T[] => {
 };
 
 export const sponsors: Sponsor[] = sortByOrder(sponsorsData);
+export const faculty: TeamMember[] = [...facultyData];
 export const team: TeamMember[] = [...teamData];
 export const mentors: Mentor[] = sortByOrder(mentorsData as Mentor[]);
 export const judges: Judge[] = sortByOrder(judgesData as Judge[]);
@@ -35,6 +36,7 @@ export const sponsorTiers = sponsorTiersData;
 
 export { sponsors as sponsorsDataExport } from "./sponsors";
 export { team as teamDataExport } from "./team";
+export { faculty as facultyDataExport } from "./team";
 export { mentors as mentorsDataExport } from "./mentors";
 export { judges as judgesDataExport } from "./judges";
 export { timeline as timelineDataExport } from "./timeline";
