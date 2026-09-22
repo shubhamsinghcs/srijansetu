@@ -68,7 +68,7 @@ export default function ProblemStatements() {
       {/* Section Heading */}
       <div className="text-center mb-12 sm:mb-16">
         <h2 className="section-heading text-display-lg leading-tight">
-          PROBLEM STATEMENTS
+          HACKING THEMES
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
         <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
@@ -108,7 +108,7 @@ export default function ProblemStatements() {
               </div>
 
               {/* Action Link (Hick's Law: Exactly one clear action per card) */}
-              <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
+              {/* <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between">
                 <Link
                   href={problem.briefUrl}
                   className="inline-flex items-center gap-2 font-accent text-caption-xs sm:text-caption-sm font-bold uppercase tracking-wider text-spidey-red hover:text-web-white transition-colors group"
@@ -129,7 +129,7 @@ export default function ProblemStatements() {
                     />
                   </svg>
                 </Link>
-              </div>
+              </div> */}
             </Card>
           </motion.div>
         ))}
@@ -160,9 +160,9 @@ export default function ProblemStatements() {
                     <span className="font-accent text-caption-xs font-bold uppercase tracking-widest text-spidey-red">
                       {domain.domain}
                     </span>
-                    <span className="font-accent text-[10px] uppercase font-bold text-web-gray/80 px-2 py-0.5 rounded bg-white/5 border border-white/10">
+                    {/* <span className="font-accent text-[10px] uppercase font-bold text-web-gray/80 px-2 py-0.5 rounded bg-white/5 border border-white/10">
                       {domain.id.toUpperCase()}
-                    </span>
+                    </span> */}
                   </div>
                   <h4 className="font-body font-bold text-body-base sm:text-heading-sm text-web-white leading-snug">
                     {domain.title}
@@ -172,7 +172,7 @@ export default function ProblemStatements() {
                   </p>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-end">
+                {/* <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-end">
                   <Link
                     href={domain.briefUrl}
                     className="font-accent text-caption-xs font-bold uppercase tracking-wider text-web-gray hover:text-spidey-red transition-colors inline-flex items-center gap-1"
@@ -180,7 +180,7 @@ export default function ProblemStatements() {
                     <span>Learn more</span>
                     <span>&rarr;</span>
                   </Link>
-                </div>
+                </div> */}
               </Card>
             </motion.div>
           ))}
