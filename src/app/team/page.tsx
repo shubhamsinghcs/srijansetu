@@ -70,8 +70,8 @@ export default function TeamPage() {
         <div className="space-y-16 sm:space-y-20">
           <section aria-labelledby="faculty-heading">
             <div className="text-center mb-8">
-              <h2 id="faculty-heading" className="section-heading text-display-md leading-tight">
-                WITH GRATITUDE TO OUR FACULTY AND ADMINISTRATION
+              <h2 id="faculty-heading" className="section-heading text-display-lg leading-tight">
+                FACULTY AND ADMINISTRATION
               </h2>
               <p className="text-white/70 font-body max-w-2xl mx-auto mt-3">
                 Thank you to the faculty members whose guidance and encouragement make Srijan Setu possible.

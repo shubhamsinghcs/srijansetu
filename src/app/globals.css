@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,7 +58,8 @@ body::before {
   .section-heading,
   .heading-outline,
   .hollow-heading-red {
-    @apply font-display uppercase tracking-[0.06em];
+    font-family: var(--font-bangers), 'Bangers', cursive !important;
+    @apply uppercase tracking-[0.06em];
     -webkit-text-stroke: 1.6px #E62429;
     color: transparent;
     text-shadow: 0 0 35px rgba(230, 36, 41, 0.45);

@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
   const pathname = usePathname();
-  const homeHref = pathname === "/" ? "#home" : "/#home";
+  const homeHref = pathname === "/" ? "/" : "/";
 
   useEffect(() => {
     const handleScroll = () => {
