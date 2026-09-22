@@ -166,23 +166,23 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-3 sm:mb-5 w-full max-w-5xl lg:max-w-6xl px-4 flex items-center justify-center gap-4 xs:gap-6 sm:gap-8 md:gap-12 lg:gap-16 flex-wrap sm:flex-nowrap"
+          className="mb-2 sm:mb-4 w-full max-w-4xl lg:max-w-5xl px-4 flex items-center justify-center gap-3 xs:gap-5 sm:gap-7 md:gap-10 lg:gap-12 flex-wrap sm:flex-nowrap"
         >
           {heroPartnerLogos.map((sponsor) => (
             <motion.div
               key={sponsor.name}
               whileHover={{ scale: 1.08 }}
               transition={{ duration: 0.2 }}
-              className="relative flex items-center justify-center flex-shrink-0 cursor-pointer h-10 xs:h-12 sm:h-14 md:h-16 lg:h-18"
+              className="flex items-center justify-center flex-shrink-0 cursor-pointer"
             >
               <Image
                 src={sponsor.src}
                 alt={sponsor.name}
-                width={200}
-                height={80}
+                width={240}
+                height={120}
                 unoptimized
                 priority
-                className="max-h-full w-auto max-w-[140px] xs:max-w-[170px] sm:max-w-[210px] md:max-w-[250px] object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+                className={`${sponsor.heightClass} w-auto object-contain drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]`}
               />
             </motion.div>
           ))}
@@ -195,14 +195,14 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.08 }}
           className="mb-2 sm:mb-3 flex flex-col items-center gap-1.5"
         >
-          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90 mt-2">
+          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90 mt-3">
             INDO GLOBAL COLLEGES
           </span>
-          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs mt-1">
+          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs mt-3">
             PRESENTS
           </span>
-           <span className="pill-badge pill-badge-blue">
-            24-HOUR NATIONAL HACKATHON
+           <span className="pill-badge pill-badge-blue mt-4">
+            24-HOUR NATIONAL LEVEL HACKATHON
           </span>
         </motion.div>
 
@@ -239,12 +239,12 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
         </p> */}
 
         {/* 6. Hero-Anchored Glassmorphic Digital Countdown Display */}
-        <div className="mt-0 sm:mt-6 w-full flex justify-center px-2">
+        <div className="mt-4 sm:mt-6 w-full flex justify-center px-2">
           <Countdown targetDate={eventDate} />
         </div>
 
         {/* 8. Focal Point CTA: Apply with Devfolio */}
-        <div className="mt-0 sm:mt-6 flex flex-col items-center">
+        <div className="mt-4 sm:mt-6 flex flex-col items-center">
           <DevfolioButton />
 
           {/* Scarcity / Urgency Microcopy */}
