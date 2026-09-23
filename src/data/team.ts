@@ -3,8 +3,8 @@ import type { TeamMember } from "@/types/event";
 export const faculty: TeamMember[] = [
   {
     id: "faculty-001",
-    name: "Manav Singahla",
-    role: "Chairman",
+    name: "Neelam Singla",
+    role: "Chairperson ma'am",
     tier: "faculty",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
@@ -15,6 +15,18 @@ export const faculty: TeamMember[] = [
   },
   {
     id: "faculty-002",
+    name: "Manav Singla",
+    role: "CEO",
+    tier: "faculty",
+    // image: "/images/people/team/shubham.jpg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-003",
     name: "Dr. Promila Kaushal",
     role: "Principal IGCE",
     tier: "faculty",
@@ -26,9 +38,9 @@ export const faculty: TeamMember[] = [
     // },
   },
   {
-    id: "faculty-003",
-    name: "Dr. Harmeet",
-    role: "Principal IGMT",
+    id: "faculty-004",
+    name: "Dr. Hardeep Singh Saini",
+    role: "Principal IGCMT",
     tier: "faculty",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
@@ -38,7 +50,7 @@ export const faculty: TeamMember[] = [
     // },
   },
   {
-    id: "faculty-004",
+    id: "faculty-005",
     name: "Er. Shaweta ",
     role: "HoD CSE",
     tier: "faculty",

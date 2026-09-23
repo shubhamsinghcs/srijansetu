@@ -125,10 +125,7 @@ export default function About() {
             className="max-w-[600px] mb-8 space-y-4"
           >
             <p className="text-white/85 font-body text-body-base sm:text-body-lg leading-relaxed font-normal">
-              Indo Global College presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
-            </p>
-            <p className="text-white/70 font-body text-body-sm sm:text-body-base leading-relaxed font-normal">
-              Srijan Setu brings together developers, students, innovators, mentors, and industry professionals to work on problems that go beyond a hackathon presentation. The focus is simple: understand the problem, build a solution, and make it work.
+              Indo Global Colleges presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
             </p>
           </div>
 
@@ -142,7 +139,7 @@ export default function About() {
               <p className="m-0 card-desc leading-relaxed">
                 Srijan Setu is a 24-hour build-focused hackathon where participants work on real-world problem statements from areas that matter. Instead of stopping at an idea or a presentation, teams get 24 hours to turn their thinking into a working prototype.
               </p>
-              <p className="m-0 mt-3 card-desc text-white/90 font-medium leading-relaxed">
+              <p className="m-0 mt-3 card-desc text-blue-400 font-medium leading-relaxed">
                 It&apos;s about building something useful, testing it, breaking it, fixing it, and shipping it.
               </p>
             </article>
