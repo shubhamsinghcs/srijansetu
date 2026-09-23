@@ -13,7 +13,7 @@ if (typeof window !== "undefined") {
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
-  const introRef = useRef<HTMLDivElement>(null);
+  const introRef = useRef<HTMLParagraphElement>(null);
   const dividerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement>(null);
 
@@ -119,40 +119,45 @@ export default function About() {
             className="h-[2px] my-5 bg-gradient-to-r from-spidey-red to-transparent rounded-full"
           />
 
-          {/* Intro Paragraphs */}
-          <div
+          {/* Intro Paragraph */}
+          <p
             ref={introRef}
-            className="max-w-[600px] mb-8 space-y-4"
+            className="max-w-[600px] mb-8 text-white/80 font-body text-body-base sm:text-body-lg leading-relaxed font-normal"
           >
+<<<<<<< HEAD
             <p className="text-white/85 font-body text-body-base sm:text-body-lg leading-relaxed font-normal">
               Indo Global Colleges presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
             </p>
           </div>
+=======
+           Indo Global College presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
+          </p>
+>>>>>>> 15245ec370092b16207d89f0419097cfd2f38466
 
           {/* Content Cards */}
           <div ref={cardsRef} className="grid gap-4">
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-red/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-red to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-3 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
-                What is Srijan Setu?
+              <h3 className="m-0 mb-2 text-white text-heading-sm sm:text-heading-md font-bold tracking-tight">
+                What Srijan Setu Is?
               </h3>
-              <p className="m-0 card-desc leading-relaxed">
+              <p className="m-0 card-desc">
                 Srijan Setu is a 24-hour build-focused hackathon where participants work on real-world problem statements from areas that matter. Instead of stopping at an idea or a presentation, teams get 24 hours to turn their thinking into a working prototype.
               </p>
+<<<<<<< HEAD
               <p className="m-0 mt-3 card-desc text-blue-400 font-medium leading-relaxed">
                 It&apos;s about building something useful, testing it, breaking it, fixing it, and shipping it.
               </p>
+=======
+>>>>>>> 15245ec370092b16207d89f0419097cfd2f38466
             </article>
 
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-blue/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
               <span className="ss-card-line absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-transparent via-spidey-blue to-transparent origin-center scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
-              <h3 className="m-0 mb-3 text-white font-body text-heading-sm sm:text-heading-md font-bold tracking-tight">
-                How It Works
+              <h3 className="m-0 mb-2 text-white text-heading-sm sm:text-heading-md font-bold tracking-tight">
+                How It Works?
               </h3>
-              <p className="m-0 mb-2 card-desc text-white/90 font-medium leading-relaxed">
-                Form your team, choose a problem statement, and start building.
-              </p>
-              <p className="m-0 card-desc leading-relaxed">
+              <p className="m-0 card-desc">
                 You get 24 hours to research, design, code, test, and develop your solution with support from mentors throughout the event. At the end, teams present their working prototype to the jury, explain the problem they solved, and show what they built.
               </p>
             </article>

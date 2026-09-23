@@ -195,15 +195,14 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.08 }}
           className="mb-2 sm:mb-3 flex flex-col items-center gap-1.5"
         >
-
-          <span className="pill-badge pill-badge-red my-5">
-            24-HOUR NATIONAL HACKATHON
-          </span>
-          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90">
+          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90 mt-3">
             INDO GLOBAL COLLEGES
           </span>
-          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs">
+          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs mt-3">
             PRESENTS
+          </span>
+           <span className="pill-badge pill-badge-blue mt-4">
+            24-HOUR NATIONAL LEVEL HACKATHON
           </span>
         </motion.div>
 
