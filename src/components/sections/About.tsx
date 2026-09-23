@@ -124,15 +124,8 @@ export default function About() {
             ref={introRef}
             className="max-w-[600px] mb-8 text-white/80 font-body text-body-base sm:text-body-lg leading-relaxed font-normal"
           >
-<<<<<<< HEAD
-            <p className="text-white/85 font-body text-body-base sm:text-body-lg leading-relaxed font-normal">
-              Indo Global Colleges presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
-            </p>
-          </div>
-=======
-           Indo Global College presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
+            Indo Global Colleges presents Srijan Setu. A 24-hour national-level hackathon built around one simple idea: real problems deserve real solutions.
           </p>
->>>>>>> 15245ec370092b16207d89f0419097cfd2f38466
 
           {/* Content Cards */}
           <div ref={cardsRef} className="grid gap-4">
@@ -144,12 +137,9 @@ export default function About() {
               <p className="m-0 card-desc">
                 Srijan Setu is a 24-hour build-focused hackathon where participants work on real-world problem statements from areas that matter. Instead of stopping at an idea or a presentation, teams get 24 hours to turn their thinking into a working prototype.
               </p>
-<<<<<<< HEAD
               <p className="m-0 mt-3 card-desc text-blue-400 font-medium leading-relaxed">
                 It&apos;s about building something useful, testing it, breaking it, fixing it, and shipping it.
               </p>
-=======
->>>>>>> 15245ec370092b16207d89f0419097cfd2f38466
             </article>
 
             <article className="ss-about-card group relative p-6 sm:p-7 border border-white/10 hover:border-spidey-blue/50 rounded-[14px] bg-gradient-to-br from-white/[0.05] to-white/[0.015] backdrop-blur-xl overflow-hidden transition-colors duration-300">
