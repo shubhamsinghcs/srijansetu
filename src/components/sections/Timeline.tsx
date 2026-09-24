@@ -12,10 +12,13 @@ export default function Timeline({ preview = false }: TimelineProps) {
   return (
     <section
       id="timeline"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
+      className="relative py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto overflow-hidden"
     >
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[550px] h-[300px] bg-spidey-blue/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
+
       {/* Section Header */}
-      <div className="text-center mb-16 sm:mb-20">
+      <div className="text-center mb-8 sm:mb-12">
         <h2 className="section-heading text-display-lg leading-tight">
           TIMELINE
         </h2>
@@ -40,7 +43,7 @@ export default function Timeline({ preview = false }: TimelineProps) {
         />
 
         {/* Timeline Items */}
-        <div className="space-y-8 sm:space-y-10 md:space-y-16">
+        <div className="space-y-6 sm:space-y-8 md:space-y-10">
           {visibleEvents.map((item: TimelineEvent, index) => {
             const isEven = index % 2 === 0;
 

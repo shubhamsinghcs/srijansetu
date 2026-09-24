@@ -95,16 +95,16 @@ export default function About() {
     <section
       ref={sectionRef}
       id="about"
-      className="relative w-full min-h-[100svh] overflow-hidden text-white border-y border-[#E62429]/20"
+      className="relative w-full overflow-hidden text-white border-y border-[#E62429]/20"
       style={{
         background:
           "radial-gradient(circle at 20% 50%, rgba(230, 36, 41, 0.12), transparent 34%), radial-gradient(circle at 80% 50%, rgba(29, 78, 216, 0.08), transparent 30%), #0A0A0F",
         isolation: "isolate",
       }}
     >
-      <div className="relative z-10 w-[min(1380px,92vw)] min-h-[100svh] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 sm:gap-12 lg:gap-16 py-12 sm:py-16">
+      <div className="relative z-10 w-[min(1380px,92vw)] mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-8 sm:gap-12 lg:gap-16 py-10 sm:py-14 lg:py-16">
         {/* LEFT: ABOUT CONTENT (text stays on the left, unchanged) */}
-        <div className="relative z-30 max-w-[650px] py-6 sm:py-10 order-1 lg:order-1">
+        <div className="relative z-30 max-w-[650px] py-2 sm:py-4 order-1 lg:order-1">
           {/* Section Title */}
           <h2
             ref={titleRef}
@@ -161,8 +161,8 @@ export default function About() {
       </div>
 
       {/* Section Bottom Cracked-Web Divider */}
-      <div className="relative z-10 w-full mt-8 sm:mt-12">
-        <WebDivider />
+      <div className="relative z-10 w-full mt-4 sm:mt-6">
+        <WebDivider className="py-2" />
       </div>
     </section>
   );

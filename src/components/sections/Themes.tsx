@@ -91,10 +91,11 @@ export default function Themes() {
       ref={sectionRef}
       id="themes"
       aria-labelledby="themes-heading"
-      className="relative mx-auto max-w-7xl px-4 py-16 sm:py-24 lg:px-8 scroll-mt-20"
+      className="relative mx-auto max-w-7xl px-4 py-10 sm:py-14 lg:py-16 scroll-mt-20"
     >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-spidey-red/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
       <div id="problem-statements" className="sr-only" aria-hidden="true" />
-      <div ref={headingRef} className="mb-10 text-center sm:mb-14">
+      <div ref={headingRef} className="mb-8 text-center sm:mb-10">
         <h2
           ref={titleRef}
           id="themes-heading"

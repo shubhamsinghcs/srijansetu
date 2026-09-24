@@ -83,10 +83,13 @@ export default function Prizes() {
     <section
       ref={sectionRef}
       id="prizes"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-spidey-red/5 rounded-full blur-[120px] pointer-events-none -z-10" aria-hidden="true" />
+
       {/* Section Header */}
-      <div className="text-center mb-12 sm:mb-16">
+      <div className="text-center mb-6 sm:mb-8">
         <h2 className="section-heading text-display-lg leading-tight">
           PRIZES
         </h2>
@@ -97,7 +100,7 @@ export default function Prizes() {
       </div>
 
       {/* Large Headline Number: Total Prize Pool */}
-      <div className="text-center mb-12 sm:mb-16">
+      <div className="text-center mb-8 sm:mb-10">
         <span className="font-accent text-label font-bold uppercase tracking-[0.22em] text-white/70">
           TOTAL PRIZE POOL
         </span>

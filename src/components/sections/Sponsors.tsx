@@ -25,31 +25,23 @@ export default function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
-      {/* Section Header */}
-      {/* <div className="text-center mb-16 sm:mb-20">
-        <h2 className="section-heading text-display-lg leading-tight">
-          SPONSORS & PARTNERS
-        </h2>
-        <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
-        <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
-          Backed by forward-thinking organizations, industry leaders, and vibrant developer communities.
-        </p>
-      </div> */}
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-spidey-blue/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
 
       {/* Tiers Container */}
-      <div className="space-y-16 sm:space-y-20">
+      <div className="space-y-10 sm:space-y-12">
         {visibleTiers.map(({ id, title, subtitle, partners }) => {
 
           return (
             <div key={id} className="text-center">
               {/* Tier Subheading */}
-              <div className="mb-6 sm:mb-8">
+              <div className="mb-4 sm:mb-6">
                 <h3 className="section-heading text-display-lg leading-tight">
                   {title}
                 </h3>
-                <p className="text-blue-400 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal mt-3">
+                <p className="text-blue-400 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal mt-2">
                   {subtitle}
                 </p>
               </div>

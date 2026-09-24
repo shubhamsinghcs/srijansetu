@@ -38,7 +38,7 @@ export default function Footer() {
   };
 
   return (
-    <footer id="contact" className="relative bg-[#07070B] border-t border-spidey-red/40 text-web-white mt-20 sm:mt-28 overflow-hidden">
+    <footer id="contact" className="relative bg-[#07070B] border-t border-spidey-red/40 text-web-white mt-10 sm:mt-14 overflow-hidden">
       {/* Background Soft Glow Aura */}
       <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-3/4 h-32 bg-radial-gradient from-spidey-red/10 via-spidey-blue/5 to-transparent blur-3xl pointer-events-none" />
 

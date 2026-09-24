@@ -255,8 +255,8 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
       </div>
 
       {/* Section Transition Web Divider */}
-      <div className="relative z-10 w-full mt-4 sm:mt-6">
-        <WebDivider />
+      <div className="relative z-10 w-full mt-2 sm:mt-4">
+        <WebDivider className="py-2" />
       </div>
     </section>
   );
