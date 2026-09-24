@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Themes from "@/components/sections/Themes";
 import ProblemStatements from "@/components/sections/ProblemStatements";
 import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
@@ -15,6 +16,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Themes />
       <ProblemStatements />
       <Timeline preview />
       <Prizes />

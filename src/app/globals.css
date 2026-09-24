@@ -160,6 +160,26 @@ body::before {
   }
 }
 
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+  .rotate-y-0 {
+    transform: rotateY(0deg);
+  }
+}
+
 /* Reduced motion preference respect */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {
