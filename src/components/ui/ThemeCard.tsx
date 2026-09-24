@@ -30,7 +30,7 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
         type="button"
         onClick={flipCard}
         aria-pressed={isFlipped}
-        aria-label={`Theme ${number}: ${theme.name}. Click to ${isFlipped ? "flip back to domain title" : "flip and view domain description"}.`}
+        aria-label={`Theme ${number}: ${theme.name}. Click to ${isFlipped ? "flip back" : "flip and view details"}.`}
         className="group relative block w-full h-full text-left rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-spidey-red focus-visible:ring-offset-2 focus-visible:ring-offset-web-black cursor-pointer select-none"
       >
         <div
@@ -58,13 +58,10 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
                 : "backface-hidden rotate-y-0"
             } ${isFlipped && !prefersReducedMotion ? "pointer-events-none" : ""}`}
           >
-            {/* Top row: Number & Domain tag */}
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-3xl sm:text-4xl font-black tracking-tight text-spidey-red">
+            {/* Top: Number */}
+            <div>
+              <span className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-spidey-red">
                 {number}
-              </span>
-              <span className="text-[11px] font-mono tracking-widest uppercase text-white/35">
-                DOMAIN // {number}
               </span>
             </div>
 
@@ -75,16 +72,10 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
               </h3>
             </div>
 
-            {/* Bottom: Subtle interaction indicator */}
+            {/* Bottom: Action hint */}
             <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between text-white/45 group-hover:text-spidey-red transition-colors duration-300">
-              <span className="text-[11px] font-semibold tracking-widest uppercase font-accent">
-                VIEW DOMAIN
-              </span>
-              <span
-                aria-hidden="true"
-                className="text-sm font-bold transition-transform duration-300 group-hover:translate-x-1"
-              >
-                &rarr;
+              <span className="text-xs font-medium tracking-wide">
+                Click to view details
               </span>
             </div>
           </div>
@@ -100,20 +91,11 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
                 : "backface-hidden rotate-y-180"
             } ${!isFlipped && !prefersReducedMotion ? "pointer-events-none" : ""}`}
           >
-            {/* Content: Header, Title, Description */}
+            {/* Top & Content */}
             <div>
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xl font-bold tracking-tight text-spidey-red">
-                    {number}
-                  </span>
-                  <span className="text-white/30 text-xs">—</span>
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-white/40">
-                    OVERVIEW
-                  </span>
-                </div>
-                <span className="text-[11px] font-mono tracking-wider uppercase text-white/35 group-hover:text-white/70 transition-colors">
-                  FLIP ↺
+              <div className="mb-3">
+                <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-spidey-red">
+                  {number}
                 </span>
               </div>
 
@@ -128,16 +110,10 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
               </p>
             </div>
 
-            {/* Bottom: Return indicator */}
+            {/* Bottom: Return hint */}
             <div className="pt-3 border-t border-spidey-red/20 flex items-center justify-between text-white/45 group-hover:text-spidey-red transition-colors duration-300">
-              <span className="text-[11px] font-semibold tracking-widest uppercase font-accent">
-                BACK TO DOMAIN
-              </span>
-              <span
-                aria-hidden="true"
-                className="text-sm font-bold transition-transform duration-300 group-hover:-translate-x-1"
-              >
-                &larr;
+              <span className="text-xs font-medium tracking-wide">
+                Click to flip back
               </span>
             </div>
           </div>
