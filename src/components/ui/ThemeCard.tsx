@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import type { HackathonTheme } from "@/data/themes";
 
 interface ThemeCardProps {
@@ -25,7 +26,10 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
   const flipCard = () => setIsFlipped((prev) => !prev);
 
   return (
-    <div className="relative w-full h-[280px] sm:h-[285px] lg:h-[290px] perspective-1000">
+    <motion.div
+      whileHover={prefersReducedMotion ? {} : { y: -4, transition: { duration: 0.2 } }}
+      className="relative w-full h-[280px] sm:h-[285px] lg:h-[290px] perspective-1000"
+    >
       <button
         type="button"
         onClick={flipCard}
@@ -119,6 +123,6 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           </div>
         </div>
       </button>
-    </div>
+    </motion.div>
   );
 }

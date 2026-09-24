@@ -36,12 +36,12 @@ export default function Themes() {
       gsap.from(gridRef.current?.children ?? [], {
         scrollTrigger: {
           trigger: gridRef.current,
-          start: "top 84%",
+          start: "top 85%",
           once: true,
         },
-        y: 24,
+        y: 25,
         opacity: 0,
-        duration: 0.6,
+        duration: 0.7,
         stagger: 0.08,
         ease: "power2.out",
         clearProps: "transform",
@@ -56,8 +56,9 @@ export default function Themes() {
       ref={sectionRef}
       id="themes"
       aria-labelledby="themes-heading"
-      className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8"
+      className="relative mx-auto max-w-7xl px-4 py-16 sm:py-24 lg:px-8 scroll-mt-20"
     >
+      <div id="problem-statements" className="sr-only" aria-hidden="true" />
       <div ref={headingRef} className="mb-10 text-center sm:mb-14">
         <h2 id="themes-heading" className="section-heading text-display-lg leading-tight">
           HACKATHON THEMES

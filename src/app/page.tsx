@@ -2,7 +2,6 @@ import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Themes from "@/components/sections/Themes";
-import ProblemStatements from "@/components/sections/ProblemStatements";
 import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
 import Sponsors from "@/components/sections/Sponsors";
@@ -17,7 +16,6 @@ export default function Home() {
       <Hero />
       <About />
       <Themes />
-      <ProblemStatements />
       <Timeline preview />
       <Prizes />
       <Sponsors />
