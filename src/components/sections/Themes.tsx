@@ -13,6 +13,9 @@ if (typeof window !== "undefined") {
 export default function Themes() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const dividerRef = useRef<HTMLDivElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const activeThemes = themes.filter((theme) => theme.active).sort((a, b) => a.order - b.order);
 
@@ -21,17 +24,48 @@ export default function Themes() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const context = gsap.context(() => {
-      gsap.from(headingRef.current, {
+      const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top 82%",
           once: true,
         },
-        y: 20,
-        opacity: 0,
-        duration: 0.6,
-        ease: "power2.out",
       });
+
+      if (titleRef.current) {
+        tl.from(titleRef.current, {
+          y: 28,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        });
+      }
+
+      if (dividerRef.current) {
+        tl.from(
+          dividerRef.current,
+          {
+            scaleX: 0,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        );
+      }
+
+      if (subtitleRef.current) {
+        tl.from(
+          subtitleRef.current,
+          {
+            y: 16,
+            opacity: 0,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.25"
+        );
+      }
 
       gsap.from(gridRef.current?.children ?? [], {
         scrollTrigger: {
@@ -39,12 +73,13 @@ export default function Themes() {
           start: "top 85%",
           once: true,
         },
-        y: 25,
+        y: 36,
         opacity: 0,
-        duration: 0.7,
+        scale: 0.96,
+        duration: 0.75,
         stagger: 0.08,
-        ease: "power2.out",
-        clearProps: "transform",
+        ease: "power3.out",
+        clearProps: "all",
       });
     }, sectionRef);
 
@@ -60,11 +95,22 @@ export default function Themes() {
     >
       <div id="problem-statements" className="sr-only" aria-hidden="true" />
       <div ref={headingRef} className="mb-10 text-center sm:mb-14">
-        <h2 id="themes-heading" className="section-heading text-display-lg leading-tight">
+        <h2
+          ref={titleRef}
+          id="themes-heading"
+          className="section-heading text-display-lg leading-tight"
+        >
           HACKATHON THEMES
         </h2>
-        <div className="mx-auto mt-4 mb-4 h-1 w-24 rounded-full bg-spidey-red" aria-hidden="true" />
-        <p className="mx-auto max-w-2xl px-4 font-body text-body-base font-normal leading-relaxed text-white/75 sm:text-body-lg">
+        <div
+          ref={dividerRef}
+          className="mx-auto mt-4 mb-4 h-1 w-24 rounded-full bg-spidey-red origin-center"
+          aria-hidden="true"
+        />
+        <p
+          ref={subtitleRef}
+          className="mx-auto max-w-2xl px-4 font-body text-body-base font-normal leading-relaxed text-white/75 sm:text-body-lg"
+        >
           Choose a problem space. Explore the opportunity. Build something useful.
         </p>
       </div>
