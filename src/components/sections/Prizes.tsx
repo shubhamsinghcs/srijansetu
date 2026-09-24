@@ -1,83 +1,87 @@
+"use client";
+
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "framer-motion";
 import { prizes, totalPrizePool, PrizeItem } from "@/data/prizes";
 import Card from "@/components/ui/Card";
 
-export default function Prizes() {
-  const winner = prizes.find((p) => p.place === "Winner");
-  const firstRunnerUp = prizes.find((p) => p.place === "1st Runner Up");
-  const secondRunnerUp = prizes.find((p) => p.place === "2nd Runner Up");
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-  const renderPrizeCard = (
-    prize: PrizeItem | undefined,
-    isWinner: boolean = false,
-    trophyColor: string = "text-yellow-400"
-  ) => {
-    if (!prize) return null;
+export default function Prizes() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!sectionRef.current || !cardsRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const ctx = gsap.context(() => {
+      gsap.from(cardsRef.current?.children ?? [], {
+        scrollTrigger: {
+          trigger: cardsRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        y: 30,
+        opacity: 0,
+        duration: 0.65,
+        stagger: 0.09,
+        ease: "power2.out",
+        clearProps: "transform",
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const renderIcon = (prize: PrizeItem) => {
+    if (prize.iconType === "ai" || prize.place === "Best Use of AI") {
+      return (
+        <svg
+          className="w-7 h-7 sm:w-10 sm:h-10 text-cyan-400"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M19 9l1.25-2.75L23 5l-2.75-1.25L19 1l-1.25 2.75L15 5l2.75 1.25L19 9zm-7.5.5L9 4 6.5 9.5 1 12l5.5 2.5L9 20l2.5-5.5L17 12l-5.5-2.5zM19 15l-1.25 2.75L15 19l2.75 1.25L19 23l1.25-2.75L23 19l-2.75-1.25L19 15z" />
+        </svg>
+      );
+    }
+
+    const trophyColor =
+      prize.place === "Winner"
+        ? "text-yellow-400"
+        : prize.place === "Runner Up" || prize.place === "1st Runner Up"
+        ? "text-slate-300"
+        : "text-amber-500";
 
     return (
-      <Card
-        variant={isWinner ? "featured" : "default"}
-        className={`text-center transition-transform duration-300 ${
-          isWinner
-            ? "border-spidey-red shadow-[0_0_35px_rgba(227,38,54,0.45)] lg:-translate-y-4 py-8 px-5 sm:px-8 z-10"
-            : "border-white/10 hover:border-spidey-red/60 py-6 px-5 sm:px-7"
-        }`}
+      <svg
+        className={`w-7 h-7 sm:w-10 sm:h-10 ${trophyColor}`}
+        fill="currentColor"
+        viewBox="0 0 24 24"
       >
-        <div className="flex flex-col items-center">
-          {/* Trophy Icon */}
-          <div
-            className={`w-14 h-14 sm:w-20 sm:h-20 rounded-full flex items-center justify-center mb-4 ${
-              isWinner
-                ? "bg-spidey-red/20 border-2 border-spidey-red shadow-[0_0_20px_rgba(227,38,54,0.6)]"
-                : "bg-white/5 border border-white/15"
-            }`}
-          >
-            <svg
-              className={`w-7 h-7 sm:w-10 sm:h-10 ${trophyColor}`}
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
-            </svg>
-          </div>
-
-          {/* Place Tag */}
-          <span
-            className={`mb-3 ${
-              isWinner
-                ? "pill-badge pill-badge-red"
-                : "pill-badge pill-badge-neutral"
-            }`}
-          >
-            {prize.place}
-          </span>
-
-          {/* Label */}
-          <h3 className="text-base sm:text-lg font-bold text-web-white">
-            {prize.label}
-          </h3>
-
-          {/* Amount */}
-          <div
-            className={`font-accent font-black tracking-wider my-3 sm:my-4 ${
-              isWinner
-                ? "text-2xl sm:text-3xl md:text-4xl text-spidey-red drop-shadow-[0_2px_15px_rgba(227,38,54,0.5)]"
-                : "text-xl sm:text-2xl md:text-3xl text-web-white"
-            }`}
-          >
-            {prize.amount}
-          </div>
-
-          {/* Subtle note */}
-          <p className="font-body text-xs text-web-gray mt-1 sm:mt-2 uppercase tracking-wider font-normal">
-            Cash Prize + Goodies & Perks
-          </p>
-        </div>
-      </Card>
+        <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94.63 1.5 1.98 2.63 3.61 2.96V19H7v2h10v-2h-4v-3.1c1.63-.33 2.98-1.46 3.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z" />
+      </svg>
     );
+  };
+
+  const renderBadge = (prize: PrizeItem) => {
+    if (prize.place === "Winner") {
+      return <span className="mb-3 pill-badge pill-badge-red">{prize.place}</span>;
+    }
+    if (prize.place === "Best Use of AI") {
+      return <span className="mb-3 pill-badge pill-badge-blue">{prize.place}</span>;
+    }
+    return <span className="mb-3 pill-badge pill-badge-neutral">{prize.place}</span>;
   };
 
   return (
     <section
+      ref={sectionRef}
       id="prizes"
       className="relative py-20 sm:py-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
@@ -102,22 +106,75 @@ export default function Prizes() {
         </div>
       </div>
 
-      {/* Three Prize Cards (Podium Layout: Winner Centered & Largest) */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-center max-w-5xl mx-auto">
-        {/* 1st Runner Up (Left on Desktop, 2nd on Mobile) */}
-        <div className="order-2 lg:order-1">
-          {renderPrizeCard(firstRunnerUp, false, "text-gray-300")}
-        </div>
+      {/* Four Prize Cards Grid */}
+      <div
+        ref={cardsRef}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7 items-stretch max-w-7xl mx-auto"
+      >
+        {prizes.map((prize) => {
+          const isWinner = prize.place === "Winner";
+          const isAI = prize.place === "Best Use of AI";
 
-        {/* Winner (Centered, Largest & Featured, 1st on Mobile) */}
-        <div className="order-1 lg:order-2">
-          {renderPrizeCard(winner, true, "text-yellow-400")}
-        </div>
+          return (
+            <motion.div
+              key={prize.place}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="h-full flex flex-col"
+            >
+              <Card
+                variant={isWinner ? "featured" : "default"}
+                className={`h-full text-center transition-all duration-300 flex flex-col justify-between ${
+                  isWinner
+                    ? "border-spidey-red shadow-[0_0_35px_rgba(227,38,54,0.45)] lg:-translate-y-2 py-8 px-5 sm:px-6"
+                    : isAI
+                    ? "border-spidey-blue/40 hover:border-cyan-400/60 shadow-[0_0_25px_rgba(29,78,216,0.18)] py-6 px-5 sm:px-6"
+                    : "border-white/10 hover:border-spidey-red/60 py-6 px-5 sm:px-6"
+                }`}
+              >
+                <div className="flex flex-col items-center">
+                  {/* Icon Container */}
+                  <div
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-4 ${
+                      isWinner
+                        ? "bg-spidey-red/20 border-2 border-spidey-red shadow-[0_0_20px_rgba(227,38,54,0.6)]"
+                        : isAI
+                        ? "bg-blue-500/15 border border-cyan-400/40 shadow-[0_0_15px_rgba(56,189,248,0.25)]"
+                        : "bg-white/5 border border-white/15"
+                    }`}
+                  >
+                    {renderIcon(prize)}
+                  </div>
 
-        {/* 2nd Runner Up (Right on Desktop, 3rd on Mobile) */}
-        <div className="order-3 lg:order-3">
-          {renderPrizeCard(secondRunnerUp, false, "text-amber-600")}
-        </div>
+                  {/* Place Tag */}
+                  {renderBadge(prize)}
+
+                  {/* Label */}
+                  <h3 className="text-base sm:text-lg font-bold text-web-white">
+                    {prize.label}
+                  </h3>
+
+                  {/* Amount */}
+                  <div
+                    className={`font-accent font-black tracking-wider my-3 sm:my-4 ${
+                      isWinner
+                        ? "text-2xl sm:text-3xl text-spidey-red drop-shadow-[0_2px_15px_rgba(227,38,54,0.5)]"
+                        : isAI
+                        ? "text-xl sm:text-2xl text-cyan-300 drop-shadow-[0_2px_12px_rgba(56,189,248,0.3)]"
+                        : "text-xl sm:text-2xl text-web-white"
+                    }`}
+                  >
+                    {prize.amount}
+                  </div>
+                </div>
+
+                {/* Subtle note */}
+                <p className="font-body text-xs text-web-gray mt-2 uppercase tracking-wider font-normal">
+                  Cash Prize + Goodies & Perks
+                </p>
+              </Card>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
