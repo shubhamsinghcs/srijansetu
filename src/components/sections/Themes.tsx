@@ -95,7 +95,7 @@ export default function Themes() {
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-spidey-red/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
       <div id="problem-statements" className="sr-only" aria-hidden="true" />
-      <div ref={headingRef} className="mb-8 text-center sm:mb-10">
+      <div ref={headingRef} className="text-center mb-8 sm:mb-12">
         <h2
           ref={titleRef}
           id="themes-heading"
@@ -105,12 +105,12 @@ export default function Themes() {
         </h2>
         <div
           ref={dividerRef}
-          className="mx-auto mt-4 mb-4 h-1 w-24 rounded-full bg-spidey-red origin-center"
+          className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full origin-center"
           aria-hidden="true"
         />
         <p
           ref={subtitleRef}
-          className="mx-auto max-w-2xl px-4 font-body text-body-base font-normal leading-relaxed text-white/75 sm:text-body-lg"
+          className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal"
         >
           Choose a problem space. Explore the opportunity. Build something useful.
         </p>
