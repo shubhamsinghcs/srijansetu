@@ -5,26 +5,23 @@ export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media" | "
 export const sponsors: Sponsor[] = [
   {
     id: "corporate-001",
-    name: "Apex Global Systems",
-    logo: "/images/logos/sponsors/apex-global.svg",
+    name: "Refreshment Partner",
+    logo: "",
     tier: "Corporate",
-    website: "#",
     order: 1,
   },
   {
     id: "corporate-002",
-    name: "Nexus Cloud Ventures",
-    logo: "/images/logos/sponsors/nexus-ventures.svg",
+    name: "Kit Partner",
+    logo: "",
     tier: "Corporate",
-    website: "#",
     order: 2,
   },
   {
     id: "innovation-001",
-    name: "Quantum Logic Labs",
-    logo: "/images/logos/sponsors/quantum-logic.svg",
+    name: "Accommodation Partner",
+    logo: "",
     tier: "Innovation",
-    website: "#",
     order: 3,
   },
 ];
