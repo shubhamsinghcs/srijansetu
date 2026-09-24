@@ -13,7 +13,6 @@ if (typeof window !== "undefined") {
 export default function Themes() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const badgeRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLHeadingElement>(null);
   const dividerRef = useRef<HTMLDivElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
@@ -33,26 +32,13 @@ export default function Themes() {
         },
       });
 
-      if (badgeRef.current) {
-        tl.from(badgeRef.current, {
-          y: 16,
-          opacity: 0,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      }
-
       if (titleRef.current) {
-        tl.from(
-          titleRef.current,
-          {
-            y: 24,
-            opacity: 0,
-            duration: 0.6,
-            ease: "power3.out",
-          },
-          "-=0.25"
-        );
+        tl.from(titleRef.current, {
+          y: 28,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        });
       }
 
       if (dividerRef.current) {
@@ -110,17 +96,12 @@ export default function Themes() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-spidey-red/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
       <div id="problem-statements" className="sr-only" aria-hidden="true" />
       <div ref={headingRef} className="mb-8 text-center sm:mb-10">
-        <div ref={badgeRef} className="mb-3">
-          <span className="pill-badge pill-badge-red">
-            HACKING THEMES
-          </span>
-        </div>
         <h2
           ref={titleRef}
           id="themes-heading"
           className="section-heading text-display-lg leading-tight"
         >
-          HACKATHON THEMES
+          HACKING THEMES
         </h2>
         <div
           ref={dividerRef}
