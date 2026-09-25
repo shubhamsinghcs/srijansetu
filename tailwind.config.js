@@ -52,7 +52,7 @@ module.exports = {
       // Full defined typographic scale
       fontSize: {
         // System Type Scale
-        "display-2xl": ["clamp(5rem, 10vw, 12rem)", { lineHeight: "1.0", letterSpacing: "0.08em" }],
+        "display-2xl": ["clamp(2.8rem, 10vw, 12rem)", { lineHeight: "1.0", letterSpacing: "0.08em" }],
         "display-xl": ["clamp(3rem, 7vw, 6rem)", { lineHeight: "1.0", letterSpacing: "0.08em" }],
         "display-lg": ["clamp(2.2rem, 4.5vw, 3.75rem)", { lineHeight: "1.08", letterSpacing: "0.10em" }],
         "display-md": ["clamp(1.35rem, 2.5vw, 1.85rem)", { lineHeight: "1.2", letterSpacing: "0.06em" }],

@@ -79,7 +79,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
       ref={sectionRef}
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen w-full flex flex-col items-center justify-between text-center px-4 sm:px-6 lg:px-8 pt-2 sm:pt-2 md:pt-2 pb-2 overflow-hidden"
+      className="relative min-h-dvh w-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 py-8 sm:py-8 overflow-hidden"
     >
       {/* 4. Radial Spotlight Vignette: Bright/transparent at center, fading to web-black at viewport edges */}
       <div
@@ -91,11 +91,11 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
         aria-hidden="true"
       />
 
-      {/* 7. Camera-Viewfinder Corner-Bracket Accents (pure accents, no HUD text labels) */}
-      <div className="corner-bracket top-3 left-3 sm:top-6 sm:left-6 border-t-2 border-l-2" />
-      <div className="corner-bracket top-3 right-3 sm:top-6 sm:right-6 border-t-2 border-r-2" />
-      <div className="corner-bracket bottom-14 left-3 sm:bottom-16 sm:left-6 border-b-2 border-l-2" />
-      <div className="corner-bracket bottom-14 right-3 sm:bottom-16 sm:right-6 border-b-2 border-r-2" />
+      {/* 7. Camera-Viewfinder Corner-Bracket Accents — hidden on mobile to avoid clipping */}
+      <div className="corner-bracket hidden sm:block top-6 left-6 border-t-2 border-l-2" />
+      <div className="corner-bracket hidden sm:block top-6 right-6 border-t-2 border-r-2" />
+      <div className="corner-bracket hidden sm:block bottom-16 left-6 border-b-2 border-l-2" />
+      <div className="corner-bracket hidden sm:block bottom-16 right-6 border-b-2 border-r-2" />
 
       {/* 2. Subtle Web Parallax Layer */}
       <div
@@ -170,18 +170,18 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           width={800}
           height={800}
           unoptimized
-          className="w-[70vw] max-w-[700px] h-auto opacity-[0.1] select-none"
+          className="w-[50vw] sm:w-[60vw] md:w-[65vw] max-w-[600px] h-auto opacity-[0.06] select-none"
         />
       </div>
 
       {/* 5. Hero Content Container */}
-      <div ref={heroContentRef} className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full my-auto">
-        {/* Partner / Organizing Bodies Logos — Ultra-4K HD, Only Logos directly on background */}
+      <div ref={heroContentRef} className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full">
+        {/* Partner / Organizing Bodies Logos */}
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-2 sm:mb-4 w-full max-w-4xl lg:max-w-5xl px-4 flex items-center justify-center gap-3 xs:gap-5 sm:gap-7 md:gap-10 lg:gap-12 flex-wrap sm:flex-nowrap"
+          className="mb-2 sm:mb-4 w-full max-w-5xl lg:max-w-5xl flex items-center justify-center gap-3 xs:gap-5 sm:gap-7 md:gap-10 lg:gap-12 flex-wrap sm:flex-nowrap"
         >
           {heroPartnerLogos.map((sponsor) => (
             <motion.div
@@ -208,15 +208,15 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0, y: -6 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.08 }}
-          className="mb-2 sm:mb-3 flex flex-col items-center gap-1.5"
+          className="mb-1 sm:mb-2 flex flex-col items-center gap-1"
         >
-          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90 mt-3">
+          <span className="font-accent text-xs sm:text-sm md:text-base font-bold uppercase tracking-[0.26em] text-white/90 mt-2">
             INDO GLOBAL COLLEGES
           </span>
-          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs mt-3">
+          <span className="pill-badge pill-badge-red text-[11px] sm:text-xs mt-1.5">
             PRESENTS
           </span>
-           <span className="pill-badge pill-badge-blue mt-4">
+           <span className="pill-badge pill-badge-blue text-[8px] md:text-[11px] mt-2 sm:mt-3">
             24-HOUR NATIONAL LEVEL HACKATHON
           </span>
         </motion.div>
@@ -232,7 +232,7 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.12 }}
-            className="font-samarkan text-display-2xl leading-tight tracking-normal max-w-full text-spidey-red drop-shadow-[0_8px_32px_rgba(230,36,41,0.65)] hover:text-web-white transition-colors duration-300 select-none"
+            className="font-samarkan text-display-2xl leading-tight tracking-normal max-w-full whitespace-nowrap text-spidey-red drop-shadow-[0_8px_32px_rgba(230,36,41,0.65)] hover:text-web-white transition-colors duration-300 select-none"
           >
             SRIJAN SETU
           </motion.h1>
@@ -243,27 +243,22 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.16 }}
-          className="mt-2 sm:mt-3 text-display-md font-semibold uppercase tracking-[0.14em] text-web-white px-2"
+          className="mt-1 sm:mt-2 text-display-sm md:text-display-md font-semibold uppercase tracking-[0.14em] text-web-white px-2"
         >
           {SITE_TAGLINE}
         </motion.h2>
 
-        {/* 5. Supporting Description Line: web-white at 75% opacity for crisp text contrast */}
-        {/* <p className="mt-2 sm:mt-3 max-w-2xl text-body-sm sm:text-body-md text-white/75 leading-relaxed px-2">
-          {EVENT_TYPE} &bull; Registration opens 10th Oct, 7:30 AM. Uniting visionary developers, designers, and innovators to transform complex challenges into breakthrough technological realities.
-        </p> */}
-
         {/* 6. Hero-Anchored Glassmorphic Digital Countdown Display */}
-        <div className="mt-4 sm:mt-6 w-full flex justify-center px-2">
+        <div className="mt-3 sm:mt-4 w-full flex justify-center px-2">
           <Countdown targetDate={eventDate} />
         </div>
 
         {/* 8. Focal Point CTA: Apply with Devfolio */}
-        <div className="mt-4 sm:mt-6 flex flex-col items-center">
+        <div className="mt-3 sm:mt-4 flex flex-col items-center">
           <DevfolioButton />
 
           {/* Scarcity / Urgency Microcopy */}
-          <span className="mt-6 font-accent text-caption-xs font-bold uppercase tracking-widest text-white/60 select-none">
+          <span className="mt-4 font-accent text-caption-xs font-bold uppercase tracking-widest text-white/60 select-none">
             Limited team slots
           </span>
         </div>
