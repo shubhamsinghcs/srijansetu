@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   title: `${SITE_NAME} - ${SITE_TAGLINE}`,
   description: SITE_TAGLINE,
   icons: {
-    icon: "/images/branding/tom-holland-srijan-setu.png",
+    icon: "/images/branding/favicon.webp",
   },
 };
 
