@@ -159,6 +159,21 @@ export default function Hero({ eventDate = REGISTRATION_START }: HeroProps) {
       {/* Central Danger Sense Glow */}
       <div className="danger-sense-glow top-1/2" aria-hidden="true" />
 
+      {/* Background Spider Logo Watermark */}
+      <div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]"
+        aria-hidden="true"
+      >
+        <Image
+          src="/images/branding/logo-without-text.png"
+          alt=""
+          width={800}
+          height={800}
+          unoptimized
+          className="w-[70vw] max-w-[700px] h-auto opacity-[0.1] select-none"
+        />
+      </div>
+
       {/* 5. Hero Content Container */}
       <div ref={heroContentRef} className="relative z-10 max-w-5xl mx-auto flex flex-col items-center w-full my-auto">
         {/* Partner / Organizing Bodies Logos — Ultra-4K HD, Only Logos directly on background */}
