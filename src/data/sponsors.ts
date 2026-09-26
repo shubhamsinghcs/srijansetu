@@ -5,8 +5,8 @@ export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media" | "
 export const sponsors: Sponsor[] = [
   {
     id: "corporate-001",
-    name: "Refreshment Partner",
-    logo: "",
+    name: "Viziane",
+    logo: "/images/logos/sponsors/viziane.png",
     tier: "Corporate",
     order: 1,
   },
