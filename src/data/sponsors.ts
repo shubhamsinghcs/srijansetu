@@ -13,9 +13,9 @@ export const sponsors: Sponsor[] = [
   },
   {
     id: "corporate-002",
-    name: "Kit Partner",
-    logo: "",
-    website: "",
+    name: "ElevenLabs",
+    logo: "/images/logos/sponsors/elevenlabs.png",
+    website: "https://elevenlabs.io",
     tier: "Corporate",
     order: 2,
   },
