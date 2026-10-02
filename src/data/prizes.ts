@@ -1,6 +1,9 @@
+export type PrizeRank = "first" | "second" | "third" | "special";
+
 export interface PrizeItem {
   id: string;
   place: string;
+  rank: PrizeRank;
   amount: string;
   label: string;
   iconType?: "trophy" | "ai";
@@ -14,6 +17,7 @@ export const prizes: PrizeItem[] = [
   {
     id: "winner",
     place: "Winner",
+    rank: "first",
     amount: "To Be Announced Soon",
     label: "Grand Prize Champion",
     iconType: "trophy",
@@ -27,6 +31,7 @@ export const prizes: PrizeItem[] = [
   {
     id: "runner-up",
     place: "Runner Up",
+    rank: "second",
     amount: "To Be Announced Soon",
     label: "Second Place",
     iconType: "trophy",
@@ -40,6 +45,7 @@ export const prizes: PrizeItem[] = [
   {
     id: "second-runner-up",
     place: "2nd Runner Up",
+    rank: "third",
     amount: "To Be Announced Soon",
     label: "Third Place",
     iconType: "trophy",
@@ -53,6 +59,7 @@ export const prizes: PrizeItem[] = [
   {
     id: "best-ai",
     place: "Best Use of AI",
+    rank: "special",
     amount: "To Be Announced Soon",
     label: "Best Project Built with ElevenLabs",
     iconType: "ai",
@@ -64,5 +71,8 @@ export const prizes: PrizeItem[] = [
     ],
   },
 ];
+
+export const podiumPrizes = prizes.filter((p) => p.rank !== "special");
+export const specialPrizes = prizes.filter((p) => p.rank === "special");
 
 export default prizes;
