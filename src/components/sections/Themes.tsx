@@ -68,7 +68,7 @@ export default function Themes() {
 
       <div
         ref={gridRef}
-        className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6"
+        className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6"
       >
         {activeThemes.map((theme) => (
           <ThemeCard key={theme.id} theme={theme} />

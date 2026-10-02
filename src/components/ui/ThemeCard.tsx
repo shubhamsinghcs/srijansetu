@@ -9,18 +9,28 @@ interface ThemeCardProps {
 }
 
 export default function ThemeCard({ theme }: ThemeCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isFlipped, setIsFlipped] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const number = String(theme.order).padStart(2, "0");
 
   useEffect(() => {
     // Detect touch-only devices without pointer hover capability
-    const mql = window.matchMedia("(hover: hover) and (pointer: fine)");
-    setIsTouchDevice(!mql.matches);
+    const hoverMql = window.matchMedia("(hover: hover) and (pointer: fine)");
+    setIsTouchDevice(!hoverMql.matches);
 
     const updateTouch = (e: MediaQueryListEvent) => setIsTouchDevice(!e.matches);
-    mql.addEventListener("change", updateTouch);
-    return () => mql.removeEventListener("change", updateTouch);
+    hoverMql.addEventListener("change", updateTouch);
+
+    const motionMql = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(motionMql.matches);
+    const updateMotion = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    motionMql.addEventListener("change", updateMotion);
+
+    return () => {
+      hoverMql.removeEventListener("change", updateTouch);
+      motionMql.removeEventListener("change", updateMotion);
+    };
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -32,21 +42,21 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
   };
 
   const handleMouseEnter = () => {
-    if (!isTouchDevice) setIsExpanded(true);
+    if (!isTouchDevice) setIsFlipped(true);
   };
 
   const handleMouseLeave = () => {
-    if (!isTouchDevice) setIsExpanded(false);
+    if (!isTouchDevice) setIsFlipped(false);
   };
 
   const handleClick = () => {
-    if (isTouchDevice) setIsExpanded((prev) => !prev);
+    if (isTouchDevice) setIsFlipped((prev) => !prev);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      setIsExpanded((prev) => !prev);
+      setIsFlipped((prev) => !prev);
     }
   };
 
@@ -59,78 +69,126 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
-      aria-expanded={isExpanded}
-      aria-label={`Theme ${number}: ${theme.name}. ${isExpanded ? "Expanded" : "Collapsed"}`}
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 text-left transition-all duration-300 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-spidey-red bg-[#0C0D14] w-full ${
-        isExpanded
-          ? "border-spidey-red/70 shadow-[0_0_25px_rgba(227,38,54,0.3)] bg-[#0F0A0E]"
-          : "border-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:border-spidey-red/50"
-      }`}
+      aria-pressed={isFlipped}
+      aria-label={`Theme ${number}: ${theme.name}.`}
+      whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.015 }}
+      whileTap={prefersReducedMotion ? {} : { scale: 0.985 }}
+      transition={{ type: "spring", stiffness: 350, damping: 25 }}
+      className="relative w-full h-[250px] sm:h-[260px] lg:h-[270px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-spidey-red rounded-xl"
     >
-      {/* Interactive Spotlight Cursor Glow */}
       <div
-        className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className={`relative w-full h-full rounded-xl [will-change:transform] ${
+          prefersReducedMotion
+            ? "transition-opacity duration-200"
+            : "preserve-3d transition-transform duration-[600ms] ease-[cubic-bezier(0.23,1,0.32,1)]"
+        }`}
         style={{
-          background:
-            "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.15), transparent 75%)",
+          transform: prefersReducedMotion
+            ? "none"
+            : isFlipped
+            ? "rotateY(180deg)"
+            : "rotateY(0deg)",
         }}
-        aria-hidden="true"
-      />
+      >
+        {/* ================= FRONT FACE ================= */}
+        <div
+          aria-hidden={isFlipped}
+          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border p-6 text-left transition-colors duration-300 ${
+            isFlipped
+              ? "border-spidey-red/70 bg-[#0F0A0E] shadow-[0_0_25px_rgba(227,38,54,0.3)]"
+              : "border-white/10 bg-[#0C0D14] shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:border-spidey-red/50"
+          } ${
+            prefersReducedMotion
+              ? isFlipped
+                ? "pointer-events-none opacity-0"
+                : "opacity-100"
+              : "backface-hidden rotate-y-0"
+          } ${isFlipped && !prefersReducedMotion ? "pointer-events-none" : ""}`}
+        >
+          {/* Spotlight Cursor Glow */}
+          <div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{
+              background:
+                "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.15), transparent 75%)",
+            }}
+            aria-hidden="true"
+          />
 
-      <div className="relative z-10 flex flex-col justify-between h-full">
-        {/* Top: Theme Number */}
-        <div className="flex items-center justify-between mb-3">
-          <span className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-spidey-red">
-            {number}
-          </span>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-white/40 border border-white/10 px-2 py-0.5 rounded-full">
-            Problem Space
-          </span>
+          {/* Top: Number & Tag */}
+          <div className="relative z-10 flex items-center justify-between">
+            <span className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-spidey-red">
+              {number}
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-white/40 border border-white/10 px-2.5 py-0.5 rounded-full">
+              Problem Space
+            </span>
+          </div>
+
+          {/* Middle: Theme Title */}
+          <div className="relative z-10 my-auto py-2">
+            <h3 className="font-body text-xl sm:text-[22px] font-bold text-white tracking-tight leading-snug">
+              {theme.name}
+            </h3>
+          </div>
+
+          {/* Subtle bottom indicator line */}
+          <div className="relative z-10 pt-2 border-t border-white/[0.06] flex items-center justify-between">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
+              Theme {number}
+            </span>
+            <div className="w-1.5 h-1.5 rounded-full bg-spidey-red/60" />
+          </div>
         </div>
 
-        {/* Domain Title */}
-        <h3 className="font-body text-xl sm:text-[22px] font-bold text-white tracking-tight leading-snug">
-          {theme.name}
-        </h3>
-
-        {/* Expandable Reveal Content */}
-        <motion.div
-          initial={false}
-          animate={
-            isExpanded
-              ? { height: "auto", opacity: 1, marginTop: 12 }
-              : { height: 0, opacity: 0, marginTop: 0 }
-          }
-          transition={{ duration: 0.25, ease: "easeOut" }}
-          className="overflow-hidden"
+        {/* ================= BACK FACE ================= */}
+        <div
+          aria-hidden={!isFlipped}
+          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border border-spidey-red/50 bg-[#120B0F] p-6 text-left shadow-[0_12px_32px_rgba(230,36,41,0.2)] transition-colors duration-300 ${
+            prefersReducedMotion
+              ? isFlipped
+                ? "opacity-100"
+                : "pointer-events-none opacity-0"
+              : "backface-hidden rotate-y-180"
+          } ${!isFlipped && !prefersReducedMotion ? "pointer-events-none" : ""}`}
         >
-          <div className="pt-3 border-t border-white/[0.08]">
-            <p className="font-body text-body-sm leading-relaxed text-white/80 font-normal">
+          {/* Spotlight Cursor Glow */}
+          <div
+            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{
+              background:
+                "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.18), transparent 75%)",
+            }}
+            aria-hidden="true"
+          />
+
+          {/* Top: Header */}
+          <div className="relative z-10 flex items-center justify-between">
+            <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-spidey-red">
+              {number}
+            </span>
+            <span className="text-[10px] font-mono uppercase tracking-wider text-spidey-red/80 border border-spidey-red/30 px-2.5 py-0.5 rounded-full bg-spidey-red/10">
+              Overview
+            </span>
+          </div>
+
+          {/* Content */}
+          <div className="relative z-10 my-auto py-1">
+            <h4 className="font-body text-base sm:text-lg font-bold text-white tracking-tight leading-snug mb-2">
+              {theme.name}
+            </h4>
+            <p className="font-body text-xs sm:text-[14px] leading-relaxed text-white/85 font-normal">
               {theme.description}
             </p>
           </div>
-        </motion.div>
 
-        {/* Bottom Action Hint */}
-        <div className="pt-4 mt-3 border-t border-white/[0.08] flex items-center justify-between text-white/50 group-hover:text-spidey-red transition-colors duration-300">
-          <span className="text-xs font-medium tracking-wide">
-            {isTouchDevice
-              ? isExpanded
-                ? "Tap to collapse"
-                : "Tap to explore"
-              : isExpanded
-              ? "Exploring domain"
-              : "Hover to explore"}
-          </span>
-          <span
-            className={`text-sm font-bold transition-transform duration-200 ${
-              isExpanded ? "translate-x-1" : ""
-            }`}
-          >
-            →
-          </span>
+          {/* Bottom Accent */}
+          <div className="relative z-10 pt-2 border-t border-spidey-red/20 flex items-center justify-between">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-spidey-red/60">
+              Srijan Setu Track
+            </span>
+            <div className="w-1.5 h-1.5 rounded-full bg-spidey-red" />
+          </div>
         </div>
       </div>
     </motion.div>
