@@ -102,7 +102,7 @@ export default function Prizes() {
       {/* Mobile: Vertical stack in rank order (Winner 1st, Runner Up 2nd, 2nd Runner Up 3rd) */}
       <div
         ref={podiumRef}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto pt-4 md:pt-12 px-2"
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start max-w-5xl mx-auto pt-4 md:pt-12 px-2"
       >
         {/* 2nd Runner Up (Third Place) — Left on desktop (md:order-1), 3rd on mobile (order-3) */}
         <div className="order-3 md:order-1 w-full max-w-md mx-auto md:max-w-none">
