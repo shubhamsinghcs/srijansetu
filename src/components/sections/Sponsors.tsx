@@ -25,19 +25,21 @@ export default function Sponsors() {
   return (
     <section
       id="sponsors"
-      className="relative py-10 sm:py-14 lg:py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
+      className="relative py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-spidey-blue/5 rounded-full blur-[100px] pointer-events-none -z-10" aria-hidden="true" />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[320px] bg-spidey-blue/5 rounded-full blur-[100px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
 
       {/* Tiers Container */}
-      <div className="space-y-10 sm:space-y-12">
+      <div className="space-y-12 sm:space-y-16">
         {visibleTiers.map(({ id, title, subtitle, partners }) => {
-
           return (
             <div key={id} className="text-center">
               {/* Tier Subheading */}
-              <div className="mb-4 sm:mb-6">
+              <div className="mb-6 sm:mb-8">
                 <h3 className="section-heading text-display-lg leading-tight">
                   {title}
                 </h3>
@@ -47,12 +49,10 @@ export default function Sponsors() {
               </div>
 
               {/* Responsive Grid of Logos */}
-              <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mx-auto max-w-5xl">
+              <div className="flex flex-wrap justify-center gap-3.5 sm:gap-5 mx-auto max-w-6xl">
                 {partners.map((partner) => {
                   const cardContent = (
-                    <div
-                      className="flex items-center justify-center gap-3 transition-all duration-300 w-full h-full px-2 filter grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
-                    >
+                    <div className="flex items-center justify-center gap-2 sm:gap-3 transition-all duration-300 w-full h-full px-2 sm:px-3 filter grayscale hover:grayscale-0 group-hover:grayscale-0 opacity-85 group-hover:opacity-100">
                       {partner.logo ? (
                         <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
                           <Image
@@ -61,7 +61,7 @@ export default function Sponsors() {
                             width={220}
                             height={60}
                             unoptimized
-                            className="max-h-10 sm:max-h-12 w-auto object-contain drop-shadow-md"
+                            className="max-h-10 sm:max-h-12 w-auto object-contain drop-shadow-md transition-transform duration-300 group-hover:scale-105"
                           />
                         </div>
                       ) : (
@@ -71,7 +71,7 @@ export default function Sponsors() {
                             {partner.name.charAt(0)}
                           </div>
                           {/* Partner Name Text / Logo */}
-                          <span className="font-bold text-sm sm:text-base md:text-lg text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
+                          <span className="font-bold text-xs sm:text-sm md:text-base text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
                             {partner.name}
                           </span>
                         </>
@@ -80,13 +80,13 @@ export default function Sponsors() {
                   );
 
                   const cardClasses =
-                    "relative flex items-center justify-center p-4 sm:p-6 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-24 sm:h-32 w-full";
+                    "relative flex items-center justify-center p-3 sm:p-5 rounded-xl bg-[#0F0F17] border border-white/10 hover:border-spidey-red/70 transition-all duration-300 shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.3)] group h-22 sm:h-28 w-full";
 
                   if (partner.website) {
                     return (
                       <div
                         key={partner.id}
-                        className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-[320px] flex"
+                        className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.85rem)] lg:w-[calc(25%-1rem)] max-w-[280px] flex"
                       >
                         <a
                           href={partner.website}
@@ -104,7 +104,7 @@ export default function Sponsors() {
                   return (
                     <div
                       key={partner.id || partner.name}
-                      className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)] max-w-[320px] flex"
+                      className="w-[calc(50%-0.5rem)] sm:w-[calc(33.333%-0.85rem)] lg:w-[calc(25%-1rem)] max-w-[280px] flex"
                     >
                       <div className={cardClasses}>
                         {cardContent}
