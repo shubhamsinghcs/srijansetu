@@ -17,11 +17,11 @@ export default function Team() {
       {/* Section Header */}
       <div className="text-center mb-8 sm:mb-10">
         <h2 className="section-heading text-display-lg leading-tight">
-          FACULTY AND ADMINISTRATION
+          OUR GUIDING PILLARS
         </h2>
         <div className="w-24 h-1 bg-spidey-red mx-auto mt-4 mb-4 rounded-full" />
         <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto leading-relaxed font-normal">
-          Thank you to the faculty members whose guidance and encouragement make Srijan Setu possible.
+          Srijan Setu is made possible by the vision and continued support of our administration and faculty — their belief in student-led innovation is what gives this hackathon its foundation.
         </p>
       </div>
 

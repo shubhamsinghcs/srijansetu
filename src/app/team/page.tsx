@@ -71,10 +71,10 @@ export default function TeamPage() {
           <section aria-labelledby="faculty-heading">
             <div className="text-center mb-8">
               <h2 id="faculty-heading" className="section-heading text-display-lg leading-tight">
-                FACULTY AND ADMINISTRATION
+                OUR GUIDING PILLARS
               </h2>
               <p className="text-white/70 font-body max-w-2xl mx-auto mt-3">
-                Thank you to the faculty members whose guidance and encouragement make Srijan Setu possible.
+                Srijan Setu is made possible by the vision and continued support of our administration and faculty — their belief in student-led innovation is what gives this hackathon its foundation.
               </p>
             </div>
             {faculty.length > 0 ? (
