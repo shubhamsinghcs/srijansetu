@@ -251,18 +251,29 @@ export default function PrizeCard({
                 </div>
               </div>
 
-              {/* Right: Pending Badge & Bounty Info */}
+              {/* Right: Cash Bounty & Info */}
               <div className="flex flex-col items-center sm:items-end text-center sm:text-right shrink-0">
-                <motion.div
-                  animate={{ opacity: [0.75, 1, 0.75] }}
-                  transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300"
-                >
-                  <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
-                  <span>Bounty: To Be Announced Soon</span>
-                </motion.div>
-                <p className="font-body text-[11px] sm:text-xs text-white/60 mt-1.5">
-                  Cash Bounty + ElevenLabs Scale Tier + Swag
+                {prize.amount.toLowerCase().includes("announced") ? (
+                  <motion.div
+                    animate={{ opacity: [0.75, 1, 0.75] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300"
+                  >
+                    <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
+                    <span>Bounty: To Be Announced Soon</span>
+                  </motion.div>
+                ) : (
+                  <div className="flex flex-col items-center sm:items-end">
+                    <span className="font-accent font-black text-2xl sm:text-3xl md:text-4xl text-cyan-300 tracking-wider leading-none drop-shadow-[0_2px_14px_rgba(6,182,212,0.4)]">
+                      {prize.amount}
+                    </span>
+                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-400/80 mt-1 font-semibold">
+                      Cash Bounty
+                    </span>
+                  </div>
+                )}
+                <p className="font-body text-[11px] sm:text-xs text-white/70 mt-1.5 font-medium">
+                  Cash Bounty + ElevenLabs Scale Tier + Swags
                 </p>
               </div>
             </div>
@@ -443,19 +454,36 @@ export default function PrizeCard({
               {prize.label}
             </p>
 
-            {/* Pending-state Pill Badge */}
-            <motion.div
-              animate={{ opacity: [0.75, 1, 0.75] }}
-              transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] sm:text-xs font-mono text-white/75 tracking-wide my-3"
-            >
-              <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
-              <span>Prize Pool: To Be Announced Soon</span>
-            </motion.div>
+            {/* Cash Prize Amount / Pending Badge */}
+            {prize.amount.toLowerCase().includes("announced") ? (
+              <motion.div
+                animate={{ opacity: [0.75, 1, 0.75] }}
+                transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-[11px] sm:text-xs font-mono text-white/75 tracking-wide my-3"
+              >
+                <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
+                <span>Prize Pool: To Be Announced Soon</span>
+              </motion.div>
+            ) : (
+              <div className="my-2 sm:my-2.5 flex flex-col items-center">
+                <span
+                  className={`font-accent font-black tracking-wider leading-none ${
+                    isWinnerElevated
+                      ? "text-3xl sm:text-4xl lg:text-[40px]"
+                      : "text-2xl sm:text-3xl lg:text-[34px]"
+                  } ${config.headlineColor} drop-shadow-[0_2px_14px_rgba(0,0,0,0.8)]`}
+                >
+                  {prize.amount}
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-white/60 mt-1 font-medium">
+                  Cash Prize
+                </span>
+              </div>
+            )}
 
             {/* Subtitle Note */}
-            <p className="font-body text-[11px] sm:text-xs text-web-gray uppercase tracking-wider font-normal">
-              Cash Prize + Goodies & Perks
+            <p className="font-body text-[11px] sm:text-xs text-white/75 uppercase tracking-wider font-normal">
+              Cash Prize + Perks & Swags
             </p>
           </div>
 

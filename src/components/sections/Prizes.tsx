@@ -95,6 +95,9 @@ export default function Prizes() {
         <div className="font-accent font-black text-3xl sm:text-5xl md:text-6xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
           {totalPrizePool}
         </div>
+        <p className="font-mono text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-2">
+          Cash Prizes + Perks & Swags
+        </p>
       </div>
 
       {/* ================= PODIUM LAYOUT ================= */}
