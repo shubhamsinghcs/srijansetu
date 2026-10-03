@@ -11,6 +11,16 @@ export interface PrizeItem {
   perks: string[];
 }
 
+export interface SponsorRewardItem {
+  id: string;
+  badge: string;
+  title: string;
+  tier: string;
+  value: string;
+  note?: string;
+  accent: "purple" | "amber";
+}
+
 export const totalPrizePool = "₹74,000+";
 
 export const prizes: PrizeItem[] = [
@@ -23,7 +33,7 @@ export const prizes: PrizeItem[] = [
     iconType: "trophy",
     highlightPerk: "Overall winning team: Each team member receives 3 months of our Pro tier ($297 value/team member, 600k credits/mo)",
     perks: [
-      "1 Official Hoodie for Team Leader",
+      "1 Official Hoodie (Awarded to Team Leader)",
       "₹31,000 Cash Prize + Champion Trophy & Certificate",
       "Direct Incubation & Investor Pitch Access",
     ],
@@ -36,7 +46,7 @@ export const prizes: PrizeItem[] = [
     label: "Second Place",
     iconType: "trophy",
     perks: [
-      "1 Official Hoodie for Team Leader",
+      "1 Official Hoodie (Awarded to Team Leader)",
       "₹21,000 Cash Prize + Runner-Up Trophy & Certificate",
       "Partner Cloud Credits & Developer Swag",
       "Mentorship & Networking Opportunities",
@@ -50,7 +60,7 @@ export const prizes: PrizeItem[] = [
     label: "Third Place",
     iconType: "trophy",
     perks: [
-      "1 Official Hoodie for Team Leader",
+      "1 Official Hoodie (Awarded to Team Leader)",
       "₹11,000 Cash Prize + 2nd Runner-Up Trophy & Certificate",
       "Developer Toolkits & Goodie Bag",
       "Community Builder Ecosystem Access",
@@ -65,11 +75,38 @@ export const prizes: PrizeItem[] = [
     iconType: "ai",
     highlightPerk: "Best Project Built with ElevenLabs: Each team member receives 3 months of our Scale tier ($897 value/team member, 1.8M credits/mo)",
     perks: [
-      "1 Official Hoodie for Team Leader",
+      "1 Official Hoodie (Awarded to Team Leader)",
       "₹11,000 Cash Bounty + Special AI Innovation Trophy & Certificate",
       "Feature on Developer Showcase & Spotlight",
     ],
   },
+];
+
+export const sponsorRewards: SponsorRewardItem[] = [
+  {
+    id: "all-participants",
+    badge: "SPONSOR PERK · EVERYONE GETS THIS",
+    title: "For All Participants",
+    tier: "1 Month Free — Creator Tier",
+    value: "$22/month value · 131k credits",
+    note: "All active participants receive Creator Tier access via ElevenLabs",
+    accent: "purple",
+  },
+  {
+    id: "overall-winning-team",
+    badge: "PER TEAM MEMBER",
+    title: "Overall Winning Team",
+    tier: "3 Months Pro Tier",
+    value: "$297 value per member · 600k credits/mo",
+    note: "Awarded to every member of the Grand Prize Champion team",
+    accent: "amber",
+  },
+];
+
+export const participantSwag = [
+  "Certificate",
+  "Sticker",
+  "Srijan Setu Customized Cup",
 ];
 
 export const podiumPrizes = prizes.filter((p) => p.rank !== "special");

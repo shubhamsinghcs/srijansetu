@@ -14,6 +14,7 @@ export default function Prizes() {
   const sectionRef = useRef<HTMLElement>(null);
   const podiumRef = useRef<HTMLDivElement>(null);
   const specialRef = useRef<HTMLDivElement>(null);
+  const teamRewardsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -40,6 +41,21 @@ export default function Prizes() {
         gsap.from(specialRef.current, {
           scrollTrigger: {
             trigger: specialRef.current,
+            start: "top 88%",
+            once: true,
+          },
+          y: 25,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          clearProps: "transform",
+        });
+      }
+
+      if (teamRewardsRef.current) {
+        gsap.from(teamRewardsRef.current, {
+          scrollTrigger: {
+            trigger: teamRewardsRef.current,
             start: "top 88%",
             once: true,
           },
@@ -88,7 +104,7 @@ export default function Prizes() {
       </div>
 
       {/* Headline: Total Prize Pool */}
-      <div className="text-center mb-10 sm:mb-12">
+      <div className="text-center mb-4 sm:mb-6">
         <span className="font-accent text-label font-bold uppercase tracking-[0.22em] text-white/70">
           TOTAL PRIZE POOL
         </span>
@@ -97,6 +113,13 @@ export default function Prizes() {
         </div>
         <p className="font-mono text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-2">
           Cash Prizes + Perks & Swags
+        </p>
+      </div>
+
+      {/* Clarity Line */}
+      <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 px-4">
+        <p className="font-body text-xs sm:text-sm text-white/65 leading-relaxed font-normal">
+          Cash prizes and hoodies go to team leaders on behalf of the team. Sponsor tier perks (Creator/Pro/Scale) are credited per team member.
         </p>
       </div>
 
@@ -146,6 +169,101 @@ export default function Prizes() {
           <PrizeCard prize={specialPrize} variant="horizontal" />
         </div>
       )}
+
+      {/* ================= TEAM & SPONSOR REWARDS ================= */}
+      <div
+        ref={teamRewardsRef}
+        className="mt-14 sm:mt-18 lg:mt-20 max-w-4xl mx-auto w-full px-2"
+      >
+        <div className="text-center mb-6 sm:mb-8">
+          <h3 className="font-accent font-black text-lg sm:text-xl md:text-2xl text-white tracking-wide">
+            TEAM & SPONSOR REWARDS
+          </h3>
+          <div className="w-16 h-0.5 bg-spidey-red mx-auto mt-2 mb-3 rounded-full" />
+          <p className="text-white/60 font-body text-xs sm:text-sm max-w-xl mx-auto font-normal">
+            Exclusive platform access and toolkits powered by our partners.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+          {/* CARD A: For All Participants */}
+          <div className="relative rounded-2xl border border-purple-500/30 bg-[#0B0914] p-5 sm:p-6 shadow-[0_0_24px_rgba(168,85,247,0.12)] hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-purple-500/15 border border-purple-400/35 text-purple-300">
+                  SPONSOR PERK · EVERYONE GETS THIS
+                </span>
+                <span className="text-[10px] font-mono text-purple-400/60 uppercase">ElevenLabs</span>
+              </div>
+              <h4 className="font-accent font-black text-lg sm:text-xl text-white tracking-wide">
+                For All Participants
+              </h4>
+              <p className="font-accent font-bold text-base sm:text-lg text-purple-300 mt-2">
+                1 Month Free — Creator Tier
+              </p>
+              <p className="font-mono text-xs sm:text-sm text-white/70 mt-1">
+                $22/month value · 131k credits
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-purple-500/20 flex items-center justify-between text-[11px] font-mono text-purple-300/60 uppercase tracking-widest">
+              <span>Universal Access</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
+            </div>
+          </div>
+
+          {/* CARD B: Overall Winning Team */}
+          <div className="relative rounded-2xl border border-amber-500/35 bg-[#140F08] p-5 sm:p-6 shadow-[0_0_24px_rgba(245,158,11,0.14)] hover:border-amber-400/60 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-amber-500/15 border border-amber-400/35 text-amber-300">
+                  PER TEAM MEMBER
+                </span>
+                <span className="text-[10px] font-mono text-amber-400/60 uppercase">Champion Tier</span>
+              </div>
+              <h4 className="font-accent font-black text-lg sm:text-xl text-white tracking-wide">
+                Overall Winning Team
+              </h4>
+              <p className="font-accent font-bold text-base sm:text-lg text-amber-300 mt-2">
+                3 Months Pro Tier
+              </p>
+              <p className="font-mono text-xs sm:text-sm text-white/70 mt-1">
+                $297 value per member · 600k credits/mo
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-amber-500/20 flex items-center justify-between text-[11px] font-mono text-amber-300/60 uppercase tracking-widest">
+              <span>Per Team Member</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ================= BOTTOM PARTICIPANT STRIP ================= */}
+      <div className="mt-10 sm:mt-14 max-w-3xl mx-auto w-full px-2 text-center">
+        <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/75 font-mono text-xs sm:text-sm tracking-wide shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
+          <span className="text-spidey-red font-bold">Every participant also receives:</span>
+          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
+            <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 01-1.581.814L10 13.175l-4.419 3.639A1 1 0 014 16V4z" clipRule="evenodd" />
+            </svg>
+            Certificate
+          </span>
+          <span className="text-white/30">·</span>
+          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
+            <svg className="w-3.5 h-3.5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+              <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
+            </svg>
+            Sticker
+          </span>
+          <span className="text-white/30">·</span>
+          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
+            <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z" />
+            </svg>
+            Srijan Setu Customized Cup
+          </span>
+        </div>
+      </div>
     </section>
   );
 }

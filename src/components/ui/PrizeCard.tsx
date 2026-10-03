@@ -188,7 +188,7 @@ export default function PrizeCard({
         whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
         whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
-        className={`relative w-full h-[240px] xs:h-[220px] sm:h-[200px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-2xl ${className}`}
+        className={`relative w-full h-[260px] xs:h-[240px] sm:h-[210px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-2xl ${className}`}
       >
         <div
           className={`relative w-full h-full rounded-2xl [will-change:transform] ${
@@ -212,8 +212,8 @@ export default function PrizeCard({
             } ${
               prefersReducedMotion
                 ? isFlipped
-                  ? "pointer-events-none opacity-0"
-                  : "opacity-100"
+                    ? "pointer-events-none opacity-0"
+                    : "opacity-100"
                 : "backface-hidden rotate-y-0"
             } ${isFlipped && !prefersReducedMotion ? "pointer-events-none" : ""}`}
           >
@@ -272,16 +272,21 @@ export default function PrizeCard({
                     </span>
                   </div>
                 )}
-                <p className="font-body text-[11px] sm:text-xs text-white/70 mt-1.5 font-medium">
-                  Cash Bounty + ElevenLabs Scale Tier + Swags
-                </p>
+                <div className="mt-2 flex flex-col items-center sm:items-end gap-1">
+                  <span className="font-mono text-[9px] sm:text-[10px] md:text-[11px] text-cyan-200 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">
+                    CASH BOUNTY + CERTIFICATE + HOODIE + ELEVENLABS SCALE TIER
+                  </span>
+                  <span className="text-[10px] text-white/50 italic">
+                    Hoodie awarded to team leader · Scale Tier: 3 months, $897 value per team member, 1.8M credits/mo
+                  </span>
+                </div>
               </div>
             </div>
 
             {/* Subtle bottom indicator */}
             <div className="relative z-10 pt-2 border-t border-cyan-500/20 flex items-center justify-between">
               <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/60">
-                ElevenLabs Sponsored Track
+                ELEVENLABS SPONSORED TRACK
               </span>
               <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
             </div>
@@ -369,8 +374,8 @@ export default function PrizeCard({
   // PODIUM VARIANT (Winner, Runner Up, 2nd Runner Up)
   // =========================================================================
   const cardHeightClass = isWinnerElevated
-    ? "h-[390px] sm:h-[400px] md:h-[410px]"
-    : "h-[360px] sm:h-[370px] md:h-[380px]";
+    ? "h-[405px] sm:h-[415px] md:h-[425px]"
+    : "h-[375px] sm:h-[385px] md:h-[395px]";
 
   return (
     <motion.div
@@ -481,10 +486,15 @@ export default function PrizeCard({
               </div>
             )}
 
-            {/* Subtitle Note */}
-            <p className="font-body text-[11px] sm:text-xs text-white/75 uppercase tracking-wider font-normal">
-              Cash Prize + Perks & Swags
-            </p>
+            {/* Bottom tag & Note */}
+            <div className="mt-1 flex flex-col items-center gap-1">
+              <span className="font-mono text-[10px] sm:text-[11px] text-white/90 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-white/[0.04] border border-white/10">
+                CASH PRIZE + CERTIFICATE + HOODIE
+              </span>
+              <span className="text-[10px] text-white/50 italic">
+                Hoodie awarded to team leader
+              </span>
+            </div>
           </div>
 
           {/* Subtle bottom indicator */}
