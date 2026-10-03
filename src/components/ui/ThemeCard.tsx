@@ -132,8 +132,11 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           {/* EdTech Specific Ribbon / Badge */}
           {isEdTech && (
             <div className="relative z-10 -mt-1 mb-1">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
-                🎓 Startup Track — Powered by Nextute
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+                <svg className="w-3.5 h-3.5 text-emerald-300 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                </svg>
+                Startup Track — Powered by Nextute
               </span>
             </div>
           )}
@@ -185,13 +188,18 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
               {number}
             </span>
             <span
-              className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+              className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1.5 ${
                 isEdTech
                   ? "text-emerald-300 border-emerald-400/40 bg-emerald-500/15"
                   : "text-spidey-red/80 border-spidey-red/30 bg-spidey-red/10"
               }`}
             >
-              {isEdTech ? "🎓 Startup Track" : "Overview"}
+              {isEdTech && (
+                <svg className="w-3 h-3 text-emerald-300 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                </svg>
+              )}
+              {isEdTech ? "Startup Track" : "Overview"}
             </span>
           </div>
 

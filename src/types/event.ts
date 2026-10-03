@@ -1,4 +1,4 @@
-﻿export interface SocialLinks {
+export interface SocialLinks {
   linkedin?: string;
   github?: string;
   instagram?: string;

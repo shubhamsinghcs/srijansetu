@@ -28,10 +28,11 @@ export interface SponsorRewardItem {
   tier: string;
   value: string;
   note?: string;
-  accent: "purple" | "amber";
+  accent: "purple" | "amber" | "cyan";
 }
 
-export const totalPrizePool = "₹74,000+";
+export const totalPrizePool = "₹5,32,400+";
+export const totalPrizeValue = 532400;
 
 export const prizes: PrizeItem[] = [
   {
@@ -123,21 +124,30 @@ export const prizes: PrizeItem[] = [
 export const sponsorRewards: SponsorRewardItem[] = [
   {
     id: "all-participants",
-    badge: "SPONSOR PERK · EVERYONE GETS THIS",
-    title: "For All Participants",
+    badge: "EVERY PARTICIPANT · BONUS, NOT IN TOTAL ABOVE",
+    title: "1 Month Free — Creator Tier",
     tier: "1 Month Free — Creator Tier",
-    value: "$22/month value · 131k credits",
-    note: "All active participants receive Creator Tier access via ElevenLabs",
+    value: "₹2,100 value",
+    note: "131k credits · Universal participant access via ElevenLabs ($22/mo value)",
     accent: "purple",
   },
   {
     id: "overall-winning-team",
-    badge: "PER TEAM MEMBER",
-    title: "Overall Winning Team",
+    badge: "WINNING TEAM",
+    title: "3 Months Pro Tier",
     tier: "3 Months Pro Tier",
-    value: "$297 value per member · 600k credits/mo",
-    note: "Awarded to every member of the Grand Prize Champion team",
+    value: "₹28,500 value per member",
+    note: "600k credits/mo · $297 value per member (₹1,14,000 for team of 4)",
     accent: "amber",
+  },
+  {
+    id: "best-ai-team",
+    badge: "BEST USE OF AI TEAM",
+    title: "3 Months Scale Tier",
+    tier: "3 Months Scale Tier",
+    value: "₹86,100 value per member",
+    note: "1.8M credits/mo · $897 value per member (₹3,44,400 for team of 4)",
+    accent: "cyan",
   },
 ];
 

@@ -1,13 +1,95 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { podiumPrizes, specialPrizes, totalPrizePool } from "@/data/prizes";
+import { podiumPrizes, specialPrizes, totalPrizeValue } from "@/data/prizes";
 import PrizeCard from "@/components/ui/PrizeCard";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
+}
+
+function CountUpPrizePool({
+  target = 532400,
+  duration = 2200,
+}: {
+  target?: number;
+  duration?: number;
+}) {
+  const [displayValue, setDisplayValue] = useState("₹0");
+  const [isFinished, setIsFinished] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayValue(`₹${target.toLocaleString("en-IN")}`);
+      setIsFinished(true);
+      return;
+    }
+
+    const el = containerRef.current;
+    if (!el) return;
+
+    const startCount = () => {
+      if (hasAnimated.current) return;
+      hasAnimated.current = true;
+
+      const startTime = performance.now();
+
+      const step = (now: number) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // Quartic ease-out curve for a natural deceleration
+        const easeProgress = 1 - Math.pow(1 - progress, 4);
+        const currentVal = Math.floor(easeProgress * target);
+
+        setDisplayValue(`₹${currentVal.toLocaleString("en-IN")}`);
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          setDisplayValue(`₹${target.toLocaleString("en-IN")}`);
+          setIsFinished(true);
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startCount();
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return (
+    <div
+      ref={containerRef}
+      className="font-accent font-black text-3xl sm:text-5xl md:text-6xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2 flex items-baseline justify-center"
+    >
+      <span>{displayValue}</span>
+      <span
+        className={`transition-opacity duration-300 text-spidey-red ${
+          isFinished ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        +
+      </span>
+    </div>
+  );
 }
 
 export default function Prizes() {
@@ -107,18 +189,16 @@ export default function Prizes() {
         <span className="font-accent text-label font-bold uppercase tracking-[0.22em] text-white/70">
           TOTAL PRIZE POOL
         </span>
-        <div className="font-accent font-black text-3xl sm:text-5xl md:text-6xl text-spidey-red tracking-wider drop-shadow-[0_4px_30px_rgba(230,36,41,0.7)] mt-2">
-          {totalPrizePool}
-        </div>
+        <CountUpPrizePool target={totalPrizeValue} duration={2200} />
         <p className="font-mono text-xs sm:text-sm text-white/60 uppercase tracking-widest mt-2">
-          Cash Prizes + Perks & Swags
+          CASH PRIZES + PERKS & SWAGS
         </p>
       </div>
 
       {/* Clarity Line */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12 px-4">
         <p className="font-body text-xs sm:text-sm text-white/65 leading-relaxed font-normal">
-          Cash prizes and hoodies go to team leaders on behalf of the team. Sponsor tier perks (Creator/Pro/Scale) are credited per team member.
+          Total includes cash prizes and sponsor tier perks, calculated for full teams of 4. Individual team payouts may vary with team size (2–4 members).
         </p>
       </div>
 
@@ -173,39 +253,38 @@ export default function Prizes() {
         </div>
       )}
 
-      {/* ================= TEAM & SPONSOR REWARDS ================= */}
+      {/* ================= SPONSOR PERKS BREAKDOWN ================= */}
       <div
         ref={teamRewardsRef}
-        className="mt-14 sm:mt-18 lg:mt-20 max-w-4xl mx-auto w-full px-2"
+        className="mt-14 sm:mt-18 lg:mt-20 max-w-5xl mx-auto w-full px-2"
       >
         <div className="text-center mb-6 sm:mb-8">
           <h3 className="font-accent font-black text-lg sm:text-xl md:text-2xl text-white tracking-wide">
-            TEAM & SPONSOR REWARDS
+            SPONSOR PERKS BREAKDOWN
           </h3>
           <div className="w-16 h-0.5 bg-spidey-red mx-auto mt-2 mb-3 rounded-full" />
           <p className="text-white/60 font-body text-xs sm:text-sm max-w-xl mx-auto font-normal">
-            Exclusive platform access and toolkits powered by our partners.
+            Platform tiers and toolkits powered by our partners included in the prize pool.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {/* CARD A: For All Participants */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          {/* CARD 1: All Participants */}
           <div className="relative rounded-2xl border border-purple-500/30 bg-[#0B0914] p-5 sm:p-6 shadow-[0_0_24px_rgba(168,85,247,0.12)] hover:border-purple-400/60 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-purple-500/15 border border-purple-400/35 text-purple-300">
-                  SPONSOR PERK · EVERYONE GETS THIS
+                  EVERY PARTICIPANT · BONUS, NOT IN TOTAL ABOVE
                 </span>
-                <span className="text-[10px] font-mono text-purple-400/60 uppercase">ElevenLabs</span>
               </div>
-              <h4 className="font-accent font-black text-lg sm:text-xl text-white tracking-wide">
-                For All Participants
-              </h4>
-              <p className="font-accent font-bold text-base sm:text-lg text-purple-300 mt-2">
-                1 Month Free — Creator Tier
+              <p className="font-accent font-black text-xl sm:text-2xl text-purple-300 mt-2">
+                ₹2,100 value
               </p>
-              <p className="font-mono text-xs sm:text-sm text-white/70 mt-1">
-                $22/month value · 131k credits
+              <h4 className="font-accent font-bold text-base sm:text-lg text-white mt-1">
+                1 Month Free — Creator Tier
+              </h4>
+              <p className="font-mono text-xs text-white/60 mt-2">
+                131k credits · Universal access
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-purple-500/20 flex items-center justify-between text-[11px] font-mono text-purple-300/60 uppercase tracking-widest">
@@ -214,28 +293,51 @@ export default function Prizes() {
             </div>
           </div>
 
-          {/* CARD B: Overall Winning Team */}
+          {/* CARD 2: Winning Team */}
           <div className="relative rounded-2xl border border-amber-500/35 bg-[#140F08] p-5 sm:p-6 shadow-[0_0_24px_rgba(245,158,11,0.14)] hover:border-amber-400/60 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between mb-3">
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-amber-500/15 border border-amber-400/35 text-amber-300">
-                  PER TEAM MEMBER
+                  WINNING TEAM
                 </span>
-                <span className="text-[10px] font-mono text-amber-400/60 uppercase">Champion Tier</span>
               </div>
-              <h4 className="font-accent font-black text-lg sm:text-xl text-white tracking-wide">
-                Overall Winning Team
-              </h4>
-              <p className="font-accent font-bold text-base sm:text-lg text-amber-300 mt-2">
-                3 Months Pro Tier
+              <p className="font-accent font-black text-xl sm:text-2xl text-amber-300 mt-2">
+                ₹28,500 value per member
               </p>
-              <p className="font-mono text-xs sm:text-sm text-white/70 mt-1">
-                $297 value per member · 600k credits/mo
+              <h4 className="font-accent font-bold text-base sm:text-lg text-white mt-1">
+                3 Months Pro Tier
+              </h4>
+              <p className="font-mono text-xs text-white/60 mt-2">
+                600k credits/mo · ₹1,14,000 team total
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-amber-500/20 flex items-center justify-between text-[11px] font-mono text-amber-300/60 uppercase tracking-widest">
               <span>Per Team Member</span>
               <div className="w-1.5 h-1.5 rounded-full bg-amber-400" />
+            </div>
+          </div>
+
+          {/* CARD 3: Best Use of AI Team */}
+          <div className="relative rounded-2xl border border-cyan-500/35 bg-[#081216] p-5 sm:p-6 shadow-[0_0_24px_rgba(6,182,212,0.14)] hover:border-cyan-400/60 transition-all duration-300 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between mb-3">
+                <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase bg-cyan-500/15 border border-cyan-400/35 text-cyan-300">
+                  BEST USE OF AI TEAM
+                </span>
+              </div>
+              <p className="font-accent font-black text-xl sm:text-2xl text-cyan-300 mt-2">
+                ₹86,100 value per member
+              </p>
+              <h4 className="font-accent font-bold text-base sm:text-lg text-white mt-1">
+                3 Months Scale Tier
+              </h4>
+              <p className="font-mono text-xs text-white/60 mt-2">
+                1.8M credits/mo · ₹3,44,400 team total
+              </p>
+            </div>
+            <div className="mt-4 pt-3 border-t border-cyan-500/20 flex items-center justify-between text-[11px] font-mono text-cyan-300/60 uppercase tracking-widest">
+              <span>Per Team Member</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
             </div>
           </div>
         </div>
