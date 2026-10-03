@@ -74,7 +74,6 @@ export default function Prizes() {
   const winnerPrize = podiumPrizes.find((p) => p.rank === "first") || podiumPrizes[0];
   const runnerUpPrize = podiumPrizes.find((p) => p.rank === "second") || podiumPrizes[1];
   const secondRunnerUpPrize = podiumPrizes.find((p) => p.rank === "third") || podiumPrizes[2];
-  const specialPrize = specialPrizes[0];
 
   return (
     <section
@@ -146,27 +145,31 @@ export default function Prizes() {
         </div>
       </div>
 
-      {/* ================= SEPARATED SPECIAL CATEGORY AWARD ================= */}
-      {specialPrize && (
+      {/* ================= SEPARATED SPECIAL CATEGORY AWARDS ================= */}
+      {specialPrizes.length > 0 && (
         <div
           ref={specialRef}
           className="mt-14 sm:mt-18 lg:mt-20 max-w-4xl mx-auto w-full px-2"
         >
-          <div className="text-center mb-5 sm:mb-6">
+          <div className="text-center mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300 text-[11px] sm:text-xs font-mono uppercase tracking-widest mb-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              Special Category Award
+              Special Category Awards
             </div>
-            <h3 className="font-accent font-black text-lg sm:text-xl text-white tracking-wide">
+            <h3 className="font-accent font-black text-lg sm:text-xl md:text-2xl text-white tracking-wide">
               ADDITIONAL EXCELLENCE RECOGNITION
             </h3>
             <p className="text-white/60 font-body text-xs sm:text-sm max-w-xl mx-auto mt-1 font-normal">
-              Special partner bounty awarded for outstanding engineering and implementation.
+              Special partner bounties & startup tracks awarded for domain excellence and innovation.
             </p>
           </div>
 
-          {/* Wide Horizontal Flip Card */}
-          <PrizeCard prize={specialPrize} variant="horizontal" />
+          {/* Stacked Special Category Cards */}
+          <div className="space-y-6">
+            {specialPrizes.map((prize) => (
+              <PrizeCard key={prize.id} prize={prize} variant="horizontal" />
+            ))}
+          </div>
         </div>
       )}
 

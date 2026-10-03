@@ -83,6 +83,20 @@ const rankStyles: Record<PrizeRank, RankStyleConfig> = {
     highlightBox: "bg-cyan-500/10 border-cyan-400/40 text-cyan-100",
     headerTextColor: "text-cyan-300",
   },
+  "special-edtech": {
+    name: "EDTECH TRACK",
+    headlineColor: "text-emerald-300",
+    badgeClasses: "bg-emerald-500/15 border-emerald-400/40 text-emerald-300",
+    iconBorder: "bg-emerald-500/15 border-2 border-emerald-400 shadow-[0_0_22px_rgba(16,185,129,0.35)]",
+    iconColor: "text-emerald-300",
+    cardBorderFront: "border-emerald-500/45 bg-[#07130F] shadow-[0_0_30px_rgba(16,185,129,0.22)] hover:border-emerald-400/70",
+    cardBorderBack: "border-emerald-400/60 bg-[#091A14] shadow-[0_12px_32px_rgba(16,185,129,0.2)]",
+    pulseDotColor: "bg-emerald-400",
+    spotlightRgba: "rgba(16, 185, 129, 0.18)",
+    checkColor: "text-emerald-400",
+    highlightBox: "bg-emerald-500/10 border-emerald-400/40 text-emerald-100",
+    headerTextColor: "text-emerald-300",
+  },
 };
 
 export default function PrizeCard({
@@ -145,6 +159,19 @@ export default function PrizeCard({
   };
 
   const renderIcon = () => {
+    if (prize.iconType === "edtech" || prize.rank === "special-edtech") {
+      return (
+        <svg
+          className="w-7 h-7 sm:w-8 sm:h-8"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+        </svg>
+      );
+    }
+
     if (prize.iconType === "ai" || prize.rank === "special") {
       return (
         <svg
@@ -171,9 +198,11 @@ export default function PrizeCard({
   };
 
   // =========================================================================
-  // HORIZONTAL VARIANT (Special Category Award: Best Use of AI)
+  // HORIZONTAL VARIANT (Special Category Awards: Best Use of AI, Startup Launchpad)
   // =========================================================================
   if (isHorizontal) {
+    const ringColor = prize.rank === "special-edtech" ? "focus-visible:ring-emerald-400" : "focus-visible:ring-cyan-400";
+
     return (
       <motion.div
         onMouseMove={handleMouseMove}
@@ -188,7 +217,7 @@ export default function PrizeCard({
         whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
         whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
-        className={`relative w-full h-[260px] xs:h-[240px] sm:h-[210px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-2xl ${className}`}
+        className={`relative w-full h-[320px] xs:h-[300px] sm:h-[240px] md:h-[230px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 ${ringColor} rounded-2xl ${className}`}
       >
         <div
           className={`relative w-full h-full rounded-2xl [will-change:transform] ${
@@ -237,8 +266,8 @@ export default function PrizeCard({
                 </div>
 
                 <div>
-                  <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase mb-1.5 bg-cyan-500/15 border border-cyan-400/35 text-cyan-300">
-                    SPECIAL CATEGORY AWARD
+                  <span className={`inline-block px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-wider uppercase mb-1.5 border ${config.badgeClasses}`}>
+                    {prize.badgeText || "SPECIAL CATEGORY AWARD"}
                   </span>
                   <h3
                     className={`font-accent font-black text-xl sm:text-2xl md:text-3xl tracking-wider leading-tight ${config.headlineColor}`}
@@ -251,44 +280,84 @@ export default function PrizeCard({
                 </div>
               </div>
 
-              {/* Right: Cash Bounty & Info */}
-              <div className="flex flex-col items-center sm:items-end text-center sm:text-right shrink-0">
-                {prize.amount.toLowerCase().includes("announced") ? (
-                  <motion.div
-                    animate={{ opacity: [0.75, 1, 0.75] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300"
-                  >
-                    <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
-                    <span>Bounty: To Be Announced Soon</span>
-                  </motion.div>
-                ) : (
-                  <div className="flex flex-col items-center sm:items-end">
-                    <span className="font-accent font-black text-2xl sm:text-3xl md:text-4xl text-cyan-300 tracking-wider leading-none drop-shadow-[0_2px_14px_rgba(6,182,212,0.4)]">
-                      {prize.amount}
-                    </span>
-                    <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-400/80 mt-1 font-semibold">
-                      Cash Bounty
+              {/* Right: Cash Bounty & Info OR Nextute Mentorship Track Info */}
+              {prize.rank === "special-edtech" ? (
+                <div className="flex flex-col items-center sm:items-end text-center sm:text-right shrink-0 max-w-sm sm:max-w-md">
+                  <p className="font-accent font-bold text-xs sm:text-sm md:text-[15px] text-emerald-300 leading-snug">
+                    {prize.bodyLine || "1 month of mentorship + pitch support to a relevant authority"}
+                  </p>
+                  <p className="font-body text-[11px] text-white/60 mt-0.5">
+                    {prize.eligibilityNote || "Eligible teams will be contacted after judging."}
+                  </p>
+
+                  {/* Apply Button / Link with Disabled State */}
+                  <div className="mt-2 flex flex-col items-center sm:items-end gap-1">
+                    <div
+                      role="button"
+                      tabIndex={-1}
+                      aria-disabled="true"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-emerald-500/40 bg-emerald-500/10 text-emerald-300 font-mono text-xs cursor-not-allowed opacity-80 select-none shadow-[0_0_10px_rgba(16,185,129,0.15)]"
+                    >
+                      <span>{prize.actionButton?.label || "Apply for Mentorship"}</span>
+                      <svg className="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                    <span className="text-[10px] font-mono text-white/50 italic">
+                      {prize.actionButton?.disabledNote || "Form activates after hackathon judging."}
                     </span>
                   </div>
-                )}
-                <div className="mt-2 flex flex-col items-center sm:items-end gap-1">
-                  <span className="font-mono text-[9px] sm:text-[10px] md:text-[11px] text-cyan-200 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">
-                    CASH BOUNTY + CERTIFICATE + HOODIE + ELEVENLABS SCALE TIER
-                  </span>
-                  <span className="text-[10px] text-white/50 italic">
-                    Hoodie awarded to team leader · Scale Tier: 3 months, $897 value per team member, 1.8M credits/mo
-                  </span>
+
+                  {/* Bottom tag */}
+                  <div className="mt-1.5">
+                    <span className="font-mono text-[9px] sm:text-[10px] md:text-[11px] text-emerald-200 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/30">
+                      {prize.bottomTag || "MENTORSHIP + PITCH SUPPORT"}
+                    </span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="flex flex-col items-center sm:items-end text-center sm:text-right shrink-0">
+                  {prize.amount.toLowerCase().includes("announced") ? (
+                    <motion.div
+                      animate={{ opacity: [0.75, 1, 0.75] }}
+                      transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-[11px] sm:text-xs font-mono text-cyan-300"
+                    >
+                      <span className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor} animate-pulse`} />
+                      <span>Bounty: To Be Announced Soon</span>
+                    </motion.div>
+                  ) : (
+                    <div className="flex flex-col items-center sm:items-end">
+                      <span className="font-accent font-black text-2xl sm:text-3xl md:text-4xl text-cyan-300 tracking-wider leading-none drop-shadow-[0_2px_14px_rgba(6,182,212,0.4)]">
+                        {prize.amount}
+                      </span>
+                      <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-400/80 mt-1 font-semibold">
+                        Cash Bounty
+                      </span>
+                    </div>
+                  )}
+                  <div className="mt-2 flex flex-col items-center sm:items-end gap-1">
+                    <span className="font-mono text-[9px] sm:text-[10px] md:text-[11px] text-cyan-200 font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/30">
+                      {prize.bottomTag || "CASH BOUNTY + CERTIFICATE + HOODIE + ELEVENLABS SCALE TIER"}
+                    </span>
+                    <span className="text-[10px] text-white/50 italic">
+                      Hoodie awarded to team leader · Scale Tier: 3 months, $897 value per team member, 1.8M credits/mo
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className="relative z-10 pt-2 border-t border-cyan-500/20 flex items-center justify-between">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-400/60">
-                ELEVENLABS SPONSORED TRACK
+            <div className={`relative z-10 pt-2 border-t flex items-center justify-between ${
+              prize.rank === "special-edtech" ? "border-emerald-500/20" : "border-cyan-500/20"
+            }`}>
+              <span className={`text-[11px] font-mono uppercase tracking-widest ${
+                prize.rank === "special-edtech" ? "text-emerald-400/70" : "text-cyan-400/60"
+              }`}>
+                {prize.sponsorTrack || "ELEVENLABS SPONSORED TRACK"}
               </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>
           </div>
 
@@ -319,8 +388,8 @@ export default function PrizeCard({
               <span className={`text-xs sm:text-sm font-mono font-bold uppercase tracking-wider ${config.headerTextColor}`}>
                 {prize.place} Perks & Benefits
               </span>
-              <span className="text-[10px] font-mono uppercase px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-400/30">
-                Sponsored Track
+              <span className={`text-[10px] font-mono uppercase px-2 py-0.5 rounded-full border ${config.badgeClasses}`}>
+                {prize.rank === "special-edtech" ? "EdTech Track" : "Sponsored Track"}
               </span>
             </div>
 
@@ -337,7 +406,9 @@ export default function PrizeCard({
             )}
 
             {/* Perks Grid */}
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
+            <div className={`relative z-10 grid grid-cols-1 ${
+              prize.perks.length > 3 ? "sm:grid-cols-2 lg:grid-cols-4" : "sm:grid-cols-3"
+            } gap-2 sm:gap-3`}>
               {prize.perks.map((perk, idx) => {
                 const isHoodie = perk.toLowerCase().includes("hoodie");
                 return (

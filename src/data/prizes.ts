@@ -1,4 +1,4 @@
-export type PrizeRank = "first" | "second" | "third" | "special";
+export type PrizeRank = "first" | "second" | "third" | "special" | "special-edtech";
 
 export interface PrizeItem {
   id: string;
@@ -6,7 +6,17 @@ export interface PrizeItem {
   rank: PrizeRank;
   amount: string;
   label: string;
-  iconType?: "trophy" | "ai";
+  iconType?: "trophy" | "ai" | "edtech";
+  badgeText?: string;
+  bodyLine?: string;
+  bottomTag?: string;
+  sponsorTrack?: string;
+  eligibilityNote?: string;
+  actionButton?: {
+    label: string;
+    url: string;
+    disabledNote?: string;
+  };
   highlightPerk?: string;
   perks: string[];
 }
@@ -72,12 +82,40 @@ export const prizes: PrizeItem[] = [
     rank: "special",
     amount: "₹11,000",
     label: "Best Project Built with ElevenLabs",
+    badgeText: "SPECIAL CATEGORY AWARD",
+    sponsorTrack: "ELEVENLABS SPONSORED TRACK",
+    bottomTag: "CASH BOUNTY + CERTIFICATE + HOODIE + ELEVENLABS SCALE TIER",
     iconType: "ai",
     highlightPerk: "Best Project Built with ElevenLabs: Each team member receives 3 months of our Scale tier ($897 value/team member, 1.8M credits/mo)",
     perks: [
       "1 Official Hoodie (Awarded to Team Leader)",
       "₹11,000 Cash Bounty + Special AI Innovation Trophy & Certificate",
       "Feature on Developer Showcase & Spotlight",
+    ],
+  },
+  {
+    id: "startup-launchpad",
+    place: "Startup Launchpad",
+    rank: "special-edtech",
+    amount: "Mentorship & Pitch Support",
+    label: "For EdTech & Future Learning builders",
+    badgeText: "SPECIAL CATEGORY · EDTECH TRACK",
+    iconType: "edtech",
+    bodyLine: "1 month of mentorship + pitch support to a relevant authority",
+    bottomTag: "MENTORSHIP + PITCH SUPPORT",
+    sponsorTrack: "NEXTUTE EDTECH PVT. LTD. SPONSORED TRACK",
+    eligibilityNote: "Eligible teams will be contacted after judging.",
+    actionButton: {
+      label: "Apply for Mentorship",
+      url: "#nextute-form",
+      disabledNote: "Form activates after hackathon judging.",
+    },
+    highlightPerk: "Nextute EdTech Pvt. Ltd.: 1 month of dedicated startup mentorship and authority pitch support for standout EdTech solutions.",
+    perks: [
+      "1 Month 1-on-1 Startup Mentorship with Nextute Founders",
+      "Pitch Deck Refinement & Authority Pitch Guidance",
+      "Direct Support to Pitch to Relevant Educational Authorities",
+      "Certificate of Excellence & Ecosystem Recognition",
     ],
   },
 ];
@@ -109,7 +147,7 @@ export const participantSwag = [
   "Srijan Setu Customized Cup",
 ];
 
-export const podiumPrizes = prizes.filter((p) => p.rank !== "special");
-export const specialPrizes = prizes.filter((p) => p.rank === "special");
+export const podiumPrizes = prizes.filter((p) => p.rank !== "special" && p.rank !== "special-edtech");
+export const specialPrizes = prizes.filter((p) => p.rank === "special" || p.rank === "special-edtech");
 
 export default prizes;
