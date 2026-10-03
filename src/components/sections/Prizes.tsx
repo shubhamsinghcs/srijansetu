@@ -10,6 +10,10 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
+const indianCurrencyFormatter = new Intl.NumberFormat("en-IN", {
+  maximumFractionDigits: 0,
+});
+
 function CountUpPrizePool({
   target = 532400,
   duration = 2200,
@@ -23,8 +27,9 @@ function CountUpPrizePool({
   const hasAnimated = useRef(false);
 
   useEffect(() => {
+    // Respect prefers-reduced-motion: show final value immediately without animation
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplayValue(`₹${target.toLocaleString("en-IN")}`);
+      setDisplayValue(`₹${indianCurrencyFormatter.format(target)}`);
       setIsFinished(true);
       return;
     }
@@ -45,12 +50,13 @@ function CountUpPrizePool({
         const easeProgress = 1 - Math.pow(1 - progress, 4);
         const currentVal = Math.floor(easeProgress * target);
 
-        setDisplayValue(`₹${currentVal.toLocaleString("en-IN")}`);
+        // Indian numbering format (e.g., 5,32,400) on EVERY frame
+        setDisplayValue(`₹${indianCurrencyFormatter.format(currentVal)}`);
 
         if (progress < 1) {
           requestAnimationFrame(step);
         } else {
-          setDisplayValue(`₹${target.toLocaleString("en-IN")}`);
+          setDisplayValue(`₹${indianCurrencyFormatter.format(target)}`);
           setIsFinished(true);
         }
       };
@@ -82,7 +88,7 @@ function CountUpPrizePool({
     >
       <span>{displayValue}</span>
       <span
-        className={`transition-opacity duration-300 text-spidey-red ${
+        className={`transition-opacity duration-300 text-spidey-red motion-reduce:transition-none ${
           isFinished ? "opacity-100" : "opacity-0"
         }`}
       >

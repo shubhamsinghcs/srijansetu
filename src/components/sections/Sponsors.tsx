@@ -51,8 +51,15 @@ export default function Sponsors() {
               {/* Responsive Grid of Logos */}
               <div className="flex flex-wrap justify-center gap-3.5 sm:gap-5 mx-auto max-w-6xl">
                 {partners.map((partner) => {
+                  const isCommunity = id === "community";
                   const cardContent = (
-                    <div className="flex items-center justify-center gap-2 sm:gap-3 transition-all duration-300 w-full h-full px-2 sm:px-3 filter grayscale hover:grayscale-0 group-hover:grayscale-0 opacity-85 group-hover:opacity-100">
+                    <div
+                      className={`flex items-center justify-center gap-2 sm:gap-3 transition-all duration-300 w-full h-full px-2 sm:px-3 ${
+                        isCommunity
+                          ? "opacity-100"
+                          : "filter grayscale hover:grayscale-0 group-hover:grayscale-0 opacity-85 group-hover:opacity-100"
+                      }`}
+                    >
                       {partner.logo ? (
                         <div className="relative w-full h-full max-h-12 sm:max-h-14 flex items-center justify-center">
                           <Image
