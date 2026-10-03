@@ -31,8 +31,8 @@ export interface SponsorRewardItem {
   accent: "purple" | "amber" | "cyan";
 }
 
-export const totalPrizePool = "₹5,32,400+";
-export const totalPrizeValue = 532400;
+export const totalPrizePool = "₹5,32,000+";
+export const totalPrizeValue = 532000;
 
 export const prizes: PrizeItem[] = [
   {
@@ -45,8 +45,7 @@ export const prizes: PrizeItem[] = [
     highlightPerk: "Overall winning team: Each team member receives 3 months of our Pro tier ($297 value/team member, 600k credits/mo)",
     perks: [
       "1 Official Hoodie (Awarded to Team Leader)",
-      "₹31,000 Cash Prize + Champion Trophy & Certificate",
-      "Direct Incubation & Investor Pitch Access",
+      "₹31,000 Cash Prize & Certificate",
     ],
   },
   {
@@ -58,9 +57,7 @@ export const prizes: PrizeItem[] = [
     iconType: "trophy",
     perks: [
       "1 Official Hoodie (Awarded to Team Leader)",
-      "₹21,000 Cash Prize + Runner-Up Trophy & Certificate",
-      "Partner Cloud Credits & Developer Swag",
-      "Mentorship & Networking Opportunities",
+      "₹21,000 Cash Prize & Certificate",
     ],
   },
   {
@@ -72,9 +69,7 @@ export const prizes: PrizeItem[] = [
     iconType: "trophy",
     perks: [
       "1 Official Hoodie (Awarded to Team Leader)",
-      "₹11,000 Cash Prize + 2nd Runner-Up Trophy & Certificate",
-      "Developer Toolkits & Goodie Bag",
-      "Community Builder Ecosystem Access",
+      "₹11,000 Cash Prize & Certificate",
     ],
   },
   {
@@ -90,8 +85,7 @@ export const prizes: PrizeItem[] = [
     highlightPerk: "Best Project Built with ElevenLabs: Each team member receives 3 months of our Scale tier ($897 value/team member, 1.8M credits/mo)",
     perks: [
       "1 Official Hoodie (Awarded to Team Leader)",
-      "₹11,000 Cash Bounty + Special AI Innovation Trophy & Certificate",
-      "Feature on Developer Showcase & Spotlight",
+      "₹11,000 Cash Bounty & Certificate",
     ],
   },
   {
@@ -116,7 +110,6 @@ export const prizes: PrizeItem[] = [
       "1 Month 1-on-1 Startup Mentorship with Nextute Founders",
       "Pitch Deck Refinement & Authority Pitch Guidance",
       "Direct Support to Pitch to Relevant Educational Authorities",
-      "Certificate of Excellence & Ecosystem Recognition",
     ],
   },
 ];
@@ -141,8 +134,8 @@ export const sponsorRewards: SponsorRewardItem[] = [
     accent: "amber",
   },
   {
-    id: "best-ai-team",
-    badge: "BEST USE OF AI TEAM",
+    id: "best-ai-elevenlabs",
+    badge: "BEST USE OF ElevenLabs",
     title: "3 Months Scale Tier",
     tier: "3 Months Scale Tier",
     value: "₹86,100 value per member",
