@@ -12,6 +12,7 @@ export interface Sponsor {
   logo: string;
   website?: string;
   tier: string;
+  category?: "partner" | "community" | "sponsor";
   description?: string;
   featured?: boolean;
   order: number;
@@ -23,6 +24,7 @@ export interface Partner {
   logo: string;
   website?: string;
   description?: string;
+  category?: "partner" | "community";
   featured?: boolean;
   order: number;
   heightClass?: string;

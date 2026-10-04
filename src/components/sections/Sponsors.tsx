@@ -5,7 +5,9 @@ import { sponsorTiers } from "@/data";
 import Button from "@/components/ui/Button";
 
 export default function Sponsors() {
-  const visibleTiers = sponsorTiers.filter(({ partners }) => partners && partners.length > 0);
+  const visibleTiers = sponsorTiers.filter(
+    ({ id, partners }) => id === "sponsors" && partners && partners.length > 0
+  );
 
   if (visibleTiers.length === 0) {
     return (

@@ -6,7 +6,9 @@ import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
 import Judges from "@/components/sections/Judges";
 import Mentors from "@/components/sections/Mentors";
+import Partners from "@/components/sections/Partners";
 import Sponsors from "@/components/sections/Sponsors";
+import CommunityPartners from "@/components/sections/CommunityPartners";
 import TechTeam from "@/components/sections/Team";
 import EventResources from "@/components/sections/EventResources";
 
@@ -21,7 +23,9 @@ export default function Home() {
       <Prizes />
       <Judges />
       <Mentors />
+      <Partners />
       <Sponsors />
+      <CommunityPartners />
       <TechTeam />
       <EventResources />
     </main>

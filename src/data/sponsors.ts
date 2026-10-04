@@ -9,6 +9,7 @@ export const sponsors: Sponsor[] = [
     logo: "/images/logos/sponsors/viziane.png",
     website: "https://viziane.com",
     tier: "Corporate",
+    category: "sponsor",
     order: 1,
   },
   {
@@ -17,6 +18,7 @@ export const sponsors: Sponsor[] = [
     logo: "/images/logos/sponsors/elevenlabs.png",
     website: "https://elevenlabs.io",
     tier: "Corporate",
+    category: "sponsor",
     order: 2,
   },
   {
@@ -25,6 +27,7 @@ export const sponsors: Sponsor[] = [
     logo: "",
     website: "",
     tier: "Innovation",
+    category: "sponsor",
     order: 3,
   },
 ];
