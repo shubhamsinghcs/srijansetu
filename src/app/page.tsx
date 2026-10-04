@@ -4,11 +4,11 @@ import About from "@/components/sections/About";
 import Themes from "@/components/sections/Themes";
 import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
-import EventResources from "@/components/sections/EventResources";
-import Sponsors from "@/components/sections/Sponsors";
-import Mentors from "@/components/sections/Mentors";
 import Judges from "@/components/sections/Judges";
+import Mentors from "@/components/sections/Mentors";
+import Sponsors from "@/components/sections/Sponsors";
 import TechTeam from "@/components/sections/Team";
+import EventResources from "@/components/sections/EventResources";
 
 export default function Home() {
   return (
@@ -19,11 +19,11 @@ export default function Home() {
       <Themes />
       <Timeline preview />
       <Prizes />
-      <EventResources />
-      <Sponsors />
       <Judges />
       <Mentors />
+      <Sponsors />
       <TechTeam />
+      <EventResources />
     </main>
   );
 }

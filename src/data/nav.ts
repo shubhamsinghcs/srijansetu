@@ -10,8 +10,8 @@ export const navItems: NavItem[] = [
   { label: "Prizes", href: "#prizes" },
   { label: "Sponsors", href: "#sponsors" },
   { label: "Team", href: "/team" },
-  { label: "Contact", href: "#contact" },
   { label: "Resources", href: "#resources" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default navItems;
