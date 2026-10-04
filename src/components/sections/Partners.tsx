@@ -28,7 +28,7 @@ function PartnerCardItem({ partner }: { partner: any }) {
           <div className="w-8 h-8 rounded-lg bg-spidey-red/20 border border-spidey-red/40 flex items-center justify-center text-spidey-red font-bold text-sm flex-shrink-0">
             {partner.name.charAt(0)}
           </div>
-          <span className="font-bold text-xs sm:text-sm md:text-base text-web-white tracking-wide group-hover:text-spidey-red transition-colors truncate">
+          <span className="font-bold text-xs sm:text-sm text-web-white tracking-wide group-hover:text-spidey-red transition-colors line-clamp-2 leading-tight text-left">
             {partner.name}
           </span>
         </>

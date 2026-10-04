@@ -15,8 +15,8 @@ export const sponsors: Sponsor[] = [
   {
     id: "partner-002",
     name: "Innovation Mission Punjab",
-    logo: "/images/partners/innovation-mission-punjab.png",
-    logoUrl: "/images/partners/innovation-mission-punjab.png",
+    logo: "/images/partners/innovation-mission-punjab.jpeg",
+    logoUrl: "/images/partners/innovation-mission-punjab.jpeg",
     website: "",
     category: "partner",
     order: 2,
