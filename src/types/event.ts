@@ -10,8 +10,9 @@ export interface Sponsor {
   id: string;
   name: string;
   logo: string;
+  logoUrl?: string;
   website?: string;
-  tier: string;
+  tier?: string;
   category?: "partner" | "community" | "sponsor";
   description?: string;
   featured?: boolean;
@@ -22,6 +23,7 @@ export interface Partner {
   id: string;
   name: string;
   logo: string;
+  logoUrl?: string;
   website?: string;
   description?: string;
   category?: "partner" | "community";

@@ -4,31 +4,42 @@ export type SponsorTier = "Corporate" | "Innovation" | "Community" | "Media" | "
 
 export const sponsors: Sponsor[] = [
   {
-    id: "corporate-001",
+    id: "partner-001",
     name: "Viziane",
-    logo: "/images/logos/sponsors/viziane.png",
+    logo: "/images/partners/viziane.png",
+    logoUrl: "/images/partners/viziane.png",
     website: "https://viziane.com",
-    tier: "Corporate",
-    category: "sponsor",
+    category: "partner",
     order: 1,
+  },
+  {
+    id: "partner-002",
+    name: "Innovation Mission Punjab",
+    logo: "/images/partners/innovation-mission-punjab.png",
+    logoUrl: "/images/partners/innovation-mission-punjab.png",
+    website: "",
+    category: "partner",
+    order: 2,
   },
   {
     id: "corporate-002",
     name: "ElevenLabs",
     logo: "/images/logos/sponsors/elevenlabs.png",
+    logoUrl: "/images/logos/sponsors/elevenlabs.png",
     website: "https://elevenlabs.io",
     tier: "Corporate",
     category: "sponsor",
-    order: 2,
+    order: 3,
   },
   {
     id: "innovation-001",
     name: "Accommodation Partner",
     logo: "",
+    logoUrl: "",
     website: "",
     tier: "Innovation",
     category: "sponsor",
-    order: 3,
+    order: 4,
   },
 ];
 

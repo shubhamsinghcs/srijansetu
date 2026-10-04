@@ -9,13 +9,15 @@ export interface SponsorTierSection {
   partners: Partner[];
 }
 
-const sponsorPartners: Partner[] = sponsors.map((sponsor) => ({
-  id: sponsor.id,
-  name: sponsor.name,
-  logo: sponsor.logo,
-  website: sponsor.website,
-  order: sponsor.order,
-}));
+const sponsorPartners: Partner[] = sponsors
+  .filter((sponsor) => sponsor.category === "sponsor")
+  .map((sponsor) => ({
+    id: sponsor.id,
+    name: sponsor.name,
+    logo: sponsor.logo,
+    website: sponsor.website,
+    order: sponsor.order,
+  }));
 
 export const sponsorTiers: SponsorTierSection[] = [
   {
