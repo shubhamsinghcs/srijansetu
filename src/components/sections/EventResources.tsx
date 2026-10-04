@@ -1,5 +1,7 @@
 "use client";
 
+import TransportNotice from "@/components/ui/TransportNotice";
+
 export default function EventResources() {
   return (
     <section
@@ -7,6 +9,8 @@ export default function EventResources() {
       aria-labelledby="resources-heading"
       className="relative mx-auto max-w-7xl px-4 py-12 sm:py-16 lg:py-20 scroll-mt-20 overflow-hidden"
     >
+      <TransportNotice />
+
       {/* Background ambient lighting */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-spidey-red/5 rounded-full blur-[100px] pointer-events-none -z-10"
