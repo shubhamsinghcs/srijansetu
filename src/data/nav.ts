@@ -11,6 +11,7 @@ export const navItems: NavItem[] = [
   { label: "Sponsors", href: "#sponsors" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "#contact" },
+  { label: "Resources", href: "#resources" },
 ];
 
 export default navItems;

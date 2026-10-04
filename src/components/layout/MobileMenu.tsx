@@ -75,6 +75,7 @@ export default function MobileMenu({
       <nav className="flex flex-col items-center gap-8 text-center">
         {navItems.map((item: NavItem) => {
           const isActive = activeSection === item.href;
+          const isResources = item.href === "#resources";
           return (
             <Link
               key={item.href}
@@ -83,7 +84,9 @@ export default function MobileMenu({
               className={`font-accent text-2xl font-bold uppercase tracking-wider transition-all duration-200 pb-1 ${
                 isActive
                   ? "text-web-white border-b-2 border-spidey-red"
-                  : "text-web-gray hover:text-web-white"
+                  : isResources
+                    ? "text-white/45 hover:text-spidey-red"
+                    : "text-web-gray hover:text-web-white"
               }`}
             >
               {item.label}

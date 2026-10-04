@@ -4,6 +4,7 @@ import About from "@/components/sections/About";
 import Themes from "@/components/sections/Themes";
 import Timeline from "@/components/sections/Timeline";
 import Prizes from "@/components/sections/Prizes";
+import EventResources from "@/components/sections/EventResources";
 import Sponsors from "@/components/sections/Sponsors";
 import Mentors from "@/components/sections/Mentors";
 import Judges from "@/components/sections/Judges";
@@ -18,6 +19,7 @@ export default function Home() {
       <Themes />
       <Timeline preview />
       <Prizes />
+      <EventResources />
       <Sponsors />
       <Judges />
       <Mentors />

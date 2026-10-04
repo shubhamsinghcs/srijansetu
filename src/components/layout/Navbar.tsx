@@ -82,6 +82,7 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-3 xl:space-x-5">
             {navItems.map((item: NavItem) => {
               const isActive = activeSection === item.href;
+              const isResources = item.href === "#resources";
               return (
                 <Link
                   key={item.href}
@@ -93,7 +94,11 @@ export default function Navbar() {
                         : item.href
                   }
                   className={`relative font-accent text-xs lg:text-body-sm xl:text-body-base font-medium px-2 lg:px-2.5 py-1.5 transition-colors duration-200 ${
-                    isActive ? "text-web-white font-semibold" : "text-web-gray hover:text-web-white"
+                    isActive
+                      ? "text-web-white font-semibold"
+                      : isResources
+                        ? "text-white/45 hover:text-spidey-red"
+                        : "text-web-gray hover:text-web-white"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
