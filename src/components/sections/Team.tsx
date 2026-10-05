@@ -3,6 +3,12 @@
 import { faculty } from "@/data";
 import Button from "@/components/ui/Button";
 import TeamMemberGrid from "@/components/ui/TeamMemberGrid";
+import type { TeamTier } from "@/types/event";
+
+const facultyTiers: { id: TeamTier; title: string }[] = [
+  { id: "chairman", title: "CHAIRMAN" },
+  { id: "principal", title: "PRINCIPALS" },
+];
 
 export default function Team() {
   return (
@@ -25,7 +31,20 @@ export default function Team() {
         </p>
       </div>
 
-      <TeamMemberGrid members={faculty} />
+      <div className="space-y-10 sm:space-y-12">
+        {facultyTiers.map((tier) => {
+          const members = faculty.filter((m) => m.tier === tier.id);
+          if (members.length === 0) return null;
+          return (
+            <div key={tier.id} className="text-center">
+              <h3 className="section-heading text-display-md leading-tight mb-6">
+                {tier.title}
+              </h3>
+              <TeamMemberGrid members={members} />
+            </div>
+          );
+        })}
+      </div>
 
       <div className="mt-10 flex justify-center">
         <Button href="/team" variant="outline">

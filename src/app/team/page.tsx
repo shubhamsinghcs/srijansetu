@@ -1,11 +1,25 @@
-import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
-import { faculty, heroPartnerLogos, team } from "@/data";
+import { faculty, team } from "@/data";
 import type { TeamTier } from "@/types/event";
 import TeamMemberGrid from "@/components/ui/TeamMemberGrid";
 
-const tiers: { id: TeamTier; title: string; description: string }[] = [
+const allTiers: { id: TeamTier; title: string; description: string }[] = [
+  {
+    id: "chairman",
+    title: "CHAIRMAN",
+    description: "The visionary leadership steering Indo Global Colleges towards excellence and innovation.",
+  },
+  {
+    id: "principal",
+    title: "PRINCIPALS",
+    description: "The academic leaders guiding the colleges and supporting student-driven initiatives.",
+  },
+  {
+    id: "faculty",
+    title: "FACULTY",
+    description: "The dedicated faculty members mentoring and empowering students to push boundaries.",
+  },
   {
     id: "organizers",
     title: "ORGANIZERS",
@@ -24,6 +38,9 @@ const tiers: { id: TeamTier; title: string; description: string }[] = [
 ];
 
 export default function TeamPage() {
+  // Combine faculty and team arrays so we can filter from one source
+  const allMembers = [...faculty, ...team];
+
   return (
     <main className="min-h-screen text-web-white overflow-x-hidden">
       <Navbar />
@@ -41,51 +58,11 @@ export default function TeamPage() {
               Srijan Setu / Team
             </span>
           </div>
-
-          {/* <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-9 py-4 border-y border-white/10">
-            {heroPartnerLogos.map((logo) => (
-              <Image
-                key={logo.name}
-                src={logo.src}
-                alt={logo.name}
-                width={120}
-                height={48}
-                unoptimized
-                className="h-7 sm:h-9 w-auto max-w-[100px] object-contain opacity-75"
-              />
-            ))}
-          </div> */}
-
-          {/* <div className="text-center mt-10">
-            <p className="font-accent text-xs uppercase tracking-[0.28em] text-spidey-red mb-3">
-              The people behind the experience
-            </p>
-            <h1 className="section-heading text-display-lg sm:text-display-xl leading-tight">THE TEAM</h1>
-            <p className="text-white/75 font-body text-body-base sm:text-body-lg max-w-2xl mx-auto mt-4">
-            Meet the people building, coordinating, and supporting Srijan Setu.
-            </p>
-          </div> */}
         </div>
 
         <div className="space-y-16 sm:space-y-20">
-          <section aria-labelledby="faculty-heading">
-            <div className="text-center mb-8">
-              <h2 id="faculty-heading" className="section-heading text-display-lg leading-tight">
-                OUR GUIDING PILLARS
-              </h2>
-              <p className="text-white/70 font-body max-w-2xl mx-auto mt-3">
-                Srijan Setu is made possible by the vision and continued support of our administration and faculty — their belief in student-led innovation is what gives this hackathon its foundation.
-              </p>
-            </div>
-            {faculty.length > 0 ? (
-              <TeamMemberGrid members={faculty} />
-            ) : (
-              <p className="text-center text-web-gray font-body">Faculty details coming soon.</p>
-            )}
-          </section>
-
-          {tiers.map((tier) => {
-            const members = team.filter((member) => member.tier === tier.id);
+          {allTiers.map((tier) => {
+            const members = allMembers.filter((member) => member.tier === tier.id);
             return (
               <section key={tier.id} aria-labelledby={`${tier.id}-heading`}>
                 <div className="text-center mb-8">
@@ -97,7 +74,7 @@ export default function TeamPage() {
                 {members.length > 0 ? (
                   <TeamMemberGrid members={members} />
                 ) : (
-                  <p className="text-center text-web-gray font-body">Team details coming soon.</p>
+                  <p className="text-center text-web-gray font-body">Details coming soon.</p>
                 )}
               </section>
             );

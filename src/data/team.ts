@@ -2,22 +2,10 @@ import type { TeamMember } from "@/types/event";
 
 export const faculty: TeamMember[] = [
   {
-    id: "faculty-001",
-    name: "Neelam Singla",
-    role: "Chairperson ma'am",
-    tier: "faculty",
-    // image: "/images/people/team/shubham.jpg",
-    // socials: {
-    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
-    //   github: "https://github.com/shubhamsinghcs",
-    //   x: "https://x.com/SSR23__",
-    // },
-  },
-  {
     id: "faculty-002",
     name: "Manav Singla",
-    role: "CEO",
-    tier: "faculty",
+    role: "Chairman",
+    tier: "chairman",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
@@ -29,7 +17,7 @@ export const faculty: TeamMember[] = [
     id: "faculty-003",
     name: "Dr. Promila Kaushal",
     role: "Principal IGCE",
-    tier: "faculty",
+    tier: "principal",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
@@ -41,7 +29,7 @@ export const faculty: TeamMember[] = [
     id: "faculty-004",
     name: "Dr. Hardeep Singh Saini",
     role: "Principal IGCMT",
-    tier: "faculty",
+    tier: "principal",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
@@ -51,10 +39,46 @@ export const faculty: TeamMember[] = [
   },
   {
     id: "faculty-005",
-    name: "Er. Shaweta ",
-    role: "HoD CSE",
+    name: "Er. Vanita Rani ",
+    role: "HoD SCE",
     tier: "faculty",
-    // image: "/images/people/team/shubham.jpg",
+    image: "/images/people/faculty/vanita.jpeg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-006",
+    name: "Er. Shaweta ",
+    role: "Assistant Professor",
+    tier: "faculty",
+    image: "/images/people/faculty/sweta.jpeg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-007",
+    name: "Er. Manjeet Kaur",
+    role: "Assistant Professor",
+    tier: "faculty",
+    image: "/images/people/faculty/manjeet.jpeg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-008",
+    name: "Er. Manu Sharma",
+    role: "Assistant Professor",
+    tier: "faculty",
+    image: "/images/people/faculty/manu.jpeg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
     //   github: "https://github.com/shubhamsinghcs",
