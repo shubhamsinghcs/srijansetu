@@ -131,6 +131,26 @@ export const communityPartners: Partner[] = [
     featured: false,
     order: 13,
   },
+  {
+    id: "community-partner-014",
+    name: "Cosmic Club",
+    logo: "/images/logos/partners/cosmiccircle.png",
+    website: "https://causmic.gndec.ac.in/",
+    description: "",
+    category: "community",
+    featured: false,
+    order: 14,
+  },
+  {
+    id: "community-partner-015",
+    name: "CU Updates",
+    logo: "/images/logos/partners/cuupdates.png",
+    website: "https://www.instagram.com/cuupdates1?stkn=MWkydXB6ZGdwcDNqdg==",
+    description: "",
+    category: "community",
+    featured: false,
+    order: 15,
+  },
 ];
 
 export default communityPartners;
