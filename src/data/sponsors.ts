@@ -22,7 +22,7 @@ export const sponsors: Sponsor[] = [
     order: 2,
   },
   {
-    id: "corporate-002",
+    id: "corporate-003",
     name: "ElevenLabs",
     logo: "/images/logos/sponsors/elevenlabs.png",
     logoUrl: "/images/logos/sponsors/elevenlabs.png",
@@ -32,7 +32,7 @@ export const sponsors: Sponsor[] = [
     order: 3,
   },
   {
-    id: "corporate-003",
+    id: "corporate-004",
     name: "n8n",
     logo: "/images/logos/sponsors/n8n.png",
     logoUrl: "/images/logos/sponsors/n8n.png",
@@ -40,6 +40,16 @@ export const sponsors: Sponsor[] = [
     tier: "Corporate",
     category: "sponsor",
     order: 4,
+  },
+  {
+    id: "corporate-005",
+    name: "Nextute",
+    logo: "/images/logos/sponsors/nextute.png",
+    logoUrl: "/images/logos/sponsors//nextute.png",
+    website: "https://nextute.com/",
+    tier: "Corporate",
+    category: "sponsor",
+    order: 5,
   },
 ];
 
