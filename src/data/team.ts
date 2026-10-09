@@ -4,8 +4,8 @@ export const faculty: TeamMember[] = [
   {
     id: "faculty-002",
     name: "Manav Singla",
-    role: "Chairman",
-    tier: "chairman",
+    role: "CEO",
+    tier: "ceo",
     // image: "/images/people/team/shubham.jpg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
@@ -18,7 +18,7 @@ export const faculty: TeamMember[] = [
     name: "Dr. Promila Kaushal",
     role: "Principal IGCE",
     tier: "principal",
-    // image: "/images/people/team/shubham.jpg",
+    image: "/images/people/faculty/principaligce.jpeg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
     //   github: "https://github.com/shubhamsinghcs",
@@ -40,7 +40,7 @@ export const faculty: TeamMember[] = [
   {
     id: "faculty-005",
     name: "Er. Vanita Rani ",
-    role: "HoD SCE",
+    role: "HoD CSE",
     tier: "faculty",
     image: "/images/people/faculty/vanita.jpeg",
     // socials: {
@@ -79,6 +79,18 @@ export const faculty: TeamMember[] = [
     role: "Assistant Professor",
     tier: "faculty",
     image: "/images/people/faculty/manu.jpeg",
+    // socials: {
+    //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
+    //   github: "https://github.com/shubhamsinghcs",
+    //   x: "https://x.com/SSR23__",
+    // },
+  },
+  {
+    id: "faculty-009",
+    name: "Er. Anjali Dhiman",
+    role: "Assistant Professor",
+    tier: "faculty",
+    image: "/images/people/faculty/anjali.jpeg",
     // socials: {
     //   linkedin: "https://www.linkedin.com/in/shubham-singh-engg/",
     //   github: "https://github.com/shubhamsinghcs",
@@ -162,7 +174,7 @@ export const team: TeamMember[] = [
   },
   {
     id: "team-007",
-    name: "Piyush Aggrawal",
+    name: "Piyush Aggarwal",
     role: "Event Management",
     tier: "core-team",
     image: "/images/people/team/piyush.jpg",

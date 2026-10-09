@@ -6,7 +6,7 @@ import TeamMemberGrid from "@/components/ui/TeamMemberGrid";
 import type { TeamTier } from "@/types/event";
 
 const facultyTiers: { id: TeamTier; title: string }[] = [
-  { id: "chairman", title: "CHAIRMAN" },
+  { id: "ceo", title: "Young Dynamic Visionary Leader" },
   { id: "principal", title: "PRINCIPALS" },
 ];
 

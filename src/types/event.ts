@@ -42,7 +42,7 @@ export interface TeamMember {
   order?: number;
 }
 
-export type TeamTier = "chairman" | "principal" | "faculty" | "organizers" | "core-team" | "volunteers";
+export type TeamTier = "ceo" | "principal" | "faculty" | "organizers" | "core-team" | "volunteers";
 
 export interface Mentor {
   id: string;

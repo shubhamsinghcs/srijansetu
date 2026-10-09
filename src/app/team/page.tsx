@@ -6,9 +6,9 @@ import TeamMemberGrid from "@/components/ui/TeamMemberGrid";
 
 const allTiers: { id: TeamTier; title: string; description: string }[] = [
   {
-    id: "chairman",
-    title: "CHAIRMAN",
-    description: "The visionary leadership steering Indo Global Colleges towards excellence and innovation.",
+    id: "ceo",
+    title: "Young Dynamic Visionary Leader",
+    description: "The executive leadership steering Indo Global Colleges towards excellence and innovation.",
   },
   {
     id: "principal",
