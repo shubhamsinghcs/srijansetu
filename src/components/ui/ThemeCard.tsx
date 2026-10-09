@@ -41,8 +41,16 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
     e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
 
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) setIsFlipped(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) setIsFlipped(false);
+  };
+
   const handleClick = () => {
-    setIsFlipped((prev) => !prev);
+    if (isTouchDevice) setIsFlipped((prev) => !prev);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -57,18 +65,16 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
   return (
     <motion.div
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
       aria-pressed={isFlipped}
-      aria-label={
-        isFlipped
-          ? `Theme ${number}: ${theme.name}. Press to flip back.`
-          : `Theme ${number}: ${theme.name}. Press to flip to description.`
-      }
-      whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
-      whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
+      aria-label={`Theme ${number}: ${theme.name}.`}
+      whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.015 }}
+      whileTap={prefersReducedMotion ? {} : { scale: 0.985 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
       className="relative w-full h-[285px] sm:h-[295px] lg:h-[305px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-spidey-red rounded-xl group"
     >
@@ -143,11 +149,11 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           </div>
 
           {/* Subtle bottom indicator line */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
-            <span className="uppercase tracking-wider text-white/40 group-hover:text-white/70 transition-colors">
-              Theme {number} · Click to flip
+          <div className="relative z-10 pt-2 border-t border-white/[0.06] flex items-center justify-between">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
+              Theme {number}
             </span>
-            <div className={`w-1.5 h-1.5 rounded-full ${isEdTech ? "bg-emerald-400" : "bg-spidey-red/70"}`} />
+            <div className={`w-1.5 h-1.5 rounded-full ${isEdTech ? "bg-emerald-400" : "bg-spidey-red/60"}`} />
           </div>
         </div>
 
@@ -215,9 +221,9 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           </div>
 
           {/* Bottom Accent */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
-            <span className={`uppercase tracking-wider ${isEdTech ? "text-emerald-400/80" : "text-spidey-red/80"}`}>
-              {isEdTech ? "Nextute Mentorship Track" : "Srijan Setu Track"} · Click to return
+          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between">
+            <span className={`text-[11px] font-mono uppercase tracking-widest ${isEdTech ? "text-emerald-400/70" : "text-spidey-red/60"}`}>
+              {isEdTech ? "Nextute Mentorship Track" : "Srijan Setu Track"}
             </span>
             <div className={`w-1.5 h-1.5 rounded-full ${isEdTech ? "bg-emerald-400" : "bg-spidey-red"}`} />
           </div>

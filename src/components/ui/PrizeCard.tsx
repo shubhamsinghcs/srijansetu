@@ -139,8 +139,16 @@ export default function PrizeCard({
     e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
 
+  const handleMouseEnter = () => {
+    if (!isTouchDevice) setIsFlipped(true);
+  };
+
+  const handleMouseLeave = () => {
+    if (!isTouchDevice) setIsFlipped(false);
+  };
+
   const handleClick = () => {
-    setIsFlipped((prev) => !prev);
+    if (isTouchDevice) setIsFlipped((prev) => !prev);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -198,16 +206,14 @@ export default function PrizeCard({
     return (
       <motion.div
         onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         tabIndex={0}
         role="button"
         aria-pressed={isFlipped}
-        aria-label={
-          isFlipped
-            ? `${prize.place}: ${prize.label}. Press to flip back.`
-            : `${prize.place}: ${prize.label}. Press to flip for perks.`
-        }
+        aria-label={`${prize.place}: ${prize.label}.`}
         whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
         whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
@@ -343,13 +349,13 @@ export default function PrizeCard({
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className={`relative z-10 pt-2 border-t flex items-center justify-between text-[11px] font-mono ${
+            <div className={`relative z-10 pt-2 border-t flex items-center justify-between ${
               prize.rank === "special-edtech" ? "border-emerald-500/20" : "border-cyan-500/20"
             }`}>
-              <span className={`uppercase tracking-wider ${
+              <span className={`text-[11px] font-mono uppercase tracking-widest ${
                 prize.rank === "special-edtech" ? "text-emerald-400/70" : "text-cyan-400/60"
               }`}>
-                {prize.sponsorTrack || "ELEVENLABS SPONSORED TRACK"} · Click for perks
+                {prize.sponsorTrack || "ELEVENLABS SPONSORED TRACK"}
               </span>
               <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>
@@ -433,13 +439,13 @@ export default function PrizeCard({
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className={`relative z-10 pt-2 border-t flex items-center justify-between text-[11px] font-mono ${
+            <div className={`relative z-10 pt-2 border-t flex items-center justify-between ${
               prize.rank === "special-edtech" ? "border-emerald-500/20" : "border-cyan-500/20"
             }`}>
-              <span className={`uppercase tracking-wider ${
-                prize.rank === "special-edtech" ? "text-emerald-400/80" : "text-cyan-400/80"
+              <span className={`text-[11px] font-mono uppercase tracking-widest ${
+                prize.rank === "special-edtech" ? "text-emerald-400/70" : "text-cyan-400/60"
               }`}>
-                {prize.place} Perks · Click to return
+                {prize.place} Perks & Benefits
               </span>
               <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>
@@ -459,18 +465,16 @@ export default function PrizeCard({
   return (
     <motion.div
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
       aria-pressed={isFlipped}
-      aria-label={
-        isFlipped
-          ? `${prize.place}: ${prize.label}. Press to flip back.`
-          : `${prize.place}: ${prize.label}. Press to flip for perks.`
-      }
-      whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
-      whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
+      aria-label={`${prize.place}: ${prize.label}.`}
+      whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.015 }}
+      whileTap={prefersReducedMotion ? {} : { scale: 0.985 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
       className={`relative w-full ${cardHeightClass} perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-2xl group ${className}`}
     >
@@ -579,9 +583,9 @@ export default function PrizeCard({
           </div>
 
           {/* Subtle bottom indicator */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
-            <span className="uppercase tracking-wider text-white/40 group-hover:text-white/70 transition-colors">
-              {config.name} · Click for perks
+          <div className="relative z-10 pt-2 border-t border-white/[0.06] flex items-center justify-between">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
+              {config.name}
             </span>
             <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
           </div>
@@ -665,9 +669,9 @@ export default function PrizeCard({
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
-              <span className={`uppercase tracking-wider ${config.headerTextColor}`}>
-                Guaranteed Perks · Click to return
+            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
+              <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
+                Guaranteed Perks
               </span>
               <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>
