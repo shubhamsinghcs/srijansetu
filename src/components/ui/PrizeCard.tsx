@@ -139,16 +139,8 @@ export default function PrizeCard({
     e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  const handleMouseEnter = () => {
-    if (!isTouchDevice) setIsFlipped(true);
-  };
-
-  const handleMouseLeave = () => {
-    if (!isTouchDevice) setIsFlipped(false);
-  };
-
   const handleClick = () => {
-    if (isTouchDevice) setIsFlipped((prev) => !prev);
+    setIsFlipped((prev) => !prev);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -206,18 +198,20 @@ export default function PrizeCard({
     return (
       <motion.div
         onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
         tabIndex={0}
         role="button"
         aria-pressed={isFlipped}
-        aria-label={`${prize.place}: ${prize.label}.`}
+        aria-label={
+          isFlipped
+            ? `${prize.place}: ${prize.label}. Press to flip back.`
+            : `${prize.place}: ${prize.label}. Press to flip for perks.`
+        }
         whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
         whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
         transition={{ type: "spring", stiffness: 350, damping: 25 }}
-        className={`relative w-full h-[320px] xs:h-[300px] sm:h-[240px] md:h-[230px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 ${ringColor} rounded-2xl ${className}`}
+        className={`relative w-full h-[320px] xs:h-[300px] sm:h-[240px] md:h-[230px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 ${ringColor} rounded-2xl group ${className}`}
       >
         <div
           className={`relative w-full h-full rounded-2xl [will-change:transform] ${
@@ -349,13 +343,13 @@ export default function PrizeCard({
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className={`relative z-10 pt-2 border-t flex items-center justify-between ${
+            <div className={`relative z-10 pt-2 border-t flex items-center justify-between text-[11px] font-mono ${
               prize.rank === "special-edtech" ? "border-emerald-500/20" : "border-cyan-500/20"
             }`}>
-              <span className={`text-[11px] font-mono uppercase tracking-widest ${
+              <span className={`uppercase tracking-wider ${
                 prize.rank === "special-edtech" ? "text-emerald-400/70" : "text-cyan-400/60"
               }`}>
-                {prize.sponsorTrack || "ELEVENLABS SPONSORED TRACK"}
+                {prize.sponsorTrack || "ELEVENLABS SPONSORED TRACK"} · Click for perks
               </span>
               <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>
@@ -437,6 +431,18 @@ export default function PrizeCard({
                 );
               })}
             </div>
+
+            {/* Subtle bottom indicator */}
+            <div className={`relative z-10 pt-2 border-t flex items-center justify-between text-[11px] font-mono ${
+              prize.rank === "special-edtech" ? "border-emerald-500/20" : "border-cyan-500/20"
+            }`}>
+              <span className={`uppercase tracking-wider ${
+                prize.rank === "special-edtech" ? "text-emerald-400/80" : "text-cyan-400/80"
+              }`}>
+                {prize.place} Perks · Click to return
+              </span>
+              <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
+            </div>
           </div>
         </div>
       </motion.div>
@@ -453,18 +459,20 @@ export default function PrizeCard({
   return (
     <motion.div
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
       role="button"
       aria-pressed={isFlipped}
-      aria-label={`${prize.place}: ${prize.label}.`}
-      whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.015 }}
-      whileTap={prefersReducedMotion ? {} : { scale: 0.985 }}
+      aria-label={
+        isFlipped
+          ? `${prize.place}: ${prize.label}. Press to flip back.`
+          : `${prize.place}: ${prize.label}. Press to flip for perks.`
+      }
+      whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.01 }}
+      whileTap={prefersReducedMotion ? {} : { scale: 0.99 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className={`relative w-full ${cardHeightClass} perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-2xl ${className}`}
+      className={`relative w-full ${cardHeightClass} perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 rounded-2xl group ${className}`}
     >
       <div
         className={`relative w-full h-full rounded-2xl [will-change:transform] ${
@@ -571,9 +579,9 @@ export default function PrizeCard({
           </div>
 
           {/* Subtle bottom indicator */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.06] flex items-center justify-between">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
-              {config.name}
+          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
+            <span className="uppercase tracking-wider text-white/40 group-hover:text-white/70 transition-colors">
+              {config.name} · Click for perks
             </span>
             <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
           </div>
@@ -657,9 +665,9 @@ export default function PrizeCard({
             </div>
 
             {/* Subtle bottom indicator */}
-            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
-                Guaranteed Perks
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
+              <span className={`uppercase tracking-wider ${config.headerTextColor}`}>
+                Guaranteed Perks · Click to return
               </span>
               <div className={`w-1.5 h-1.5 rounded-full ${config.pulseDotColor}`} />
             </div>

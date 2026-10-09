@@ -13,7 +13,7 @@ export default function TeamMemberCard({ member }: { member: TeamMember }) {
   return (
     <Card
       variant="default"
-      className={`text-center items-center p-5 sm:p-6 transition-all duration-300 group ${
+      className={`w-full h-full text-center items-center p-5 sm:p-6 transition-all duration-300 group ${
         isOrganizer
           ? "bg-gradient-to-br from-[#1a0d12] to-[#0F0F17] border-spidey-red/50 shadow-[0_0_18px_rgba(230,36,41,0.12)] hover:border-spidey-red hover:shadow-[0_0_28px_rgba(230,36,41,0.3)]"
           : "hover:border-spidey-red/70"

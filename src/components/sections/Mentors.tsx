@@ -65,7 +65,7 @@ export default function Mentors() {
             >
               <Card
                 variant="default"
-                className="w-full text-center items-center p-5 sm:p-8 hover:border-spidey-red/70 transition-all duration-300 group shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.25)]"
+                className="w-full h-full text-center items-center p-5 sm:p-7 hover:border-spidey-red/70 transition-all duration-300 group shadow-sm hover:shadow-[0_0_25px_rgba(227,38,54,0.25)]"
               >
                 {/* Photo / Avatar with fallback */}
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full mb-5 overflow-hidden border-2 border-spidey-red/60 group-hover:border-spidey-red shadow-[0_0_15px_rgba(227,38,54,0.3)] transition-colors bg-[#171822] flex items-center justify-center">

@@ -350,29 +350,14 @@ export default function Prizes() {
       </div>
 
       {/* ================= BOTTOM PARTICIPANT STRIP ================= */}
-      <div className="mt-10 sm:mt-14 max-w-3xl mx-auto w-full px-2 text-center">
-        <div className="inline-flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2.5 rounded-full bg-white/[0.03] border border-white/10 text-white/75 font-mono text-xs sm:text-sm tracking-wide shadow-[0_2px_12px_rgba(0,0,0,0.4)]">
-          <span className="text-spidey-red font-bold">Every participant also receives:</span>
-          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
-            <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 01-1.581.814L10 13.175l-4.419 3.639A1 1 0 014 16V4z" clipRule="evenodd" />
-            </svg>
-            Certificate
-          </span>
-          <span className="text-white/30">·</span>
-          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
-            <svg className="w-3.5 h-3.5 text-cyan-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-              <path fillRule="evenodd" d="M17.707 9.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-7-7A.997.997 0 012 10V5a3 3 0 013-3h5c.256 0 .512.098.707.293l7 7zM5 6a1 1 0 100-2 1 1 0 000 2z" clipRule="evenodd" />
-            </svg>
-            Sticker
-          </span>
-          <span className="text-white/30">·</span>
-          <span className="inline-flex items-center gap-1.5 text-white/90 font-medium">
-            <svg className="w-3.5 h-3.5 text-purple-400" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z" />
-            </svg>
-            Srijan Setu Customized Cup
-          </span>
+      <div className="mt-12 sm:mt-16 max-w-2xl mx-auto w-full px-4 text-center">
+        <div className="rounded-2xl bg-white/[0.03] border border-white/10 px-6 py-5 sm:py-6 shadow-[0_4px_20px_rgba(0,0,0,0.35)] backdrop-blur-sm">
+          <p className="font-accent font-bold text-xs sm:text-sm uppercase tracking-[0.2em] text-spidey-red">
+            EVERY PARTICIPANT ALSO RECEIVES
+          </p>
+          <p className="font-mono text-sm sm:text-base text-white/90 mt-2 sm:mt-2.5 tracking-wide leading-relaxed">
+            Certificate <span className="text-white/30 mx-1.5 sm:mx-2">·</span> Sticker <span className="text-white/30 mx-1.5 sm:mx-2">·</span> Srijan Setu Customized Cup
+          </p>
         </div>
       </div>
     </section>
