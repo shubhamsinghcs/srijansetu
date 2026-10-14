@@ -76,7 +76,7 @@ export const prizes: PrizeItem[] = [
     id: "best-ai",
     place: "Best Use of AI",
     rank: "special",
-    amount: "₹11,000",
+    amount: "₹TBA",
     label: "Best Project Built with ElevenLabs",
     badgeText: "SPECIAL CATEGORY AWARD",
     sponsorTrack: "ELEVENLABS SPONSORED TRACK",

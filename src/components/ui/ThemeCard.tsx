@@ -76,7 +76,9 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
       whileHover={prefersReducedMotion ? {} : { y: -6, scale: 1.015 }}
       whileTap={prefersReducedMotion ? {} : { scale: 0.985 }}
       transition={{ type: "spring", stiffness: 350, damping: 25 }}
-      className="relative w-full h-[285px] sm:h-[295px] lg:h-[305px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-spidey-red rounded-xl group"
+      className={`relative w-full h-[265px] sm:h-[275px] lg:h-[285px] perspective-1000 select-none cursor-pointer focus:outline-none focus-visible:ring-2 ${
+        isEdTech ? "focus-visible:ring-emerald-400" : "focus-visible:ring-spidey-red"
+      } rounded-xl group`}
     >
       <div
         className={`relative w-full h-full rounded-xl [will-change:transform] ${
@@ -92,13 +94,11 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
             : "rotateY(0deg)",
         }}
       >
-        {/* ================= FRONT FACE ================= */}
+        {/* ================= FRONT FACE (default state) ================= */}
         <div
           aria-hidden={isFlipped}
-          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border p-6 text-left transition-colors duration-300 ${
-            isFlipped
-              ? "border-spidey-red/70 bg-[#0F0A0E] shadow-[0_0_25px_rgba(227,38,54,0.3)]"
-              : isEdTech
+          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border p-5 sm:p-6 text-left transition-colors duration-300 ${
+            isEdTech
               ? "border-emerald-500/35 bg-[#0A1010] shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:border-emerald-400/60"
               : "border-white/10 bg-[#0C0D14] shadow-[0_8px_24px_rgba(0,0,0,0.35)] hover:border-spidey-red/50"
           } ${
@@ -113,15 +113,16 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           <div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{
-              background:
-                "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.15), transparent 75%)",
+              background: isEdTech
+                ? "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.15), transparent 75%)"
+                : "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.15), transparent 75%)",
             }}
             aria-hidden="true"
           />
 
-          {/* Top: Number & Tag */}
+          {/* Top Row: Number & "Problem Space" badge */}
           <div className="relative z-10 flex items-center justify-between">
-            <span className="font-mono text-3xl sm:text-4xl font-bold tracking-tight text-spidey-red">
+            <span className="font-mono text-[35px] sm:text-[42px] font-bold tracking-tight text-spidey-red leading-none">
               {number}
             </span>
             <span className="text-[10px] font-mono uppercase tracking-wider text-white/40 border border-white/10 px-2.5 py-0.5 rounded-full">
@@ -129,7 +130,7 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
             </span>
           </div>
 
-          {/* EdTech Specific Ribbon / Badge */}
+          {/* Card 04 EdTech Specific Badge on Front Face */}
           {isEdTech && (
             <div className="relative z-10 -mt-1 mb-1">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-mono font-bold bg-emerald-500/15 border border-emerald-400/40 text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
@@ -141,29 +142,21 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
             </div>
           )}
 
-          {/* Middle: Theme Title */}
-          <div className="relative z-10 my-auto py-1">
-            <h3 className="font-body text-xl sm:text-[22px] font-bold text-white tracking-tight leading-snug">
+          {/* Middle: Theme Title (clean, minimal, centered/balanced content) */}
+          <div className="relative z-10 my-auto py-2">
+            <h3 className="font-body text-[23px] sm:text-[25px] font-bold text-white tracking-tight leading-snug">
               {theme.name}
             </h3>
           </div>
-
-          {/* Subtle bottom indicator line */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.06] flex items-center justify-between">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-white/30">
-              Theme {number}
-            </span>
-            <div className={`w-1.5 h-1.5 rounded-full ${isEdTech ? "bg-emerald-400" : "bg-spidey-red/60"}`} />
-          </div>
         </div>
 
-        {/* ================= BACK FACE ================= */}
+        {/* ================= BACK FACE (shown on hover/flip) ================= */}
         <div
           aria-hidden={!isFlipped}
-          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border p-6 text-left shadow-[0_12px_32px_rgba(230,36,41,0.2)] transition-colors duration-300 ${
+          className={`absolute inset-0 flex h-full w-full flex-col justify-between overflow-hidden rounded-xl border p-5 sm:p-6 text-left transition-colors duration-300 ${
             isEdTech
-              ? "border-emerald-500/50 bg-[#07130F]"
-              : "border-spidey-red/50 bg-[#120B0F]"
+              ? "border-emerald-500/60 bg-[#07130F] shadow-[0_12px_32px_rgba(16,185,129,0.2)]"
+              : "border-spidey-red/60 bg-[#120B0F] shadow-[0_12px_32px_rgba(227,38,54,0.25)]"
           } ${
             prefersReducedMotion
               ? isFlipped
@@ -176,56 +169,62 @@ export default function ThemeCard({ theme }: ThemeCardProps) {
           <div
             className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
             style={{
-              background:
-                "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.18), transparent 75%)",
+              background: isEdTech
+                ? "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(16, 185, 129, 0.18), transparent 75%)"
+                : "radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(230, 36, 41, 0.18), transparent 75%)",
             }}
             aria-hidden="true"
           />
 
-          {/* Top: Header */}
-          <div className="relative z-10 flex items-center justify-between">
-            <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-spidey-red">
-              {number}
-            </span>
+          {/* Top Header: Number + Title repeated (smaller) so context isn't lost */}
+          <div className="relative z-10 flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+            <div className="flex items-center gap-2.5 min-w-0 pr-2">
+              <span className="font-mono text-xl sm:text-2xl font-bold tracking-tight text-spidey-red leading-none shrink-0">
+                {number}
+              </span>
+              <h4 className="font-body text-sm sm:text-[15px] font-bold text-white tracking-tight truncate leading-tight">
+                {theme.name}
+              </h4>
+            </div>
             <span
-              className={`text-[10px] font-mono uppercase tracking-wider px-2.5 py-0.5 rounded-full border inline-flex items-center gap-1.5 ${
+              className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full border shrink-0 ${
                 isEdTech
                   ? "text-emerald-300 border-emerald-400/40 bg-emerald-500/15"
                   : "text-spidey-red/80 border-spidey-red/30 bg-spidey-red/10"
               }`}
             >
-              {isEdTech && (
-                <svg className="w-3 h-3 text-emerald-300 shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
-                </svg>
-              )}
               {isEdTech ? "Startup Track" : "Overview"}
             </span>
           </div>
 
-          {/* Content */}
-          <div className="relative z-10 my-auto py-1">
-            <h4 className="font-body text-base sm:text-lg font-bold text-white tracking-tight leading-snug mb-1.5">
-              {theme.name}
-            </h4>
+          {/* Content: Full description */}
+          <div className="relative z-10 my-auto py-2">
             <p className="font-body text-xs sm:text-[13px] leading-relaxed text-white/85 font-normal">
               {theme.description}
             </p>
             {isEdTech && (
-              <div className="mt-2.5 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-400/35 text-emerald-100">
+              <div className="mt-2.5 p-2 sm:p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-400/35 text-emerald-100">
                 <p className="font-body text-[11px] sm:text-xs leading-snug text-emerald-200/95 font-medium">
-                  Build in EdTech & Future Learning? If you want to turn your idea into a startup, Nextute EdTech Pvt. Ltd. offers 1 month of mentorship and support to pitch your idea to relevant authorities.
+                  Build in EdTech & Future Learning? Nextute EdTech Pvt. Ltd. offers 1 month of mentorship and support to pitch your idea to relevant authorities.
                 </p>
               </div>
             )}
           </div>
 
-          {/* Bottom Accent */}
-          <div className="relative z-10 pt-2 border-t border-white/[0.08] flex items-center justify-between">
-            <span className={`text-[11px] font-mono uppercase tracking-widest ${isEdTech ? "text-emerald-400/70" : "text-spidey-red/60"}`}>
-              {isEdTech ? "Nextute Mentorship Track" : "Srijan Setu Track"}
+          {/* Bottom Accent / Footer: "THEME 0X" + status dot indicator */}
+          <div className="relative z-10 pt-2.5 border-t border-white/[0.08] flex items-center justify-between">
+            <span
+              className={`text-[11px] font-mono uppercase tracking-widest ${
+                isEdTech ? "text-emerald-400/70" : "text-white/40"
+              }`}
+            >
+              Theme {number}
             </span>
-            <div className={`w-1.5 h-1.5 rounded-full ${isEdTech ? "bg-emerald-400" : "bg-spidey-red"}`} />
+            <div
+              className={`w-1.5 h-1.5 rounded-full ${
+                isEdTech ? "bg-emerald-400" : "bg-spidey-red/80"
+              }`}
+            />
           </div>
         </div>
       </div>
