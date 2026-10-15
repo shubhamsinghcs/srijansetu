@@ -45,11 +45,21 @@ export const sponsors: Sponsor[] = [
     id: "corporate-005",
     name: "Nextute",
     logo: "/images/logos/sponsors/nextute.png",
-    logoUrl: "/images/logos/sponsors//nextute.png",
+    logoUrl: "/images/logos/sponsors/nextute.png",
     website: "https://nextute.com/",
     tier: "Corporate",
     category: "sponsor",
     order: 5,
+  },
+  {
+    id: "corporate-006",
+    name: "XYZ",
+    logo: "/images/logos/sponsors/xyz.png",
+    logoUrl: "/images/logos/sponsors/xyz.png",
+    website: "https://gen.xyz/",
+    tier: "Corporate",
+    category: "sponsor",
+    order: 6,
   },
 ];
 
