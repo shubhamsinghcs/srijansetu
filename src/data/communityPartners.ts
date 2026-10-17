@@ -231,6 +231,36 @@ export const communityPartners: Partner[] = [
     featured: false,
     order: 23,
   },
+  {
+    id: "community-partner-024",
+    name: "Unison",
+    logo: "/images/logos/partners/unison.jpg",
+    website: "https://www.instagram.com/unison.community",
+    description: "",
+    category: "community",
+    featured: false,
+    order: 24,
+  },
+  {
+    id: "community-partner-025",
+    name: "E-CELL CEC",
+    logo: "/images/logos/partners/ecellcec.jpg",
+    website: "https://www.linkedin.com/company/e-cell-cec",
+    description: "",
+    category: "community",
+    featured: false,
+    order: 25,
+  },
+  {
+    id: "community-partner-026",
+    name: "SPEC",
+    logo: "/images/logos/partners/spec.jpg",
+    website: "https://electrothon.nith.ac.in/",
+    description: "",
+    category: "community",
+    featured: false,
+    order: 26,
+  },
 ];
 
 export default communityPartners;

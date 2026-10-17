@@ -61,6 +61,16 @@ export const sponsors: Sponsor[] = [
     category: "sponsor",
     order: 6,
   },
+  {
+    id: "corporate-007",
+    name: "A2IT",
+    logo: "/images/logos/sponsors/a2it.jpeg",
+    logoUrl: "/images/logos/sponsors/a2it.jpeg",
+    website: "https://www.a2itsoft.com/",
+    tier: "Corporate",
+    category: "sponsor",
+    order: 7,
+  },
 ];
 
 export default sponsors;
