@@ -61,6 +61,16 @@ export const sponsors: Sponsor[] = [
     category: "sponsor",
     order: 6,
   },
+  {
+    id: "corporate-007",
+    name: "A2IT InternEdge",
+    logo: "/images/logos/sponsors/A2IT.jpg",
+    logoUrl: "/images/logos/sponsors/A2IT.jpg",
+    website: "https://nextute.com/",
+    tier: "Corporate",
+    category: "sponsor",
+    order: 7,
+  },
 ];
 
 export default sponsors;
