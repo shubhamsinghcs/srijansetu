@@ -63,10 +63,17 @@ export const sponsors: Sponsor[] = [
   },
   {
     id: "corporate-007",
+<<<<<<< HEAD
     name: "A2IT",
     logo: "/images/logos/sponsors/a2it.jpeg",
     logoUrl: "/images/logos/sponsors/a2it.jpeg",
     website: "https://www.a2itsoft.com/",
+=======
+    name: "A2IT InternEdge",
+    logo: "/images/logos/sponsors/A2IT.jpg",
+    logoUrl: "/images/logos/sponsors/A2IT.jpg",
+    website: "https://nextute.com/",
+>>>>>>> 39c465f98f76492a127ce7234a96ecfc3e2a1541
     tier: "Corporate",
     category: "sponsor",
     order: 7,

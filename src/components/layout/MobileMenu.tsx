@@ -46,7 +46,7 @@ export default function MobileMenu({
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
-      className="fixed inset-0 z-50 flex flex-col justify-center items-center bg-web-black/98 backdrop-blur-xl px-6"
+      className="fixed inset-0 z-50 flex flex-col justify-center items-center bg-web-black/98 backdrop-blur-xl px-6 overflow-y-auto py-12"
     >
       {/* Close button */}
       <button
@@ -72,10 +72,74 @@ export default function MobileMenu({
       </button>
 
       {/* Navigation links stacked vertically */}
-      <nav className="flex flex-col items-center gap-8 text-center">
+      <nav className="flex flex-col items-center gap-7 text-center">
         {navItems.map((item: NavItem) => {
           const isActive = activeSection === item.href;
           const isResources = item.href === "#resources";
+          const hasSubItems = Boolean(item.subItems && item.subItems.length > 0);
+
+          if (hasSubItems) {
+            return (
+              <div key={item.label} className="flex flex-col items-center gap-2.5 my-1">
+                {/* Resources grouping label */}
+                <span className="font-accent text-xs font-semibold uppercase tracking-widest text-white/35">
+                  {item.label}
+                </span>
+
+                {/* Stacked sub-items */}
+                <div className="flex flex-col items-center gap-2.5">
+                  {item.subItems?.map((subItem) => {
+                    const isSubActive = activeSection === subItem.href;
+
+                    if (subItem.external) {
+                      return (
+                        <a
+                          key={subItem.label}
+                          href={subItem.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={onClose}
+                          className="font-accent text-xl font-bold uppercase tracking-wider transition-all duration-200 text-white/45 hover:text-spidey-red flex items-center gap-1.5"
+                        >
+                          <span>{subItem.label}</span>
+                          <svg
+                            className="w-4 h-4 text-white/35"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            aria-hidden="true"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </a>
+                      );
+                    }
+
+                    return (
+                      <Link
+                        key={subItem.label}
+                        href={subItem.href}
+                        onClick={onClose}
+                        className={`font-accent text-xl font-bold uppercase tracking-wider transition-all duration-200 pb-0.5 ${
+                          isSubActive
+                            ? "text-web-white border-b-2 border-spidey-red"
+                            : "text-white/45 hover:text-spidey-red"
+                        }`}
+                      >
+                        {subItem.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          }
+
           return (
             <Link
               key={item.href}
